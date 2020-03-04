@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/collin_q/repos/Overland_android/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-hdpi-v4/values-hdpi-v4.xml",
+            "map": [
+                {
+                    "source": "/home/collin_q/.gradle/caches/transforms-2/files-2.1/aff6f2aa8358549a07b761696eaf5d49/res/values-hdpi-v4/values-hdpi-v4.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "6",
+                        "endColumns": "13",
+                        "endOffsets": "327"
+                    }
+                }
+            ]
+        }
+    ]
+}
