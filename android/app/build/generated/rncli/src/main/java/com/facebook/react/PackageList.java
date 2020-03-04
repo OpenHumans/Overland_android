@@ -14,6 +14,8 @@ import java.util.ArrayList;
 import com.overlandandroid.BuildConfig;
 import com.overlandandroid.R;
 
+// @mauron85/react-native-background-geolocation
+import com.marianhello.bgloc.react.BackgroundGeolocationPackage;
 // @react-native-community/slider
 import com.reactnativecommunity.slider.ReactSliderPackage;
 // react-native-gesture-handler
@@ -71,6 +73,7 @@ public class PackageList {
   public ArrayList<ReactPackage> getPackages() {
     return new ArrayList<>(Arrays.<ReactPackage>asList(
       new MainReactPackage(mConfig),
+      new BackgroundGeolocationPackage(),
       new ReactSliderPackage(),
       new RNGestureHandlerPackage(),
       new ReanimatedPackage(),

@@ -12,6 +12,23 @@
                         "endColumns": "156,134",
                         "endOffsets": "207,342"
                     }
+                },
+                {
+                    "source": "/home/collin_q/.gradle/caches/transforms-2/files-2.1/bd2a1181d018e565d3e8416a4984212b/res/values-v24/values-v24.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,121,182,248",
+                        "endColumns": "65,60,65,66",
+                        "endOffsets": "116,177,243,310"
+                    },
+                    "to": {
+                        "startLines": "4,5,6,7",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "347,413,474,540",
+                        "endColumns": "65,60,65,66",
+                        "endOffsets": "408,469,535,602"
+                    }
                 }
             ]
         }

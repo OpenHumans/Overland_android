@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Wed Mar 04 14:53:40 CET 2020
+#Wed Mar 04 15:15:01 CET 2020
 56.path=lib/arm64-v8a/libjsc.so
 5.base=/home/collin_q/repos/Overland_android/android/app/build/intermediates/transforms/mergeJniLibs/debug/0
 42.base=/home/collin_q/repos/Overland_android/android/app/build/intermediates/transforms/mergeJniLibs/debug/0

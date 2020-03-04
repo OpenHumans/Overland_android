@@ -5,6 +5,8 @@ INJECTED from /home/collin_q/repos/Overland_android/android/app/src/main/Android
 INJECTED from /home/collin_q/repos/Overland_android/android/app/src/main/AndroidManifest.xml:1:1-26:12
 INJECTED from /home/collin_q/repos/Overland_android/android/app/src/main/AndroidManifest.xml:1:1-26:12
 MERGED from /home/collin_q/repos/Overland_android/android/app/src/main/AndroidManifest.xml:1:1-26:12
+MERGED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:20:1-91:12
+MERGED from [:mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:20:1-91:12
 MERGED from [:react-native-community_slider] /home/collin_q/repos/Overland_android/node_modules/@react-native-community/slider/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-gesture-handler] /home/collin_q/repos/Overland_android/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-reanimated] /home/collin_q/repos/Overland_android/node_modules/react-native-reanimated/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
@@ -13,6 +15,7 @@ MERGED from [:react-native-screens] /home/collin_q/repos/Overland_android/node_m
 MERGED from [:react-native-svg] /home/collin_q/repos/Overland_android/node_modules/react-native-svg/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.react:react-native:0.61.5] /home/collin_q/.gradle/caches/transforms-2/files-2.1/0b08c473d1b79482d0db175410804a2b/AndroidManifest.xml:2:1-13:12
 MERGED from [org.webkit:android-jsc:r245459] /home/collin_q/.gradle/caches/transforms-2/files-2.1/2291388f58a324251f68a428fd9c65c8/AndroidManifest.xml:2:1-11:12
+MERGED from [:@mauron85_react-native-background-geolocation-common] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/common/build/intermediates/library_manifest/debug/AndroidManifest.xml:20:1-85:12
 MERGED from [com.google.android.material:material:1.1.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/7bdbfca8c23f578056267a0dacb65524/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.appcompat:appcompat:1.1.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/aff6f2aa8358549a07b761696eaf5d49/AndroidManifest.xml:17:1-24:12
 MERGED from [com.facebook.fresco:fresco:2.0.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/08662fefbd6fa54ed51aba974b1cc1b2/AndroidManifest.xml:2:1-9:12
@@ -25,20 +28,32 @@ MERGED from [com.facebook.fresco:imagepipeline-base:2.0.0] /home/collin_q/.gradl
 MERGED from [com.facebook.soloader:soloader:0.6.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/9f9e8c4ed1788b18a718afb244f5e4cb/AndroidManifest.xml:2:1-13:12
 MERGED from [androidx.transition:transition:1.2.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/6584981219e107234c57f4e8fdeabb15/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/7164d8d12c8fb87c8cae1a2bb33d1cfb/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-location:11.8.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/a50eee3ccffa1014293fa1a3248b626b/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-base:11.8.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/dd5c98e2ad3d67d94beefda2db756788/AndroidManifest.xml:17:1-29:12
+MERGED from [com.google.android.gms:play-services-tasks:11.8.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/62af589fe7f80bbd30f8b5b32cf96d54/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-basement:11.8.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/eb5ed41eed88bb828cf0feca8fe9fb04/AndroidManifest.xml:17:1-28:12
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/945e31258c765f266d39c14d92770cce/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.fragment:fragment:1.2.1] /home/collin_q/.gradle/caches/transforms-2/files-2.1/846103b27f0da4ab4181ee0d76bf9e2e/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/ae653ce9aa53eef4da71703ca4d48792/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/5742a15f1dbb52f69ab32bfddc229a8e/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/4b960262fbdadebb2c6b369ba3889f24/AndroidManifest.xml:17:1-22:12
-MERGED from [com.facebook.fresco:fbcore:2.0.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/c43c6df43c083a3219f842d6172b006f/AndroidManifest.xml:2:1-9:12
 MERGED from [androidx.appcompat:appcompat-resources:1.1.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/a0ceaab9d5774b622216f590a93bdb7b/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/8170802a35ec710e15babeb19d6222e6/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.viewpager:viewpager:1.0.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/dbd1b2dd5df3e5c9264b7cc3a6325098/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/8dccbd2f9ea2b8a4a7c382abc8b1b37f/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.loader:loader:1.0.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/e6516476ff8205caf3283f64de62091a/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.activity:activity:1.1.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/4d1c68aa4e364216ca6367825ada0a43/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.recyclerview:recyclerview:1.1.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/42f186479ad9a66a2d712afce8c2f002/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/89f65b73788e07fac95c9126bc68cdff/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.customview:customview:1.0.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/25eaa6fd9b07dd1dc396484c017174b6/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/8f00ab05ce2e7e63ebb32db17bfa7d99/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/cf7d0a8f29864225e6bd219bf8344445/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.media:media:1.0.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/bd2a1181d018e565d3e8416a4984212b/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/d9c50a4a3090c3531d0caf20c20b19b9/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.core:core:1.1.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/46f6681e00cbeb46d71a399617562cdc/AndroidManifest.xml:17:1-26:12
+MERGED from [com.intentfilter:android-permissions:0.1.7] /home/collin_q/.gradle/caches/transforms-2/files-2.1/ca5e003659433f66ca995c32978aad07/AndroidManifest.xml:2:1-18:12
+MERGED from [com.github.tony19:logback-android:1.1.1-9] /home/collin_q/.gradle/caches/transforms-2/files-2.1/37094878b3488b48d14eacef0bdadea5/AndroidManifest.xml:2:1-11:12
+MERGED from [com.facebook.fresco:fbcore:2.0.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/c43c6df43c083a3219f842d6172b006f/AndroidManifest.xml:2:1-9:12
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/debe5ac96cdd34f7c5f3413afc8b51e5/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/1f6897495229a4955988153e14744b54/AndroidManifest.xml:17:1-27:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/4edf6bd93eb92a3cb44d74b2eb881f1a/AndroidManifest.xml:17:1-24:12
@@ -50,6 +65,14 @@ MERGED from [androidx.savedstate:savedstate:1.0.0] /home/collin_q/.gradle/caches
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/3658baa794a01d41410d48eba9aaa084/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/dfdd51fafa3574fae8551169d6831c6b/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.arch.core:core-runtime:2.1.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/f08075f0ce2bd99289dbe23c9dcd402b/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/987ffb06d550fd7167c6c2a8ae73b388/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/283c2541df78b3098f6595c84b29983c/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/974a225c69522783791ef4eb8e37b73c/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.gms:play-services-location-license:11.8.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/985d199c40f587424bb4ba01aef392c3/AndroidManifest.xml:2:1-6:12
+MERGED from [com.github.tony19:apktool-lib:1.4.4-5] /home/collin_q/.gradle/caches/transforms-2/files-2.1/ea17e0e75fd238b805eb9d32bb0c7fba/AndroidManifest.xml:2:1-11:12
+MERGED from [com.google.android.gms:play-services-base-license:11.8.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/cba52f99ba6054a6298cc3898b8db981/AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.android.gms:play-services-basement-license:11.8.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/bd5dfc7bcd6331186be63c6f801e174a/AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.android.gms:play-services-tasks-license:11.8.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/6a78f0863042e89584e5e584465b47e9/AndroidManifest.xml:2:1-6:12
 INJECTED from /home/collin_q/repos/Overland_android/android/app/src/debug/AndroidManifest.xml:2:1-8:12
 INJECTED from /home/collin_q/repos/Overland_android/android/app/src/debug/AndroidManifest.xml:2:1-8:12
 INJECTED from /home/collin_q/repos/Overland_android/android/app/src/debug/AndroidManifest.xml:2:1-8:12
@@ -72,22 +95,52 @@ INJECTED from /home/collin_q/repos/Overland_android/android/app/src/debug/Androi
 		ADDED from /home/collin_q/repos/Overland_android/android/app/src/main/AndroidManifest.xml:1:11-69
 uses-permission#android.permission.INTERNET
 ADDED from /home/collin_q/repos/Overland_android/android/app/src/main/AndroidManifest.xml:4:5-67
+MERGED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:30:5-67
+MERGED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:30:5-67
+MERGED from [:mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:30:5-67
+MERGED from [:mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:30:5-67
+MERGED from [:@mauron85_react-native-background-geolocation-common] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/common/build/intermediates/library_manifest/debug/AndroidManifest.xml:28:5-67
+MERGED from [:@mauron85_react-native-background-geolocation-common] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/common/build/intermediates/library_manifest/debug/AndroidManifest.xml:28:5-67
 	android:name
 		ADDED from /home/collin_q/repos/Overland_android/android/app/src/main/AndroidManifest.xml:4:22-64
 application
 ADDED from /home/collin_q/repos/Overland_android/android/app/src/main/AndroidManifest.xml:6:5-24:19
 MERGED from /home/collin_q/repos/Overland_android/android/app/src/main/AndroidManifest.xml:6:5-24:19
 MERGED from /home/collin_q/repos/Overland_android/android/app/src/main/AndroidManifest.xml:6:5-24:19
+MERGED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:43:5-89:19
+MERGED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:43:5-89:19
+MERGED from [:mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:43:5-89:19
+MERGED from [:mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:43:5-89:19
 MERGED from [com.facebook.react:react-native:0.61.5] /home/collin_q/.gradle/caches/transforms-2/files-2.1/0b08c473d1b79482d0db175410804a2b/AndroidManifest.xml:11:5-20
 MERGED from [com.facebook.react:react-native:0.61.5] /home/collin_q/.gradle/caches/transforms-2/files-2.1/0b08c473d1b79482d0db175410804a2b/AndroidManifest.xml:11:5-20
+MERGED from [:@mauron85_react-native-background-geolocation-common] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/common/build/intermediates/library_manifest/debug/AndroidManifest.xml:41:5-83:19
+MERGED from [:@mauron85_react-native-background-geolocation-common] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/common/build/intermediates/library_manifest/debug/AndroidManifest.xml:41:5-83:19
 MERGED from [com.google.android.material:material:1.1.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/7bdbfca8c23f578056267a0dacb65524/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.1.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/7bdbfca8c23f578056267a0dacb65524/AndroidManifest.xml:22:5-20
 MERGED from [com.facebook.soloader:soloader:0.6.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/9f9e8c4ed1788b18a718afb244f5e4cb/AndroidManifest.xml:11:5-20
 MERGED from [com.facebook.soloader:soloader:0.6.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/9f9e8c4ed1788b18a718afb244f5e4cb/AndroidManifest.xml:11:5-20
+MERGED from [com.google.android.gms:play-services-location:11.8.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/a50eee3ccffa1014293fa1a3248b626b/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-location:11.8.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/a50eee3ccffa1014293fa1a3248b626b/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-base:11.8.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/dd5c98e2ad3d67d94beefda2db756788/AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-base:11.8.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/dd5c98e2ad3d67d94beefda2db756788/AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-tasks:11.8.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/62af589fe7f80bbd30f8b5b32cf96d54/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-tasks:11.8.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/62af589fe7f80bbd30f8b5b32cf96d54/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-basement:11.8.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/eb5ed41eed88bb828cf0feca8fe9fb04/AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-basement:11.8.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/eb5ed41eed88bb828cf0feca8fe9fb04/AndroidManifest.xml:22:5-26:19
 MERGED from [androidx.core:core:1.1.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/46f6681e00cbeb46d71a399617562cdc/AndroidManifest.xml:24:5-89
 MERGED from [androidx.core:core:1.1.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/46f6681e00cbeb46d71a399617562cdc/AndroidManifest.xml:24:5-89
+MERGED from [com.intentfilter:android-permissions:0.1.7] /home/collin_q/.gradle/caches/transforms-2/files-2.1/ca5e003659433f66ca995c32978aad07/AndroidManifest.xml:11:5-16:19
+MERGED from [com.intentfilter:android-permissions:0.1.7] /home/collin_q/.gradle/caches/transforms-2/files-2.1/ca5e003659433f66ca995c32978aad07/AndroidManifest.xml:11:5-16:19
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/1f6897495229a4955988153e14744b54/AndroidManifest.xml:24:5-25:19
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/1f6897495229a4955988153e14744b54/AndroidManifest.xml:24:5-25:19
+MERGED from [com.google.android.gms:play-services-location-license:11.8.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/985d199c40f587424bb4ba01aef392c3/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-location-license:11.8.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/985d199c40f587424bb4ba01aef392c3/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-base-license:11.8.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/cba52f99ba6054a6298cc3898b8db981/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-base-license:11.8.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/cba52f99ba6054a6298cc3898b8db981/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-basement-license:11.8.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/bd5dfc7bcd6331186be63c6f801e174a/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-basement-license:11.8.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/bd5dfc7bcd6331186be63c6f801e174a/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-tasks-license:11.8.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/6a78f0863042e89584e5e584465b47e9/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-tasks-license:11.8.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/6a78f0863042e89584e5e584465b47e9/AndroidManifest.xml:5:5-20
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.1.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/46f6681e00cbeb46d71a399617562cdc/AndroidManifest.xml:24:18-86
 	android:label
@@ -142,6 +195,10 @@ uses-sdk
 INJECTED from /home/collin_q/repos/Overland_android/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /home/collin_q/repos/Overland_android/android/app/src/main/AndroidManifest.xml
 INJECTED from /home/collin_q/repos/Overland_android/android/app/src/main/AndroidManifest.xml
+MERGED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:25:5-27:41
+MERGED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:25:5-27:41
+MERGED from [:mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:25:5-27:41
+MERGED from [:mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:25:5-27:41
 MERGED from [:react-native-community_slider] /home/collin_q/repos/Overland_android/node_modules/@react-native-community/slider/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-community_slider] /home/collin_q/repos/Overland_android/node_modules/@react-native-community/slider/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-gesture-handler] /home/collin_q/repos/Overland_android/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
@@ -158,6 +215,8 @@ MERGED from [com.facebook.react:react-native:0.61.5] /home/collin_q/.gradle/cach
 MERGED from [com.facebook.react:react-native:0.61.5] /home/collin_q/.gradle/caches/transforms-2/files-2.1/0b08c473d1b79482d0db175410804a2b/AndroidManifest.xml:7:5-9:41
 MERGED from [org.webkit:android-jsc:r245459] /home/collin_q/.gradle/caches/transforms-2/files-2.1/2291388f58a324251f68a428fd9c65c8/AndroidManifest.xml:7:5-9:41
 MERGED from [org.webkit:android-jsc:r245459] /home/collin_q/.gradle/caches/transforms-2/files-2.1/2291388f58a324251f68a428fd9c65c8/AndroidManifest.xml:7:5-9:41
+MERGED from [:@mauron85_react-native-background-geolocation-common] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/common/build/intermediates/library_manifest/debug/AndroidManifest.xml:25:5-44
+MERGED from [:@mauron85_react-native-background-geolocation-common] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/common/build/intermediates/library_manifest/debug/AndroidManifest.xml:25:5-44
 MERGED from [com.google.android.material:material:1.1.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/7bdbfca8c23f578056267a0dacb65524/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.material:material:1.1.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/7bdbfca8c23f578056267a0dacb65524/AndroidManifest.xml:20:5-44
 MERGED from [androidx.appcompat:appcompat:1.1.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/aff6f2aa8358549a07b761696eaf5d49/AndroidManifest.xml:20:5-22:41
@@ -182,34 +241,58 @@ MERGED from [androidx.transition:transition:1.2.0] /home/collin_q/.gradle/caches
 MERGED from [androidx.transition:transition:1.2.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/6584981219e107234c57f4e8fdeabb15/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/7164d8d12c8fb87c8cae1a2bb33d1cfb/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/7164d8d12c8fb87c8cae1a2bb33d1cfb/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.gms:play-services-location:11.8.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/a50eee3ccffa1014293fa1a3248b626b/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-location:11.8.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/a50eee3ccffa1014293fa1a3248b626b/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-base:11.8.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/dd5c98e2ad3d67d94beefda2db756788/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:11.8.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/dd5c98e2ad3d67d94beefda2db756788/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-tasks:11.8.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/62af589fe7f80bbd30f8b5b32cf96d54/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-tasks:11.8.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/62af589fe7f80bbd30f8b5b32cf96d54/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-basement:11.8.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/eb5ed41eed88bb828cf0feca8fe9fb04/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:11.8.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/eb5ed41eed88bb828cf0feca8fe9fb04/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/945e31258c765f266d39c14d92770cce/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/945e31258c765f266d39c14d92770cce/AndroidManifest.xml:20:5-44
 MERGED from [androidx.fragment:fragment:1.2.1] /home/collin_q/.gradle/caches/transforms-2/files-2.1/846103b27f0da4ab4181ee0d76bf9e2e/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.fragment:fragment:1.2.1] /home/collin_q/.gradle/caches/transforms-2/files-2.1/846103b27f0da4ab4181ee0d76bf9e2e/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/ae653ce9aa53eef4da71703ca4d48792/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/ae653ce9aa53eef4da71703ca4d48792/AndroidManifest.xml:20:5-44
 MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/5742a15f1dbb52f69ab32bfddc229a8e/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/5742a15f1dbb52f69ab32bfddc229a8e/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/4b960262fbdadebb2c6b369ba3889f24/AndroidManifest.xml:20:5-44
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/4b960262fbdadebb2c6b369ba3889f24/AndroidManifest.xml:20:5-44
-MERGED from [com.facebook.fresco:fbcore:2.0.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/c43c6df43c083a3219f842d6172b006f/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.fresco:fbcore:2.0.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/c43c6df43c083a3219f842d6172b006f/AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.appcompat:appcompat-resources:1.1.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/a0ceaab9d5774b622216f590a93bdb7b/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.appcompat:appcompat-resources:1.1.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/a0ceaab9d5774b622216f590a93bdb7b/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/8170802a35ec710e15babeb19d6222e6/AndroidManifest.xml:20:5-44
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/8170802a35ec710e15babeb19d6222e6/AndroidManifest.xml:20:5-44
 MERGED from [androidx.viewpager:viewpager:1.0.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/dbd1b2dd5df3e5c9264b7cc3a6325098/AndroidManifest.xml:20:5-44
 MERGED from [androidx.viewpager:viewpager:1.0.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/dbd1b2dd5df3e5c9264b7cc3a6325098/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/8dccbd2f9ea2b8a4a7c382abc8b1b37f/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/8dccbd2f9ea2b8a4a7c382abc8b1b37f/AndroidManifest.xml:20:5-44
 MERGED from [androidx.loader:loader:1.0.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/e6516476ff8205caf3283f64de62091a/AndroidManifest.xml:20:5-44
 MERGED from [androidx.loader:loader:1.0.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/e6516476ff8205caf3283f64de62091a/AndroidManifest.xml:20:5-44
 MERGED from [androidx.activity:activity:1.1.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/4d1c68aa4e364216ca6367825ada0a43/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.activity:activity:1.1.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/4d1c68aa4e364216ca6367825ada0a43/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.recyclerview:recyclerview:1.1.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/42f186479ad9a66a2d712afce8c2f002/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.recyclerview:recyclerview:1.1.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/42f186479ad9a66a2d712afce8c2f002/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/89f65b73788e07fac95c9126bc68cdff/AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/89f65b73788e07fac95c9126bc68cdff/AndroidManifest.xml:20:5-44
 MERGED from [androidx.customview:customview:1.0.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/25eaa6fd9b07dd1dc396484c017174b6/AndroidManifest.xml:20:5-44
 MERGED from [androidx.customview:customview:1.0.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/25eaa6fd9b07dd1dc396484c017174b6/AndroidManifest.xml:20:5-44
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/8f00ab05ce2e7e63ebb32db17bfa7d99/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/8f00ab05ce2e7e63ebb32db17bfa7d99/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/cf7d0a8f29864225e6bd219bf8344445/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/cf7d0a8f29864225e6bd219bf8344445/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.media:media:1.0.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/bd2a1181d018e565d3e8416a4984212b/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media:media:1.0.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/bd2a1181d018e565d3e8416a4984212b/AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/d9c50a4a3090c3531d0caf20c20b19b9/AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/d9c50a4a3090c3531d0caf20c20b19b9/AndroidManifest.xml:20:5-44
 MERGED from [androidx.core:core:1.1.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/46f6681e00cbeb46d71a399617562cdc/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.core:core:1.1.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/46f6681e00cbeb46d71a399617562cdc/AndroidManifest.xml:20:5-22:41
+MERGED from [com.intentfilter:android-permissions:0.1.7] /home/collin_q/.gradle/caches/transforms-2/files-2.1/ca5e003659433f66ca995c32978aad07/AndroidManifest.xml:7:5-9:41
+MERGED from [com.intentfilter:android-permissions:0.1.7] /home/collin_q/.gradle/caches/transforms-2/files-2.1/ca5e003659433f66ca995c32978aad07/AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.tony19:logback-android:1.1.1-9] /home/collin_q/.gradle/caches/transforms-2/files-2.1/37094878b3488b48d14eacef0bdadea5/AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.tony19:logback-android:1.1.1-9] /home/collin_q/.gradle/caches/transforms-2/files-2.1/37094878b3488b48d14eacef0bdadea5/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.fresco:fbcore:2.0.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/c43c6df43c083a3219f842d6172b006f/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fbcore:2.0.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/c43c6df43c083a3219f842d6172b006f/AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/debe5ac96cdd34f7c5f3413afc8b51e5/AndroidManifest.xml:20:5-44
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/debe5ac96cdd34f7c5f3413afc8b51e5/AndroidManifest.xml:20:5-44
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/1f6897495229a4955988153e14744b54/AndroidManifest.xml:20:5-22:41
@@ -232,6 +315,22 @@ MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] /home/collin_q/.g
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/dfdd51fafa3574fae8551169d6831c6b/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.arch.core:core-runtime:2.1.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/f08075f0ce2bd99289dbe23c9dcd402b/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.arch.core:core-runtime:2.1.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/f08075f0ce2bd99289dbe23c9dcd402b/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.documentfile:documentfile:1.0.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/987ffb06d550fd7167c6c2a8ae73b388/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/987ffb06d550fd7167c6c2a8ae73b388/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/283c2541df78b3098f6595c84b29983c/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/283c2541df78b3098f6595c84b29983c/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/974a225c69522783791ef4eb8e37b73c/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/974a225c69522783791ef4eb8e37b73c/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-location-license:11.8.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/985d199c40f587424bb4ba01aef392c3/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-location-license:11.8.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/985d199c40f587424bb4ba01aef392c3/AndroidManifest.xml:4:5-43
+MERGED from [com.github.tony19:apktool-lib:1.4.4-5] /home/collin_q/.gradle/caches/transforms-2/files-2.1/ea17e0e75fd238b805eb9d32bb0c7fba/AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.tony19:apktool-lib:1.4.4-5] /home/collin_q/.gradle/caches/transforms-2/files-2.1/ea17e0e75fd238b805eb9d32bb0c7fba/AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.android.gms:play-services-base-license:11.8.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/cba52f99ba6054a6298cc3898b8db981/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-base-license:11.8.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/cba52f99ba6054a6298cc3898b8db981/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-basement-license:11.8.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/bd5dfc7bcd6331186be63c6f801e174a/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-basement-license:11.8.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/bd5dfc7bcd6331186be63c6f801e174a/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-tasks-license:11.8.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/6a78f0863042e89584e5e584465b47e9/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-tasks-license:11.8.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/6a78f0863042e89584e5e584465b47e9/AndroidManifest.xml:4:5-43
 INJECTED from /home/collin_q/repos/Overland_android/android/app/src/debug/AndroidManifest.xml
 INJECTED from /home/collin_q/repos/Overland_android/android/app/src/debug/AndroidManifest.xml
 	android:targetSdkVersion
@@ -244,3 +343,227 @@ uses-permission#android.permission.SYSTEM_ALERT_WINDOW
 ADDED from /home/collin_q/repos/Overland_android/android/app/src/debug/AndroidManifest.xml:5:5-77
 	android:name
 		ADDED from /home/collin_q/repos/Overland_android/android/app/src/debug/AndroidManifest.xml:5:22-75
+uses-permission#android.hardware.location
+ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:29:5-65
+MERGED from [:mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:29:5-65
+MERGED from [:mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:29:5-65
+MERGED from [:@mauron85_react-native-background-geolocation-common] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/common/build/intermediates/library_manifest/debug/AndroidManifest.xml:27:5-65
+MERGED from [:@mauron85_react-native-background-geolocation-common] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/common/build/intermediates/library_manifest/debug/AndroidManifest.xml:27:5-65
+	android:name
+		ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:29:22-62
+uses-permission#android.permission.WAKE_LOCK
+ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:31:5-68
+MERGED from [:mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:31:5-68
+MERGED from [:mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:31:5-68
+MERGED from [:@mauron85_react-native-background-geolocation-common] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/common/build/intermediates/library_manifest/debug/AndroidManifest.xml:29:5-68
+MERGED from [:@mauron85_react-native-background-geolocation-common] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/common/build/intermediates/library_manifest/debug/AndroidManifest.xml:29:5-68
+	android:name
+		ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:31:22-65
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:32:5-79
+MERGED from [:mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:32:5-79
+MERGED from [:mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:32:5-79
+MERGED from [:@mauron85_react-native-background-geolocation-common] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/common/build/intermediates/library_manifest/debug/AndroidManifest.xml:30:5-79
+MERGED from [:@mauron85_react-native-background-geolocation-common] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/common/build/intermediates/library_manifest/debug/AndroidManifest.xml:30:5-79
+	android:name
+		ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:32:22-76
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:33:5-81
+MERGED from [:mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:33:5-81
+MERGED from [:mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:33:5-81
+MERGED from [:@mauron85_react-native-background-geolocation-common] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/common/build/intermediates/library_manifest/debug/AndroidManifest.xml:31:5-81
+MERGED from [:@mauron85_react-native-background-geolocation-common] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/common/build/intermediates/library_manifest/debug/AndroidManifest.xml:31:5-81
+	android:name
+		ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:33:22-78
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:34:5-79
+MERGED from [:mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:34:5-79
+MERGED from [:mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:34:5-79
+MERGED from [:@mauron85_react-native-background-geolocation-common] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/common/build/intermediates/library_manifest/debug/AndroidManifest.xml:32:5-79
+MERGED from [:@mauron85_react-native-background-geolocation-common] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/common/build/intermediates/library_manifest/debug/AndroidManifest.xml:32:5-79
+	android:name
+		ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:34:22-76
+uses-permission#android.permission.ACCESS_LOCATION_EXTRA_COMMANDS
+ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:35:5-89
+MERGED from [:mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:35:5-89
+MERGED from [:mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:35:5-89
+MERGED from [:@mauron85_react-native-background-geolocation-common] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/common/build/intermediates/library_manifest/debug/AndroidManifest.xml:33:5-89
+MERGED from [:@mauron85_react-native-background-geolocation-common] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/common/build/intermediates/library_manifest/debug/AndroidManifest.xml:33:5-89
+	android:name
+		ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:35:22-86
+uses-permission#com.google.android.gms.permission.ACTIVITY_RECOGNITION
+ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:36:5-94
+MERGED from [:mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:36:5-94
+MERGED from [:mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:36:5-94
+MERGED from [:@mauron85_react-native-background-geolocation-common] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/common/build/intermediates/library_manifest/debug/AndroidManifest.xml:34:5-94
+MERGED from [:@mauron85_react-native-background-geolocation-common] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/common/build/intermediates/library_manifest/debug/AndroidManifest.xml:34:5-94
+	android:name
+		ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:36:22-91
+uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
+ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:37:5-81
+MERGED from [:mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:37:5-81
+MERGED from [:mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:37:5-81
+MERGED from [:@mauron85_react-native-background-geolocation-common] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/common/build/intermediates/library_manifest/debug/AndroidManifest.xml:35:5-81
+MERGED from [:@mauron85_react-native-background-geolocation-common] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/common/build/intermediates/library_manifest/debug/AndroidManifest.xml:35:5-81
+	android:name
+		ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:37:22-78
+uses-permission#android.permission.READ_SYNC_SETTINGS
+ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:38:5-77
+MERGED from [:mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:38:5-77
+MERGED from [:mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:38:5-77
+MERGED from [:@mauron85_react-native-background-geolocation-common] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/common/build/intermediates/library_manifest/debug/AndroidManifest.xml:36:5-77
+MERGED from [:@mauron85_react-native-background-geolocation-common] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/common/build/intermediates/library_manifest/debug/AndroidManifest.xml:36:5-77
+	android:name
+		ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:38:22-74
+uses-permission#android.permission.WRITE_SYNC_SETTINGS
+ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:39:5-78
+MERGED from [:mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:39:5-78
+MERGED from [:mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:39:5-78
+MERGED from [:@mauron85_react-native-background-geolocation-common] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/common/build/intermediates/library_manifest/debug/AndroidManifest.xml:37:5-78
+MERGED from [:@mauron85_react-native-background-geolocation-common] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/common/build/intermediates/library_manifest/debug/AndroidManifest.xml:37:5-78
+	android:name
+		ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:39:22-75
+uses-permission#android.permission.AUTHENTICATE_ACCOUNTS
+ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:40:5-80
+MERGED from [:mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:40:5-80
+MERGED from [:mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:40:5-80
+MERGED from [:@mauron85_react-native-background-geolocation-common] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/common/build/intermediates/library_manifest/debug/AndroidManifest.xml:38:5-80
+MERGED from [:@mauron85_react-native-background-geolocation-common] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/common/build/intermediates/library_manifest/debug/AndroidManifest.xml:38:5-80
+	android:name
+		ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:40:22-77
+uses-permission#android.permission.FOREGROUND_SERVICE
+ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:41:5-77
+MERGED from [:mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:41:5-77
+MERGED from [:mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:41:5-77
+MERGED from [:@mauron85_react-native-background-geolocation-common] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/common/build/intermediates/library_manifest/debug/AndroidManifest.xml:39:5-77
+MERGED from [:@mauron85_react-native-background-geolocation-common] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/common/build/intermediates/library_manifest/debug/AndroidManifest.xml:39:5-77
+	android:name
+		ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:41:22-74
+service#com.marianhello.bgloc.sync.SyncService
+ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:44:9-55:19
+MERGED from [:mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:44:9-55:19
+MERGED from [:mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:44:9-55:19
+MERGED from [:@mauron85_react-native-background-geolocation-common] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/common/build/intermediates/library_manifest/debug/AndroidManifest.xml:42:9-53:19
+MERGED from [:@mauron85_react-native-background-geolocation-common] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/common/build/intermediates/library_manifest/debug/AndroidManifest.xml:42:9-53:19
+	android:process
+		ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:47:13-36
+	android:exported
+		ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:46:13-36
+	android:name
+		ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:45:13-66
+intent-filter#action:name:android.content.SyncAdapter
+ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:48:13-50:29
+action#android.content.SyncAdapter
+ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:49:17-70
+	android:name
+		ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:49:25-67
+meta-data#android.content.SyncAdapter
+ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:52:13-54:55
+MERGED from [:mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:52:13-54:55
+MERGED from [:mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:52:13-54:55
+MERGED from [:@mauron85_react-native-background-geolocation-common] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/common/build/intermediates/library_manifest/debug/AndroidManifest.xml:50:13-52:55
+MERGED from [:@mauron85_react-native-background-geolocation-common] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/common/build/intermediates/library_manifest/debug/AndroidManifest.xml:50:13-52:55
+	android:resource
+		ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:54:17-52
+	android:name
+		ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:53:17-59
+service#com.marianhello.bgloc.sync.AuthenticatorService
+ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:56:9-64:19
+MERGED from [:mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:56:9-64:19
+MERGED from [:mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:56:9-64:19
+MERGED from [:@mauron85_react-native-background-geolocation-common] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/common/build/intermediates/library_manifest/debug/AndroidManifest.xml:54:9-62:19
+MERGED from [:@mauron85_react-native-background-geolocation-common] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/common/build/intermediates/library_manifest/debug/AndroidManifest.xml:54:9-62:19
+	android:name
+		ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:56:18-80
+intent-filter#action:name:android.accounts.AccountAuthenticator
+ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:57:13-59:29
+action#android.accounts.AccountAuthenticator
+ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:58:17-80
+	android:name
+		ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:58:25-77
+meta-data#android.accounts.AccountAuthenticator
+ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:61:13-63:57
+MERGED from [:mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:61:13-63:57
+MERGED from [:mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:61:13-63:57
+MERGED from [:@mauron85_react-native-background-geolocation-common] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/common/build/intermediates/library_manifest/debug/AndroidManifest.xml:59:13-61:57
+MERGED from [:@mauron85_react-native-background-geolocation-common] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/common/build/intermediates/library_manifest/debug/AndroidManifest.xml:59:13-61:57
+	android:resource
+		ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:63:17-54
+	android:name
+		ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:62:17-69
+provider#com.marianhello.bgloc.data.provider.LocationContentProvider
+ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:66:9-70:39
+MERGED from [:mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:66:9-70:39
+MERGED from [:mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:66:9-70:39
+MERGED from [:@mauron85_react-native-background-geolocation-common] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/common/build/intermediates/library_manifest/debug/AndroidManifest.xml:64:9-68:39
+MERGED from [:@mauron85_react-native-background-geolocation-common] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/common/build/intermediates/library_manifest/debug/AndroidManifest.xml:64:9-68:39
+	android:authorities
+		ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:68:13-75
+	android:syncable
+		ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:70:13-36
+	android:exported
+		ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:69:13-37
+	android:name
+		ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:67:13-87
+service#com.marianhello.bgloc.service.LocationServiceImpl
+ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:72:9-75:40
+MERGED from [:mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:72:9-75:40
+MERGED from [:mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:72:9-75:40
+MERGED from [:@mauron85_react-native-background-geolocation-common] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/common/build/intermediates/library_manifest/debug/AndroidManifest.xml:70:9-73:40
+MERGED from [:@mauron85_react-native-background-geolocation-common] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/common/build/intermediates/library_manifest/debug/AndroidManifest.xml:70:9-73:40
+	android:enabled
+		ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:74:13-35
+	android:exported
+		ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:75:13-37
+	android:name
+		ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:73:13-77
+service#com.marianhello.bgloc.react.headless.HeadlessService
+ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:76:9-79:40
+MERGED from [:mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:76:9-79:40
+MERGED from [:mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:76:9-79:40
+	android:enabled
+		ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:78:13-35
+	android:exported
+		ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:79:13-37
+	android:name
+		ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:77:13-80
+receiver#com.marianhello.bgloc.BootCompletedReceiver
+ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:81:9-88:20
+MERGED from [:mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:81:9-88:20
+MERGED from [:mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:81:9-88:20
+MERGED from [:@mauron85_react-native-background-geolocation-common] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/common/build/intermediates/library_manifest/debug/AndroidManifest.xml:75:9-82:20
+MERGED from [:@mauron85_react-native-background-geolocation-common] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/common/build/intermediates/library_manifest/debug/AndroidManifest.xml:75:9-82:20
+	android:enabled
+		ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:83:13-35
+	android:exported
+		ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:84:13-36
+	android:name
+		ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:82:13-71
+intent-filter#action:name:android.intent.action.BOOT_COMPLETED
+ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:85:13-87:29
+action#android.intent.action.BOOT_COMPLETED
+ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:86:17-79
+	android:name
+		ADDED from [:@mauron85_react-native-background-geolocation] /home/collin_q/repos/Overland_android/node_modules/@mauron85/react-native-background-geolocation/android/lib/build/intermediates/library_manifest/debug/AndroidManifest.xml:86:25-76
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:11.8.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/dd5c98e2ad3d67d94beefda2db756788/AndroidManifest.xml:23:9-26:75
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:11.8.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/dd5c98e2ad3d67d94beefda2db756788/AndroidManifest.xml:25:13-37
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:11.8.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/dd5c98e2ad3d67d94beefda2db756788/AndroidManifest.xml:26:13-72
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:11.8.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/dd5c98e2ad3d67d94beefda2db756788/AndroidManifest.xml:24:13-79
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:11.8.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/eb5ed41eed88bb828cf0feca8fe9fb04/AndroidManifest.xml:23:9-25:69
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:11.8.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/eb5ed41eed88bb828cf0feca8fe9fb04/AndroidManifest.xml:25:13-66
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:11.8.0] /home/collin_q/.gradle/caches/transforms-2/files-2.1/eb5ed41eed88bb828cf0feca8fe9fb04/AndroidManifest.xml:24:13-58
+activity#com.intentfilter.androidpermissions.PermissionsActivity
+ADDED from [com.intentfilter:android-permissions:0.1.7] /home/collin_q/.gradle/caches/transforms-2/files-2.1/ca5e003659433f66ca995c32978aad07/AndroidManifest.xml:12:9-15:59
+	android:excludeFromRecents
+		ADDED from [com.intentfilter:android-permissions:0.1.7] /home/collin_q/.gradle/caches/transforms-2/files-2.1/ca5e003659433f66ca995c32978aad07/AndroidManifest.xml:14:13-46
+	android:theme
+		ADDED from [com.intentfilter:android-permissions:0.1.7] /home/collin_q/.gradle/caches/transforms-2/files-2.1/ca5e003659433f66ca995c32978aad07/AndroidManifest.xml:15:13-56
+	android:name
+		ADDED from [com.intentfilter:android-permissions:0.1.7] /home/collin_q/.gradle/caches/transforms-2/files-2.1/ca5e003659433f66ca995c32978aad07/AndroidManifest.xml:13:13-83
