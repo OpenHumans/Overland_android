@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import Container from '../../../../../../../../components/container';
 
-const LocationContainer = props => {
+const GPSContainer = props => {
   return <Container style={styles.container}>{props.children}</Container>;
 };
 
@@ -16,4 +16,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LocationContainer;
+export default GPSContainer;

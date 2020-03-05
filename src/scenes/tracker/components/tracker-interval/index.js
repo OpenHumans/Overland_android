@@ -24,6 +24,7 @@ class TrackerInterval extends React.Component {
     const { interval } = this.state;
     return (
       <TrackerIntervalContainer>
+        <Text style={{marginTop:10}}>SEND INTERVAL</Text>
         <Text>
           {interval > 60
             ? `${parseInt(interval / 60, 10)} minutes`
