@@ -11,7 +11,7 @@ class Tracker extends React.Component {
     return (
       <TrackerContainer>
         <View style={[styles.header]}>
-          <Text style={{fontSize:24}}>Overland</Text>
+          <Text style={{fontSize:24,marginBottom:20}}>Overland</Text>
         </View>
         <TrackerSwitch />
         <TrackerInterval />

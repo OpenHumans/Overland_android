@@ -24,6 +24,7 @@ class TrackerSwitch extends React.Component {
       <TrackerSwitchContainer>
       <Text>Tracker {toggleSwitch ? 'On' : 'Off'}</Text>
       <Switch value={toggleSwitch} onValueChange={this.onSwitchValueChange} />
+
       </TrackerSwitchContainer>
     );
   }
