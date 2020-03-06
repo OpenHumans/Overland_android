@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View, StyleSheet, TouchableHighlight } from 'react-native';
-import TripDisplayContainer from './components/tracker-location-display-container';
+import TripDisplayContainer from './components/trip-display-container';
 import LocationElement from './components/location-element';
 import  IconElement  from './components/icon-element';
 import GPSElement from './components/gps-element';
@@ -11,7 +11,6 @@ class TripDisplay extends React.Component {
   }
 
   submitSuggestion () {
-
   }
 
   render() {
@@ -40,6 +39,7 @@ class TripDisplay extends React.Component {
 }
 
 const styles = StyleSheet.create({
+
   submit:{
    backgroundColor:'#5bce84',
    borderRadius:5,
