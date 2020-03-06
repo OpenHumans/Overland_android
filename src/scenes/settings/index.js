@@ -10,6 +10,7 @@ import UpdateSwitch from './components/update-switch';
 import ResumeGeofence from './components/resume-geofence';
 import StatsSwitch from './components/stats-switch';
 import NotificationsSwitch from './components/notifications-switch';
+import ReceiverEndpoint from './components/receiver-endpoint';
 
 class Settings extends React.Component {
     constructor () {
@@ -31,6 +32,7 @@ class Settings extends React.Component {
         <View style={[styles.header]}>
           <Text style={[styles.headerContent]}>SETTINGS</Text>
         </View>
+        <ReceiverEndpoint />
         <SignificantLocation />
         <ActivityType />
         <DesiredAccuracy />
