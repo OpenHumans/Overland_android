@@ -30,7 +30,7 @@ class TripDisplay extends React.Component {
               height: '30%',
               justifyContent: 'center',
               alignItems: 'center' }}>
-              <Button title="START" />
+              <Button title="START" color='#5bce84' />
 
           </View>
         </View>

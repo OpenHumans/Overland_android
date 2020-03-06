@@ -25,9 +25,10 @@ class TrackerLocationDisplay extends React.Component {
         <View
           style={{
             height: '30%',
+
             justifyContent: 'center',
             alignItems: 'center' }}>
-            <Button title="SEND NOW" />
+            <Button title="SEND NOW" color='#5bce84'/>
 
         </View>
         </View>

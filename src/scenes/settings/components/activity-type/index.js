@@ -28,6 +28,7 @@ class ActivityType extends React.Component {
       onPress={this.updateIndex}
       selectedIndex={selectedIndex}
       buttons={buttons}
+
       containerStyle={{width:"90%"}}
     />
       </ActivityTypeContainer>
