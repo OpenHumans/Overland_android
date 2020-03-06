@@ -4,10 +4,8 @@ import SettingsContainer from './components/settings-container';
 import SignificantLocation from './components/significant-location';
 import ActivityType from './components/activity-type';
 import DesiredAccuracy from './components/desired-accuracy';
-//import TrackerSwitch from './components/tracker-switch';
-//import TrackerInterval from './components/tracker-interval';
-//import TrackerLocationDisplay from './components/tracker-location-display';
-//import TripDisplay from './components/trip-display';
+import DeferLocUpdates from './components/defer-location-updates';
+import PtsPerBatch from './components/points-per-batch';
 
 class Settings extends React.Component {
     constructor () {
@@ -31,6 +29,8 @@ class Settings extends React.Component {
         <SignificantLocation />
         <ActivityType />
         <DesiredAccuracy />
+        <DeferLocUpdates />
+        <PtsPerBatch />
 
       </SettingsContainer>
     );
