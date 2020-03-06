@@ -25,14 +25,8 @@ class TripDisplay extends React.Component {
           />
           <LocationElement title={'DURATION'} value={''} description={'minutes'} />
           <LocationElement title={'DISTANCE'} value={''} description={'miles'} />
-          <View
-            style={{
-              height: '30%',
-              justifyContent: 'center',
-              alignItems: 'center' }}>
-              <Button title="START" color='#5bce84' />
-
-          </View>
+          <Button title="Start" color='#5bce84' style={{
+            height: '100%', width:'100%',textAlignVertical: 'center',textAlign: 'center'}} />
         </View>
       </TripDisplayContainer>
     );

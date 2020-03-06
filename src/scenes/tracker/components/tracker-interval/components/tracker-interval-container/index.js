@@ -8,7 +8,7 @@ const TrackerIntervalContainer = props => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 20,
+    paddingTop: 10,
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',

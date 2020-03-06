@@ -8,7 +8,7 @@ const TrackerSwitchContainer = props => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 10,
+    paddingTop: 5,
     paddingLeft: 15,
     paddingRight: 16,
     flexDirection: 'row',

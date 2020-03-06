@@ -2,29 +2,34 @@ import React from 'react';
 import { Text, View } from 'react-native';
 import { Switch } from 'react-native-gesture-handler';
 import TrackerSwitchContainer from './components/tracker-switch-container';
+import { ButtonGroup } from 'react-native-elements';
 
 class TrackerSwitch extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
-      toggleSwitch: false,
-    };
-    this.onSwitchValueChange = this.onSwitchValueChange.bind(this);
+      selectedIndex: 0
+    }
+    this.updateIndex = this.updateIndex.bind(this)
   }
 
-  onSwitchValueChange(e) {
-    this.setState({
-      toggleSwitch: e,
-    });
+  updateIndex (selectedIndex) {
+    this.setState({selectedIndex})
   }
 
   render() {
-    const { toggleSwitch } = this.state;
+
+    const buttons = ['ON', 'OFF']
+    const { selectedIndex } = this.state
+
     return (
       <TrackerSwitchContainer>
-      <Text style={{fontSize: 16}}>Tracker {toggleSwitch ? 'On' : 'Off'}</Text>
-      <Switch value={toggleSwitch} onValueChange={this.onSwitchValueChange} />
-
+      <ButtonGroup
+      onPress={this.updateIndex}
+      selectedIndex={selectedIndex}
+      buttons={buttons}
+      containerStyle={{width:"90%"}}
+    />
       </TrackerSwitchContainer>
     );
   }

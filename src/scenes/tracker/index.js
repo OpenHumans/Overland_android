@@ -27,11 +27,10 @@ export default Tracker;
 const styles = StyleSheet.create({
 
   header: {
-    marginTop: 20
+    marginTop: 10
   },
   headerContent: {
-    fontSize:24,
-    marginBottom:20
+    fontSize:24
   }
 
 });
