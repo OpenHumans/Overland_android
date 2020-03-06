@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, Button, View } from 'react-native';
+import { Text, Button, View, StyleSheet, TouchableHighlight } from 'react-native';
 import TrackerLocationDisplayContainer from './components/tracker-location-display-container';
 import LocationElement from './components/location-element';
 import GPSElement from './components/gps-element';
@@ -7,6 +7,9 @@ import GPSElement from './components/gps-element';
 class TrackerLocationDisplay extends React.Component {
   constructor(props) {
     super(props);
+  }
+  submitSuggestion () {
+
   }
 
   render() {
@@ -22,15 +25,13 @@ class TrackerLocationDisplay extends React.Component {
           value={'00:09'}
           description={'minutes ago'}
         />
-        <View
-          style={{
-            height: '30%',
 
-            justifyContent: 'center',
-            alignItems: 'center' }}>
-            <Button title="SEND NOW" color='#5bce84'/>
-
-        </View>
+        <TouchableHighlight
+          style={styles.submit}
+          onPress={() => this.submitSuggestion(this.props)}
+          underlayColor='#fff'>
+          <Text  style={styles.submitText}>Send now</Text>
+        </TouchableHighlight>
         </View>
         <View
           style={{
@@ -55,5 +56,24 @@ class TrackerLocationDisplay extends React.Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  submit:{
+   backgroundColor:'#5bce84',
+   borderRadius:5,
+   borderWidth: 1,
+   borderColor: '#fff',
+   width:120,
+   justifyContent: 'center',
+   alignItems: 'center'
+
+ },
+ submitText:{
+     color:'#fff',
+     fontSize: 16
+
+
+ }
+});
 
 export default TrackerLocationDisplay;
