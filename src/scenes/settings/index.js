@@ -9,6 +9,7 @@ import PtsPerBatch from './components/point-per-batch';
 import UpdateSwitch from './components/update-switch';
 import ResumeGeofence from './components/resume-geofence';
 import StatsSwitch from './components/stats-switch';
+import NotificationsSwitch from './components/notifications-switch';
 
 class Settings extends React.Component {
     constructor () {
@@ -38,6 +39,9 @@ class Settings extends React.Component {
         <UpdateSwitch />
         <ResumeGeofence />
         <StatsSwitch />
+        <Text style={{fontSize: 10}}>(In addition to location data, also log data about visits and other app activity)</Text>
+        <NotificationsSwitch />
+        <Text style={{fontSize: 10}}>(Enable local notifications of app event such as when tracking has been Automatically stopped and started)</Text>
       </SettingsContainer>
       </ScrollView>
     );
