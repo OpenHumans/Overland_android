@@ -39,9 +39,9 @@ class Settings extends React.Component {
         <UpdateSwitch />
         <ResumeGeofence />
         <StatsSwitch />
-        <Text style={{fontSize: 10}}>(In addition to location data, also log data about visits and other app activity)</Text>
+        <Text style={{fontSize: 12,marginLeft: 20,marginRight: 20}}>(In addition to location data, also log data about visits and other app activity)</Text>
         <NotificationsSwitch />
-        <Text style={{fontSize: 10}}>(Enable local notifications of app event such as when tracking has been Automatically stopped and started)</Text>
+        <Text style={{fontSize: 12,marginLeft: 20,marginRight: 20}}>(Enable local notifications of app event such as when tracking has been Automatically stopped and started)</Text>
       </SettingsContainer>
       </ScrollView>
     );
