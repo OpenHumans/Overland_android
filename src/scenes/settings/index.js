@@ -3,6 +3,7 @@ import { Text,StyleSheet,View } from 'react-native';
 import SettingsContainer from './components/settings-container';
 import SignificantLocation from './components/significant-location';
 import ActivityType from './components/activity-type';
+import DesiredAccuracy from './components/desired-accuracy';
 //import TrackerSwitch from './components/tracker-switch';
 //import TrackerInterval from './components/tracker-interval';
 //import TrackerLocationDisplay from './components/tracker-location-display';
@@ -29,7 +30,7 @@ class Settings extends React.Component {
         </View>
         <SignificantLocation />
         <ActivityType />
-
+        <DesiredAccuracy />
 
       </SettingsContainer>
     );

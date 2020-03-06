@@ -1,9 +1,9 @@
 import React from 'react';
 import { Text, StyleSheet, View } from 'react-native';
-import SignificantLocationContainer from './components/significant-location-container'
+import DesiredAccuracyContainer from './components/desired-accuracy-container';
 import { ButtonGroup } from 'react-native-elements';
 
-class SignificantLocation extends React.Component {
+class DesiredAccuracy extends React.Component {
 
   constructor () {
     super()
@@ -18,21 +18,21 @@ class SignificantLocation extends React.Component {
   }
 
   render() {
-    const buttons = ['Disabled', 'Enabled', 'Significant Only']
+    const buttons = ['Nav', 'Best', '10m', '100m', '1km', '5km', 'Max']
     const { selectedIndex } = this.state
 
     return (
-      <SignificantLocationContainer>
-      <Text style={{fontSize:16}}>Significant Location</Text>
+      <DesiredAccuracyContainer>
+      <Text style={{fontSize:16}}>Desired Accuracy</Text>
       <ButtonGroup
       onPress={this.updateIndex}
       selectedIndex={selectedIndex}
       buttons={buttons}
       containerStyle={{width:"90%"}}
     />
-      </SignificantLocationContainer>
+      </DesiredAccuracyContainer>
     );
   }
 }
 
-export default SignificantLocation;
+export default DesiredAccuracy;
