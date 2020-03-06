@@ -1,13 +1,13 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 import { Switch } from 'react-native-gesture-handler';
-import TrackerSwitchContainer from './components/tracker-switch-container';
+import UpdateSwitchContainer from './components/update-switch-container';
 
-class TrackerSwitch extends React.Component {
+class UpdateSwitch extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      toggleSwitch: false,
+      toggleSwitch: true,
     };
     this.onSwitchValueChange = this.onSwitchValueChange.bind(this);
   }
@@ -21,14 +21,13 @@ class TrackerSwitch extends React.Component {
   render() {
     const { toggleSwitch } = this.state;
     return (
-      <TrackerSwitchContainer>
-      <Text style={{fontSize: 16}}>Tracker {toggleSwitch ? 'On' : 'Off'}</Text>
-      <Switch value={toggleSwitch} onValueChange={this.onSwitchValueChange} />
-
-      </TrackerSwitchContainer>
+      <UpdateSwitchContainer>
+        <Text style={{fontSize: 16}}>Pause Update Automatically</Text>
+        <Switch value={toggleSwitch} onValueChange={this.onSwitchValueChange} />
+      </UpdateSwitchContainer>
     );
   }
 }
 
 
-export default TrackerSwitch;
+export default UpdateSwitch;

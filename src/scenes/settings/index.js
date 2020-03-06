@@ -5,7 +5,8 @@ import SignificantLocation from './components/significant-location';
 import ActivityType from './components/activity-type';
 import DesiredAccuracy from './components/desired-accuracy';
 import DeferLocUpdates from './components/defer-location-updates';
-import PtsPerBatch from './components/points-per-batch';
+import PtsPerBatch from './components/point-per-batch';
+import UpdateSwitch from './components/update-switch';
 
 class Settings extends React.Component {
     constructor () {
@@ -31,7 +32,7 @@ class Settings extends React.Component {
         <DesiredAccuracy />
         <DeferLocUpdates />
         <PtsPerBatch />
-
+        <UpdateSwitch />
       </SettingsContainer>
     );
   }
