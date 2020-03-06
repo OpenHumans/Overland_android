@@ -1,14 +1,51 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { Text,StyleSheet,View } from 'react-native';
+import SettingsContainer from './components/settings-container';
+import SignificantLocation from './components/significant-location';
+import ActivityType from './components/activity-type';
+//import TrackerSwitch from './components/tracker-switch';
+//import TrackerInterval from './components/tracker-interval';
+//import TrackerLocationDisplay from './components/tracker-location-display';
+//import TripDisplay from './components/trip-display';
 
 class Settings extends React.Component {
+    constructor () {
+    super()
+    this.state = {
+      selectedIndex: 2
+    }
+    this.updateIndex = this.updateIndex.bind(this)
+  }
+
+  updateIndex (selectedIndex) {
+    this.setState({selectedIndex})
+  }
+
   render() {
     return (
-      <>
-        <Text>Settings</Text>
-      </>
+      <SettingsContainer>
+        <View style={[styles.header]}>
+          <Text style={[styles.headerContent]}>SETTINGS</Text>
+        </View>
+        <SignificantLocation />
+        <ActivityType />
+
+
+      </SettingsContainer>
     );
   }
 }
+
+const styles = StyleSheet.create({
+
+  header: {
+    marginTop: 20
+  },
+  headerContent: {
+    fontSize:18,
+    marginBottom:20
+  }
+
+});
 
 export default Settings;
