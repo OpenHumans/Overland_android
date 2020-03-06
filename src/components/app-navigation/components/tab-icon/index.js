@@ -5,8 +5,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 
 library.add(fas);
 
+const style = StyleSheet.create({
+  icon: {
+    color: '#356345'
+  }
+})
+
 const TabIcon = ({ ...others }) => {
-  return <FontAwesomeIcon size={32} {...others} />;
+  return <FontAwesomeIcon size={32} style={ style.icon } {...others} />;
 };
 
 export default TabIcon;
