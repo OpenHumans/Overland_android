@@ -8,7 +8,10 @@ const DeferLocUpdatesContainer = props => {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop:10
+    marginTop:10,
+    marginLeft:20,
+    marginRight:10,
+    width:"100%"
   },
 });
 

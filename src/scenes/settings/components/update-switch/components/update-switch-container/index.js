@@ -9,8 +9,8 @@ const UpdateSwitchContainer = props => {
 const styles = StyleSheet.create({
   container: {
     paddingTop: 10,
-    paddingLeft: 15,
-    paddingRight: 16,
+    marginLeft: 10,
+    paddingRight: 30,
     flexDirection: 'row',
     justifyContent: 'space-between',
     width: "100%"

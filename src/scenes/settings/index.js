@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text,StyleSheet,View } from 'react-native';
+import { Text,StyleSheet,View, ScrollView } from 'react-native';
 import SettingsContainer from './components/settings-container';
 import SignificantLocation from './components/significant-location';
 import ActivityType from './components/activity-type';
@@ -7,6 +7,8 @@ import DesiredAccuracy from './components/desired-accuracy';
 import DeferLocUpdates from './components/defer-location-updates';
 import PtsPerBatch from './components/point-per-batch';
 import UpdateSwitch from './components/update-switch';
+import ResumeGeofence from './components/resume-geofence';
+import StatsSwitch from './components/stats-switch';
 
 class Settings extends React.Component {
     constructor () {
@@ -23,6 +25,7 @@ class Settings extends React.Component {
 
   render() {
     return (
+      <ScrollView>
       <SettingsContainer>
         <View style={[styles.header]}>
           <Text style={[styles.headerContent]}>SETTINGS</Text>
@@ -33,7 +36,10 @@ class Settings extends React.Component {
         <DeferLocUpdates />
         <PtsPerBatch />
         <UpdateSwitch />
+        <ResumeGeofence />
+        <StatsSwitch />
       </SettingsContainer>
+      </ScrollView>
     );
   }
 }
@@ -41,11 +47,10 @@ class Settings extends React.Component {
 const styles = StyleSheet.create({
 
   header: {
-    marginTop: 20
+    marginTop: 10
   },
   headerContent: {
-    fontSize:18,
-    marginBottom:20
+    fontSize:16
   }
 
 });
