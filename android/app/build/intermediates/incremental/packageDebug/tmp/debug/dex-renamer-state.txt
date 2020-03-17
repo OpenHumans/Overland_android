@@ -1,4 +1,0 @@
-#Mon Mar 16 13:26:00 CET 2020
-base.0=/home/collin_q/repos/Overland_android/android/app/build/intermediates/transforms/dexMerger/debug/0
-path.0=classes.dex
-renamed.0=classes.dex
