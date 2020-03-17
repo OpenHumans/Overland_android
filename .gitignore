@@ -25,11 +25,14 @@ project.xcworkspace
 # Android/IntelliJ
 #
 build/
-.idea
-.gradle
-local.properties
-*.iml
-
+android/.idea
+android/.gradle
+android/local.properties
+android/*.iml
+# Gradle files
+android/.gradle/
+android/build/
+android/app/*.iml
 # node.js
 #
 node_modules/
@@ -64,5 +67,3 @@ android/app/google-services.json
 # Visual studio
 .vscode
 .vs
-android/.gradle/**
-android/app/build/**
