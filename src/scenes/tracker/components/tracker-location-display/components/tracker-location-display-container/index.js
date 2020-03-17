@@ -9,8 +9,8 @@ const TrackerLocationDisplayContainer = props => {
 const styles = StyleSheet.create({
   container: {
     // TODO HANDLE MARGIN BETWEEN
-    paddingTop: 10,
-    display: 'flex',
+    paddingTop: 5,
+    //display: 'flex',
     flexDirection: 'row',
     flexWrap: 'wrap',
   },

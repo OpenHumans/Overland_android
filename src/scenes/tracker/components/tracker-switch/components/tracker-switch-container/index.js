@@ -8,10 +8,12 @@ const TrackerSwitchContainer = props => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 20,
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
+    paddingTop: 5,
+    paddingLeft: 15,
+    paddingRight: 16,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: "100%"
   },
 });
 
