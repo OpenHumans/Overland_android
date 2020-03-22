@@ -11,6 +11,7 @@ import ResumeGeofence from './components/resume-geofence';
 import StatsSwitch from './components/stats-switch';
 import NotificationsSwitch from './components/notifications-switch';
 import ReceiverEndpoint from './components/receiver-endpoint';
+import BackgroundGeolocation from '@mauron85/react-native-background-geolocation';
 
 class Settings extends React.Component {
     constructor () {
@@ -19,6 +20,9 @@ class Settings extends React.Component {
       selectedIndex: 2
     }
     this.updateIndex = this.updateIndex.bind(this)
+    BackgroundGeolocation.getConfig(function(config) {
+      console.log(config);
+    });
   }
 
   updateIndex (selectedIndex) {

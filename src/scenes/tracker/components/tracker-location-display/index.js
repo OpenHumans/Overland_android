@@ -59,7 +59,7 @@ class TrackerLocationDisplay extends React.Component {
          if(speed==='NaN') {
            let speed = '-'
          }
-         this.setState({ lastSent: String(s_diffDateFirstLocation), queueSize: String(queueSize), diffDateLastLocation: s_diffDateLastLocation, speed: String(speed), latitude: String(last_location.latitude),longitude: String(last_location.longitude),accuracy:last_location.accuracy, isReady: true });
+         this.setState({ lastSent: String(s_diffDateFirstLocation), queueSize: String(queueSize), diffDateLastLocation: s_diffDateLastLocation, speed: String(speed), latitude: String(last_location.latitude),longitude: String(last_location.longitude),accuracy:Math.floor(last_location.accuracy), isReady: true });
        } else {
          this.setState({lastSent: '-', queueSize: '-' ,diffDateLastLocation: '-',speed: '-',latitude: '--',longitude: '--',accuracy: '--', selectedLocationId: -1, isReady: false });
        }

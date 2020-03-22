@@ -23,7 +23,7 @@ class DeferLocUpdates extends React.Component {
 
     return (
       <DeferLocUpdatesContainer>
-      <Text style={{fontSize:16}}>Desired Accuracy</Text>
+      <Text style={{fontSize:16}}>Defer Location Updates</Text>
       <ButtonGroup
       onPress={this.updateIndex}
       selectedIndex={selectedIndex}

@@ -2,6 +2,7 @@ import React from 'react';
 import { Text, StyleSheet, View } from 'react-native';
 import PtsPerBatchContainer from './components/point-per-batch-container';
 import { ButtonGroup } from 'react-native-elements';
+import BackgroundGeolocation from '@mauron85/react-native-background-geolocation';
 
 class PointPerBatch extends React.Component {
 
@@ -10,10 +11,15 @@ class PointPerBatch extends React.Component {
     this.state = {
       selectedIndex: 0
     }
-    this.updateIndex = this.updateIndex.bind(this)
+    this.updatePtPerBatch = this.updatePtPerBatch.bind(this)
   }
 
-  updateIndex (selectedIndex) {
+  updatePtPerBatch (selectedIndex) {
+    const buttons = ['50', '100', '200', '500', '1000']
+    BackgroundGeolocation.configure({
+      syncThreshold: Number(buttons[selectedIndex])
+    });
+    console.log("PTS PER BATCH ===>",buttons[selectedIndex])
     this.setState({selectedIndex})
   }
 
@@ -25,7 +31,7 @@ class PointPerBatch extends React.Component {
       <PtsPerBatchContainer>
       <Text style={{fontSize:16}}>Point per Batch</Text>
       <ButtonGroup
-      onPress={this.updateIndex}
+      onPress={this.updatePtPerBatch}
       selectedIndex={selectedIndex}
       buttons={buttons}
       containerStyle={{width:"90%"}}
