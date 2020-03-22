@@ -14,6 +14,7 @@ class Application extends React.PureComponent {
   componentDidMount() {
     console.log('MMMMMMMMMMMMMMMOUNT');
     // InteractionManager.runAfterInteractions(() => {
+    // BackgroundGeolocation.stop();
     console.log('RUNNING FOR LOCATIONNNNN');
     BackgroundGeolocation.getLocations(
       locations => {
@@ -52,14 +53,15 @@ class Application extends React.PureComponent {
       startOnBoot: true,
       stopOnTerminate: false,
       locationProvider: BackgroundGeolocation.DISTANCE_FILTER_PROVIDER,
-      interval: 1000,
+      interval: 5000,
       fastestInterval: 1000,
       activitiesInterval: 1000,
       stopOnStillActivity: false,
       notificationsEnabled: false,
       startForeground: true,
-      syncUrl: 'http://192.168.1.100:4000', //
-      url: 'http://192.168.1.100:4000', // http://192.168.1.100:4000
+      syncThreshold: 500,
+      syncUrl: 'http://192.168.0.26', //http://10.0.2.2
+      url: 'http://192.168.0.26', // http://192.168.1.100:4000
       // customize post properties
       postTemplate: {
         lat: '@latitude',
@@ -80,18 +82,18 @@ class Application extends React.PureComponent {
     //   console.log('[ERROR] BackgroundGeolocation error:', error);
     // });
 
-    // BackgroundGeolocation.on('location', location => {
-    //   // handle your locations here
-    //   // to perform long running operation on iOS
-    //   // you need to create background task
-    //   console.log('LOCATION>', location);
-    //   // BackgroundGeolocation.startTask(taskKey => {
-    //   //   // execute long running task
-    //   //   // eg. ajax post location
-    //   //   // IMPORTANT: task has to be ended by endTask
-    //   //   BackgroundGeolocation.endTask(taskKey);
-    //   // });
-    // });
+    BackgroundGeolocation.on('location', location => {
+      // handle your locations here
+      // to perform long running operation on iOS
+      // you need to create background task
+      console.log('CURRENT LOCATION>', location);
+      // BackgroundGeolocation.startTask(taskKey => {
+      //   // execute long running task
+      //   // eg. ajax post location
+      //   // IMPORTANT: task has to be ended by endTask
+      //   BackgroundGeolocation.endTask(taskKey);
+      // });
+    });
 
     // });
   }

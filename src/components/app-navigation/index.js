@@ -3,6 +3,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import TabIcon from './components/tab-icon';
 import Tracker from '../../scenes/tracker';
 import Settings from '../../scenes/settings';
+import Logs from '../../scenes/logs';
 
 const Tab = createBottomTabNavigator();
 
@@ -24,6 +25,15 @@ const AppNavigation = () => {
         options={{
           tabBarIcon: ({ color, size }) => (
             <TabIcon icon="cogs" color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Logs"
+        component={Logs}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <TabIcon icon="align-justify" color={color} />
           ),
         }}
       />
