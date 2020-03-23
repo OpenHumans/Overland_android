@@ -5,10 +5,66 @@ import LocationElement from './components/location-element';
 import GPSElement from './components/gps-element';
 import BackgroundGeolocation from '@mauron85/react-native-background-geolocation';
 
+BackgroundGeolocation.forceSync = (function() {
+
+  return new Promise(resolve => {
+
+    let arr_locations = []
+    BackgroundGeolocation.getValidLocations((locations) => {
+
+        locations.forEach((location)=> {
+          arr_locations.push({
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                location.latitude,
+                location.longitude
+              ]
+            },
+            "properties": {
+              "timestamp": new Date(location.time),
+              "altitude": location.altitude,
+              "speed": location.speed,
+              "horizontal_accuracy": location.accuracy,
+              "vertical_accuracy": -1,
+              "motion": ["driving","stationary"],
+              "pauses": false,
+              "activity": "other_navigation",
+              "desired_accuracy": location.radius,
+              "deferred": -1,
+              "significant_change": "disabled",
+              "locations_in_payload": 1,
+              "battery_state": "charging",
+              "battery_level": -1,
+              "device_id": "",
+              "wifi": ""
+            }
+          });
+        })
+
+        resolve(fetch('https://overland.openhumans.org/5ye71az9mu/', {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+              "locations": arr_locations
+            }),
+        }).then((response)=>{
+            return response.ok
+        }));
+
+      });
+  });
+});
+
+
 class TrackerLocationDisplay extends React.Component {
   constructor(props) {
      super(props);
-     this.state = {queueSize: '-' ,lastSent: '-', diffDateLastLocation: '-',speed: '-',latitude: '--',longitude: '--', accuracy: '--', selectedLocationId: -1, isReady: false };
+     this.state = {queueSize: '0' ,lastSent: '-', diffDateLastLocation: '-',speed: '-',latitude: '--',longitude: '--', accuracy: '--', selectedLocationId: -1, isReady: false };
      this.refresh = this.refresh.bind(this);
    }
 
@@ -61,15 +117,21 @@ class TrackerLocationDisplay extends React.Component {
          }
          this.setState({ lastSent: String(s_diffDateFirstLocation), queueSize: String(queueSize), diffDateLastLocation: s_diffDateLastLocation, speed: String(speed), latitude: String(last_location.latitude),longitude: String(last_location.longitude),accuracy:Math.floor(last_location.accuracy), isReady: true });
        } else {
-         this.setState({lastSent: '-', queueSize: '-' ,diffDateLastLocation: '-',speed: '-',latitude: '--',longitude: '--',accuracy: '--', selectedLocationId: -1, isReady: false });
+         this.setState({lastSent: '-', queueSize: '0' ,diffDateLastLocation: '-',speed: '-',latitude: '--',longitude: '--',accuracy: '--', selectedLocationId: -1, isReady: false });
        }
 
 
      });
    }
 
-  submitSuggestion() {
-    BackgroundGeolocation.forceSync()
+  async submitSuggestion() {
+    const res = await BackgroundGeolocation.forceSync()
+    if(res){this.deleteAllData();}
+  }
+
+  deleteAllData (){
+    BackgroundGeolocation.deleteAllLocations();
+    this.setState({lastSent: '00:00', queueSize: '0' ,diffDateLastLocation: '-',speed: '-',latitude: '--',longitude: '--',accuracy: '--', selectedLocationId: -1, isReady: false });
   }
 
   render() {

@@ -60,14 +60,26 @@ class Application extends React.PureComponent {
       notificationsEnabled: false,
       startForeground: true,
       syncThreshold: 500,
-      syncUrl: 'http://192.168.0.26', //http://10.0.2.2
-      url: 'http://192.168.0.26', // http://192.168.1.100:4000
+      syncUrl: 'http://192.168.1.100:4000',
+      url: 'http://192.168.1.100:4000', // http://192.168.1.100:4000
       // customize post properties
-      postTemplate: {
-        lat: '@latitude',
-        lon: '@longitude',
-        foo: 'bar' // you can also add your own properties
-      }
+      /*postTemplate: {
+        "locations": [
+           {
+             "type": "Feature",
+             "geometry": {
+               "type": "Point",
+               "coordinates": [
+                 '@latitude',
+                 '@longitude'
+               ]
+             }
+           }
+         ]
+     },*/
+    });
+    BackgroundGeolocation.configure({
+      postTemplate: ['@latitude', '@longitude']
     });
     BackgroundGeolocation.checkStatus(status => {
       console.log('==>STATUTS+<', status);
@@ -94,8 +106,6 @@ class Application extends React.PureComponent {
       //   BackgroundGeolocation.endTask(taskKey);
       // });
     });
-
-    // });
   }
   render() {
     return <AppNavigation />;

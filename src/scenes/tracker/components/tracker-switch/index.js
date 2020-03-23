@@ -3,6 +3,7 @@ import { Text, View } from 'react-native';
 import { Switch } from 'react-native-gesture-handler';
 import TrackerSwitchContainer from './components/tracker-switch-container';
 import { ButtonGroup } from 'react-native-elements';
+import BackgroundGeolocation from '@mauron85/react-native-background-geolocation';
 
 class TrackerSwitch extends React.Component {
   constructor(props) {
@@ -15,6 +16,11 @@ class TrackerSwitch extends React.Component {
 
   updateIndex (selectedIndex) {
     this.setState({selectedIndex})
+    if (selectedIndex==0){
+      BackgroundGeolocation.start()
+    }else {
+      BackgroundGeolocation.stop()
+    }
   }
 
   render() {

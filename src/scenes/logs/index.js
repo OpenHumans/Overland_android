@@ -71,7 +71,21 @@ class AllLocationsScene extends PureComponent {
     });
   }
   delete() {
-    BackgroundGeolocation.deleteAllLocations();
+    Alert.alert(
+      'Delete all data ?',
+      '',
+      [
+        {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+        {text: 'Yes', onPress: () => {
+          BackgroundGeolocation.deleteAllLocations();
+          }
+        },
+      ],
+      { cancelable: false }
+    )
+    BackgroundGeolocation.getValidLocations(locations => {
+      this.setState({ locations, isReady: true });
+    });
   }
 
   _keyExtractor = (item, index) => item.id;

@@ -4,6 +4,7 @@ import PtsPerBatchContainer from './components/point-per-batch-container';
 import { ButtonGroup } from 'react-native-elements';
 import BackgroundGeolocation from '@mauron85/react-native-background-geolocation';
 
+
 class PointPerBatch extends React.Component {
 
   constructor () {
@@ -16,6 +17,7 @@ class PointPerBatch extends React.Component {
 
   updatePtPerBatch (selectedIndex) {
     const buttons = ['50', '100', '200', '500', '1000']
+
     BackgroundGeolocation.configure({
       syncThreshold: Number(buttons[selectedIndex])
     });
@@ -25,6 +27,7 @@ class PointPerBatch extends React.Component {
 
   render() {
     const buttons = ['50', '100', '200', '500', '1000']
+    /*const buttons = ['50', '100', '200', '500', '1000']*/
     const { selectedIndex } = this.state
 
     return (
