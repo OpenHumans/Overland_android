@@ -18,8 +18,8 @@ BackgroundGeolocation.forceSync = (function() {
             "geometry": {
               "type": "Point",
               "coordinates": [
-                location.latitude,
-                location.longitude
+                location.longitude,
+                location.latitude
               ]
             },
             "properties": {

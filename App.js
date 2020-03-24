@@ -53,15 +53,15 @@ class Application extends React.PureComponent {
       startOnBoot: true,
       stopOnTerminate: false,
       locationProvider: BackgroundGeolocation.DISTANCE_FILTER_PROVIDER,
-      interval: 10000,
+      interval: 5000,
       fastestInterval: 5000,
       activitiesInterval: 10000,
       stopOnStillActivity: false,
       notificationsEnabled: false,
       startForeground: true,
       syncThreshold: 500,
-      syncUrl: 'https://overland.openhumans.org/5ye71az9mu/',// https://overland.openhumans.org/5ye71az9mu/
-      url: 'https://overland.openhumans.org/5ye71az9mu/', // http://192.168.1.100:4000
+      syncUrl: '',// https://overland.openhumans.org/5ye71az9mu/
+      url: '', // http://192.168.1.100:4000
       // customize post properties
       postTemplate: {
         "locations": [
@@ -99,13 +99,75 @@ class Application extends React.PureComponent {
       // to perform long running operation on iOS
       // you need to create background task
       console.log('CURRENT LOCATION>', location);
-      // BackgroundGeolocation.startTask(taskKey => {
-      //   // execute long running task
-      //   // eg. ajax post location
-      //   // IMPORTANT: task has to be ended by endTask
-      //   BackgroundGeolocation.endTask(taskKey);
-      // });
+       BackgroundGeolocation.startTask(async (taskKey) => {
+         let res = await this.postBatchLocations();
+         if(res){
+           this.deleteAllData();
+         }
+
+       BackgroundGeolocation.endTask(taskKey);
+       });
     });
+  }
+
+  deleteAllData (){
+    BackgroundGeolocation.deleteAllLocations();
+    this.setState({lastSent: '00:00', queueSize: '0' ,diffDateLastLocation: '-',speed: '-',latitude: '--',longitude: '--',accuracy: '--', selectedLocationId: -1, isReady: false });
+  }
+
+  postBatchLocations() {
+
+      return new Promise(resolve => {
+
+        let arr_locations = []
+        BackgroundGeolocation.getValidLocations((locations) => {
+            if(locations.length<5) return false;
+            locations.forEach((location)=> {
+              arr_locations.push({
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    location.longitude,
+                    location.latitude
+                  ]
+                },
+                "properties": {
+                  "timestamp": new Date(location.time),
+                  "altitude": location.altitude,
+                  "speed": location.speed,
+                  "horizontal_accuracy": location.accuracy,
+                  "vertical_accuracy": -1,
+                  "motion": ["driving","stationary"],
+                  "pauses": false,
+                  "activity": "other_navigation",
+                  "desired_accuracy": location.radius,
+                  "deferred": -1,
+                  "significant_change": "disabled",
+                  "locations_in_payload": 1,
+                  "battery_state": "charging",
+                  "battery_level": -1,
+                  "device_id": "",
+                  "wifi": ""
+                }
+              });
+            })
+
+            resolve(fetch('https://overland.openhumans.org/5ye71az9mu/', {
+              method: 'POST',
+              headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                  "locations": arr_locations
+                }),
+            }).then((response)=>{
+                return response.ok
+            }));
+
+          });
+      });
   }
   render() {
     return <AppNavigation />;
