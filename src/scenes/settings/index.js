@@ -16,18 +16,13 @@ import BackgroundGeolocation from '@mauron85/react-native-background-geolocation
 class Settings extends React.Component {
     constructor () {
     super()
-    this.state = {
-      selectedIndex: 2
-    }
-    this.updateIndex = this.updateIndex.bind(this)
-    BackgroundGeolocation.getConfig(function(config) {
-      console.log(config);
+    this.state = {url:'http://'}
+    BackgroundGeolocation.getConfig((config)=> {
+      console.log("CONFIG----->",config)
+      this.setState({url: config.url})
     });
   }
 
-  updateIndex (selectedIndex) {
-    this.setState({selectedIndex})
-  }
 
   render() {
     return (
@@ -36,7 +31,7 @@ class Settings extends React.Component {
         <View style={[styles.header]}>
           <Text style={[styles.headerContent]}>SETTINGS</Text>
         </View>
-        <ReceiverEndpoint />
+        <ReceiverEndpoint url={this.state.url}/>
         <SignificantLocation />
         <ActivityType />
         <DesiredAccuracy />

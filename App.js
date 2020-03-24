@@ -60,10 +60,10 @@ class Application extends React.PureComponent {
       notificationsEnabled: false,
       startForeground: true,
       syncThreshold: 500,
-      syncUrl: 'http://192.168.1.100:4000',
-      url: 'http://192.168.1.100:4000', // http://192.168.1.100:4000
+      syncUrl: 'https://overland.openhumans.org/5ye71az9mu/',// https://overland.openhumans.org/5ye71az9mu/
+      url: 'https://overland.openhumans.org/5ye71az9mu/', // http://192.168.1.100:4000
       // customize post properties
-      /*postTemplate: {
+      postTemplate: {
         "locations": [
            {
              "type": "Feature",
@@ -76,7 +76,7 @@ class Application extends React.PureComponent {
              }
            }
          ]
-     },*/
+     },
     });
     BackgroundGeolocation.configure({
       postTemplate: ['@latitude', '@longitude']

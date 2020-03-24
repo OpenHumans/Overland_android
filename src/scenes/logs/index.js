@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { StyleSheet, InteractionManager, Alert, View, FlatList } from 'react-native';
+import { StyleSheet, InteractionManager, Alert, View, FlatList , YellowBox} from 'react-native';
 import {
   Container,
   Header,
@@ -18,6 +18,11 @@ import {
   Spinner
 } from 'native-base';
 import BackgroundGeolocation from '@mauron85/react-native-background-geolocation';
+
+YellowBox.ignoreWarnings([
+	'VirtualizedLists should never be nested', // TODO: Remove when fixed
+])
+
 
 const styles = StyleSheet.create({
   iconStyle: {
@@ -54,7 +59,7 @@ class AllLocationsScene extends PureComponent {
 
   constructor(props) {
     super(props);
-    this.state = { locations: null, selectedLocationId: -1, isReady: false };
+    this.state = {locations: null, selectedLocationId: -1, isReady: false };
     this.refresh = this.refresh.bind(this);
   }
 
@@ -67,7 +72,7 @@ class AllLocationsScene extends PureComponent {
   refresh() {
     this.setState({ selectedLocationId: -1, isReady: false });
     BackgroundGeolocation.getValidLocations(locations => {
-      this.setState({ locations, isReady: true });
+      this.setState({locations, isReady: true });
     });
   }
   delete() {
@@ -89,6 +94,7 @@ class AllLocationsScene extends PureComponent {
   }
 
   _keyExtractor = (item, index) => item.id;
+  _getItemLayout = (data, index) => ({length: data.length, offset: data.length * index, index});
 
   render() {
     const { locations, isReady } = this.state;
@@ -120,8 +126,8 @@ class AllLocationsScene extends PureComponent {
             return (
               <FlatList style={{ flex: 1, backgroundColor: '#fff' }}
                 data={locations}
-                inverted={true}
                 keyExtractor={this._keyExtractor}
+                getItemLayout={this._getItemLayout}
                 renderItem={({ item }) => {
                   const date = new Date(item.time);
                   return (

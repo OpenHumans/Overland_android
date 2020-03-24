@@ -150,7 +150,7 @@ class TrackerLocationDisplay extends React.Component {
 
         <TouchableHighlight
           style={styles.submit}
-          onPress={() => this.submitSuggestion(this.props)}
+          onPress={() => this.submitSuggestion()}
           underlayColor='#fff'>
           <Text  style={styles.submitText}>Send now</Text>
         </TouchableHighlight>
