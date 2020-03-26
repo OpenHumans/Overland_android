@@ -2,6 +2,7 @@
   package="com.overlandandroid">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
       android:name=".MainApplication"
@@ -21,6 +22,7 @@
         </intent-filter>
       </activity>
       <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+      <meta-data android:name="com.overland.openhuman.license" android:value="YOUR_LICENCE_KEY_HERE" />
     </application>
 
 </manifest>

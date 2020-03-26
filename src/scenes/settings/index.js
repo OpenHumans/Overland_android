@@ -11,16 +11,17 @@ import ResumeGeofence from './components/resume-geofence';
 import StatsSwitch from './components/stats-switch';
 import NotificationsSwitch from './components/notifications-switch';
 import ReceiverEndpoint from './components/receiver-endpoint';
-import BackgroundGeolocation from '@mauron85/react-native-background-geolocation';
+import BackgroundGeolocation from "react-native-background-geolocation";
 
 class Settings extends React.Component {
     constructor () {
     super()
     this.state = {url:'http://'}
-    BackgroundGeolocation.getConfig((config)=> {
-      console.log("CONFIG----->",config)
+    console.log(BackgroundGeolocation.url)
+    /*BackgroundGeolocation.getConfig((config)=> {
+      this.state = {url:'http://'}
       this.setState({url: config.url})
-    });
+    });*/
   }
 
 

@@ -2,6 +2,7 @@ import React from 'react';
 import { Text, StyleSheet, View } from 'react-native';
 import DesiredAccuracyContainer from './components/desired-accuracy-container';
 import { ButtonGroup } from 'react-native-elements';
+//import BackgroundGeolocation from '@mauron85/react-native-background-geolocation';
 
 class DesiredAccuracy extends React.Component {
 
@@ -14,6 +15,9 @@ class DesiredAccuracy extends React.Component {
   }
 
   updateIndex (selectedIndex) {
+    BackgroundGeolocation.ready({
+      desiredAccuracy: BackgroundGeolocation.DESIRED_ACCURACY_HIGH
+    });
     this.setState({selectedIndex})
   }
 

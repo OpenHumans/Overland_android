@@ -3,9 +3,9 @@ import { Text, Button, View, StyleSheet, TouchableHighlight, InteractionManager 
 import TrackerLocationDisplayContainer from './components/tracker-location-display-container';
 import LocationElement from './components/location-element';
 import GPSElement from './components/gps-element';
-import BackgroundGeolocation from '@mauron85/react-native-background-geolocation';
+import BackgroundGeolocation from "react-native-background-geolocation";
 
-BackgroundGeolocation.forceSync = (function() {
+/*BackgroundGeolocation.forceSync = (function() {
 
   return new Promise(resolve => {
 
@@ -58,7 +58,7 @@ BackgroundGeolocation.forceSync = (function() {
 
       });
   });
-});
+});*/
 
 
 class TrackerLocationDisplay extends React.Component {
@@ -71,7 +71,7 @@ class TrackerLocationDisplay extends React.Component {
    componentDidMount() {
      this.timerID = setInterval(
        () => this.tick(),
-       10000
+       1000
      );
      InteractionManager.runAfterInteractions(() => {
        this.refresh();
@@ -88,7 +88,40 @@ class TrackerLocationDisplay extends React.Component {
    zeroPad (num, places) {
      return String(num).padStart(places, '0')
    }
-   refresh() {
+   async refresh() {
+     let locations = await BackgroundGeolocation.getLocations();
+     let queueSize = locations.length
+     if (queueSize>=1) {
+       let last_location = locations[queueSize - 1];
+       let last_timestamp = new Date(locations[queueSize - 1].properties.timestamp);
+       let first_location = locations[0];
+       let first_timestamp = new Date(locations[0].properties.timestamp);
+       let current_timestamp = new Date();
+       let diffDateLastLocation = current_timestamp - last_timestamp;
+       let diffDateFirstLocation = current_timestamp - first_timestamp;
+       let l_diffHour = Math.floor(diffDateLastLocation/(60*60*1000) % 24);
+       let l_diffMinute = Math.floor(diffDateLastLocation/(60*1000) % 60);
+       let l_diffSeconde = Math.floor(diffDateLastLocation/(1000) % 60);
+       let f_diffMinute = Math.floor(diffDateFirstLocation/(60*1000) % 60);
+       let f_diffSeconde = Math.floor(diffDateFirstLocation/(1000) % 60);
+       let s_diffDateFirstLocation = this.zeroPad(f_diffMinute,2)+':'+this.zeroPad(f_diffSeconde,2);
+
+       let s_diffDateLastLocation = this.zeroPad(l_diffHour,2) +':'+this.zeroPad(l_diffMinute,2)+':'+this.zeroPad(l_diffSeconde,2);
+       if(diffDateLastLocation > 60*60*1000*24 ){
+         s_diffDateLastLocation = '> 1day'
+       }
+       if(diffDateFirstLocation > 60*1000*24 ){
+         s_diffDateFirstLocation = '> 1h'
+       }
+       let speed = Math.floor(last_location.properties.speed)
+       if(speed==='NaN') {
+         let speed = '-'
+       }
+       this.setState({ lastSent: String(s_diffDateFirstLocation), queueSize: String(queueSize), diffDateLastLocation: s_diffDateLastLocation, speed: String(speed), latitude: String(last_location.geometry.coordinates[0]),longitude: String(last_location.geometry.coordinates[1]),accuracy:Math.floor(last_location.properties.accuracy), isReady: true });
+     } else {
+       this.setState({lastSent: '-', queueSize: '0' ,diffDateLastLocation: '-',speed: '-',latitude: '--',longitude: '--',accuracy: '--', selectedLocationId: -1, isReady: false });
+     }
+     /*
      BackgroundGeolocation.getValidLocations(locations => {
        let queueSize = locations.length
        if (queueSize>=1) {
@@ -121,16 +154,21 @@ class TrackerLocationDisplay extends React.Component {
        }
 
 
-     });
+     });*/
    }
 
   async submitSuggestion() {
-    const res = await BackgroundGeolocation.forceSync()
-    if(res){this.deleteAllData();}
+    /*const res = await BackgroundGeolocation.forceSync()*/
+    BackgroundGeolocation.sync((records) => {
+      console.log("[sync] success: ", records);
+    }).catch((error) => {
+      console.log("[sync] FAILURE: ", error);
+    });
+
   }
 
   deleteAllData (){
-    BackgroundGeolocation.deleteAllLocations();
+    /*BackgroundGeolocation.deleteAllLocations();*/
     this.setState({lastSent: '00:00', queueSize: '0' ,diffDateLastLocation: '-',speed: '-',latitude: '--',longitude: '--',accuracy: '--', selectedLocationId: -1, isReady: false });
   }
 
@@ -147,20 +185,20 @@ class TrackerLocationDisplay extends React.Component {
           value={this.state.lastSent}
           description={this.state.lastSent === '> 1h' ? ' ' : 'minutes ago'}
         />
-
         <TouchableHighlight
           style={styles.submit}
           onPress={() => this.submitSuggestion()}
           underlayColor='#fff'>
           <Text  style={styles.submitText}>Send now</Text>
         </TouchableHighlight>
-        </View>
-        <View
-          style={{
-            margin: 20,
-            width:"90%",
-            flexDirection: 'row',
-            justifyContent: 'space-between'}}>
+      </View>
+
+      <View
+        style={{
+          margin: 20,
+          width:"90%",
+          flexDirection: 'row',
+          justifyContent: 'space-between'}}>
           <LocationElement
             title={'AGE'}
             value={this.state.diffDateLastLocation}

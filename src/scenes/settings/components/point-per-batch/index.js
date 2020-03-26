@@ -2,8 +2,7 @@ import React from 'react';
 import { Text, StyleSheet, View } from 'react-native';
 import PtsPerBatchContainer from './components/point-per-batch-container';
 import { ButtonGroup } from 'react-native-elements';
-import BackgroundGeolocation from '@mauron85/react-native-background-geolocation';
-
+import BackgroundGeolocation from "react-native-background-geolocation";
 
 class PointPerBatch extends React.Component {
 

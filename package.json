@@ -7,14 +7,15 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "clean": "react-native-clean-project"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.27",
     "@fortawesome/free-regular-svg-icons": "^5.12.1",
     "@fortawesome/free-solid-svg-icons": "^5.12.1",
     "@fortawesome/react-native-fontawesome": "^0.2.2",
-    "@mauron85/react-native-background-geolocation": "^0.6.3",
+    "@react-native-community/geolocation": "^2.0.2",
     "@react-native-community/slider": "^2.0.8",
     "@react-navigation/bottom-tabs": "^5.1.1",
     "@react-navigation/native": "^5.0.9",
@@ -22,6 +23,8 @@
     "native-base": "^2.13.12",
     "react": "16.9.0",
     "react-native": "0.61.5",
+    "react-native-background-fetch": "^3.0.4",
+    "react-native-background-geolocation": "^3.4.2",
     "react-native-elements": "^1.2.7",
     "react-native-gesture-handler": "^1.6.0",
     "react-native-reanimated": "^1.7.0",
@@ -41,6 +44,7 @@
     "jest": "24.9.0",
     "metro-react-native-babel-preset": "0.56.4",
     "prettier": "^1.19.1",
+    "react-native-clean-project": "^3.3.0",
     "react-test-renderer": "16.9.0"
   },
   "jest": {

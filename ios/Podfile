@@ -36,6 +36,10 @@ target 'OverlandAndroid' do
 
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
+  pod 'RNBackgroundGeolocation', :path => '../node_modules/react-native-background-geolocation'
+
+  pod 'RNBackgroundFetch', :path => '../node_modules/react-native-background-fetch'
+
   target 'OverlandAndroidTests' do
     inherit! :search_paths
     # Pods for testing

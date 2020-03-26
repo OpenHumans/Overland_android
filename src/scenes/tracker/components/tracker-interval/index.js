@@ -7,7 +7,7 @@ class TrackerInterval extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      interval: 20,
+      interval: 60,
     };
     this.onIntervalChange = this.onIntervalChange.bind(this);
   }
@@ -34,7 +34,7 @@ class TrackerInterval extends React.Component {
           onSlidingComplete={this.onIntervalChange}
           step={1}
           style={styles.slider}
-          minimumValue={20}
+          minimumValue={60}
           value={interval}
           maximumValue={1800}
         />

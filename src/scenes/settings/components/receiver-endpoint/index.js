@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View , TextInput} from 'react-native';
 import ReceiverEndpointContainer from './components/receiver-endpoint-container';
-import BackgroundGeolocation from '@mauron85/react-native-background-geolocation';
+import BackgroundGeolocation from 'react-native-background-geolocation';
 
 class ReceiverEndpoint extends React.Component {
   constructor(props) {
@@ -13,10 +13,9 @@ class ReceiverEndpoint extends React.Component {
   }
   setNewURL(s_url) {
     this.setState({url: s_url});
-    BackgroundGeolocation.configure({
+    BackgroundGeolocation.setConfig({
       url: s_url
-    });
-
+    })
   }
 
 

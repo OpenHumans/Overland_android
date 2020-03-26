@@ -17,7 +17,7 @@ import {
   Icon,
   Spinner
 } from 'native-base';
-import BackgroundGeolocation from '@mauron85/react-native-background-geolocation';
+import BackgroundGeolocation from "react-native-background-geolocation";
 
 YellowBox.ignoreWarnings([
 	'VirtualizedLists should never be nested', // TODO: Remove when fixed
@@ -31,20 +31,20 @@ const styles = StyleSheet.create({
 });
 
 const LogItem = ({
-  id: locationId,
-  latitude,
-  longitude,
-  time,
+  id,
+  geometry,
+  properties
 }) => {
-  const date = new Date(time);
+
   return (
     <ListItem>
-      <Text>{`${locationId}`}</Text>
+      <Text>{id}</Text>
       <Body>
         <View>
-        <Text>{`lat: ${latitude}`}</Text>
-        <Text>{`lon: ${longitude}`}</Text>
-        <Text>{`time: ${date.toLocaleDateString()} ${date.toLocaleTimeString()}`}</Text>
+        <Text>{`lat: ${geometry.coordinates[0]}`}</Text>
+        <Text>{`long: ${geometry.coordinates[1]}`}</Text>
+        <Text>{`time: ${properties.timestamp}`}</Text>
+
         </View>
       </Body>
     </ListItem>
@@ -69,11 +69,14 @@ class AllLocationsScene extends PureComponent {
     });
   }
 
-  refresh() {
+  async refresh() {
     this.setState({ selectedLocationId: -1, isReady: false });
-    BackgroundGeolocation.getValidLocations(locations => {
+    let locations = await BackgroundGeolocation.getLocations();
+    console.log(locations)
+    this.setState({locations, isReady: true });
+    /*BackgroundGeolocation.getValidLocations(locations => {
       this.setState({locations, isReady: true });
-    });
+    });*/
   }
   delete() {
     Alert.alert(
@@ -87,13 +90,13 @@ class AllLocationsScene extends PureComponent {
         },
       ],
       { cancelable: false }
-    )
+    )/*
     BackgroundGeolocation.getValidLocations(locations => {
       this.setState({ locations, isReady: true });
-    });
+    });*/
   }
 
-  _keyExtractor = (item, index) => item.id;
+  _keyExtractor = (item, index) => item.id=index+1;
   _getItemLayout = (data, index) => ({length: data.length, offset: data.length * index, index});
 
   render() {
@@ -129,11 +132,10 @@ class AllLocationsScene extends PureComponent {
                 keyExtractor={this._keyExtractor}
                 getItemLayout={this._getItemLayout}
                 renderItem={({ item }) => {
-                  const date = new Date(item.time);
+                  const date = item.timestamp;
                   return (
                     <LogItem
                       {...item}
-                      onPress={this.onLocationSelected}
                     />
                   );
                 }}
