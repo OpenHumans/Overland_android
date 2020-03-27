@@ -13,9 +13,9 @@ class ReceiverEndpoint extends React.Component {
   }
   setNewURL(s_url) {
     this.setState({url: s_url});
-    BackgroundGeolocation.setConfig({
+    /*BackgroundGeolocation.setConfig({
       url: s_url
-    })
+    })*/
   }
 
 

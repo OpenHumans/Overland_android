@@ -17,9 +17,9 @@ class PointPerBatch extends React.Component {
   updatePtPerBatch (selectedIndex) {
     const buttons = ['50', '100', '200', '500', '1000']
 
-    BackgroundGeolocation.configure({
+    /*BackgroundGeolocation.configure({
       syncThreshold: Number(buttons[selectedIndex])
-    });
+    });*/
     console.log("PTS PER BATCH ===>",buttons[selectedIndex])
     this.setState({selectedIndex})
   }

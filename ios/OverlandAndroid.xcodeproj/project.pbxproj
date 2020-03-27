@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* OverlandAndroidTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* OverlandAndroidTests.m */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
@@ -15,23 +16,6 @@
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* OverlandAndroidTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* OverlandAndroidTests.m */; };
-		6B2BE8A966474CFDA1296E42 /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 58A48A410414425095FB99CE /* AntDesign.ttf */; };
-		E559EA21684849F9AF1A6546 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3EE47C6A4E544E8C9BB2B1F1 /* Entypo.ttf */; };
-		1FB3157EF0614AB681FFE8D8 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8FD59B8851444F2A99B7EDC7 /* EvilIcons.ttf */; };
-		AA687FAB3A8245E991906A99 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D664D0B5F6F1454ABA7B22AF /* Feather.ttf */; };
-		85698CD0D04B4D85916B1AB4 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAA4C59F89D04C259E2439A6 /* FontAwesome.ttf */; };
-		D0501150EDB84CF884DFF8E9 /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 306D9C91B7AE4BEC8D10837F /* FontAwesome5_Brands.ttf */; };
-		29E838BB5FFA47978A6B98A3 /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3C94D15C5959413D9AC48FCA /* FontAwesome5_Regular.ttf */; };
-		081776F56E544333AFEC6342 /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 043EC5AFE61247868909EBA9 /* FontAwesome5_Solid.ttf */; };
-		A8894C224FFC4EFFABF64374 /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 68F1493D3BAC402F86D8C2A8 /* Fontisto.ttf */; };
-		50D6923A7F3448CB84DFDFC1 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57F34AA9F4DD4833870A97B7 /* Foundation.ttf */; };
-		8AF5E20B0F3C42A89F7A9FA2 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD4AD923B06D4026A78C48D9 /* Ionicons.ttf */; };
-		2B7D36447E7E4AF0A2C89146 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5AA2B33DC92D4E54A5104CAB /* MaterialCommunityIcons.ttf */; };
-		979813809C884889AF712DD5 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3024AB64CAC84D338CFE9E14 /* MaterialIcons.ttf */; };
-		9D2C8A707AB0477D848171A1 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C623125C93E42EE81742989 /* Octicons.ttf */; };
-		1221552F21AB4FBD9A937E36 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4AA8FFE2388B4AE08FB37B7F /* SimpleLineIcons.ttf */; };
-		179225804F084D08AEE6DA6D /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB966E202FC64F109EA6B61E /* Zocial.ttf */; };
-		FACECB310DF243C6969FEE1E /* TSLocationManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3886F7060DF044158B07349C /* TSLocationManager.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,23 +51,6 @@
 		2D02E4901E0B4A5D006451C7 /* OverlandAndroid-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "OverlandAndroid-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
-		58A48A410414425095FB99CE /* AntDesign.ttf */ = {isa = PBXFileReference; name = "AntDesign.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		3EE47C6A4E544E8C9BB2B1F1 /* Entypo.ttf */ = {isa = PBXFileReference; name = "Entypo.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		8FD59B8851444F2A99B7EDC7 /* EvilIcons.ttf */ = {isa = PBXFileReference; name = "EvilIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		D664D0B5F6F1454ABA7B22AF /* Feather.ttf */ = {isa = PBXFileReference; name = "Feather.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		FAA4C59F89D04C259E2439A6 /* FontAwesome.ttf */ = {isa = PBXFileReference; name = "FontAwesome.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		306D9C91B7AE4BEC8D10837F /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; name = "FontAwesome5_Brands.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		3C94D15C5959413D9AC48FCA /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; name = "FontAwesome5_Regular.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		043EC5AFE61247868909EBA9 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; name = "FontAwesome5_Solid.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		68F1493D3BAC402F86D8C2A8 /* Fontisto.ttf */ = {isa = PBXFileReference; name = "Fontisto.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		57F34AA9F4DD4833870A97B7 /* Foundation.ttf */ = {isa = PBXFileReference; name = "Foundation.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		DD4AD923B06D4026A78C48D9 /* Ionicons.ttf */ = {isa = PBXFileReference; name = "Ionicons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		5AA2B33DC92D4E54A5104CAB /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; name = "MaterialCommunityIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		3024AB64CAC84D338CFE9E14 /* MaterialIcons.ttf */ = {isa = PBXFileReference; name = "MaterialIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		4C623125C93E42EE81742989 /* Octicons.ttf */ = {isa = PBXFileReference; name = "Octicons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		4AA8FFE2388B4AE08FB37B7F /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; name = "SimpleLineIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		FB966E202FC64F109EA6B61E /* Zocial.ttf */ = {isa = PBXFileReference; name = "Zocial.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		3886F7060DF044158B07349C /* TSLocationManager.framework */ = {isa = PBXFileReference; name = "TSLocationManager.framework"; path = "../node_modules/react-native-background-geolocation/ios/RNBackgroundGeolocation/TSLocationManager.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +65,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FACECB310DF243C6969FEE1E /* TSLocationManager.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,7 +121,6 @@
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
-				3886F7060DF044158B07349C /* TSLocationManager.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -175,7 +140,6 @@
 				00E356EF1AD99517003FC87E /* OverlandAndroidTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				1BCBC0EA24AA4F56837F3FE8 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -192,30 +156,6 @@
 			);
 			name = Products;
 			sourceTree = "<group>";
-		};
-		1BCBC0EA24AA4F56837F3FE8 /* Resources */ = {
-			isa = "PBXGroup";
-			children = (
-				58A48A410414425095FB99CE /* AntDesign.ttf */,
-				3EE47C6A4E544E8C9BB2B1F1 /* Entypo.ttf */,
-				8FD59B8851444F2A99B7EDC7 /* EvilIcons.ttf */,
-				D664D0B5F6F1454ABA7B22AF /* Feather.ttf */,
-				FAA4C59F89D04C259E2439A6 /* FontAwesome.ttf */,
-				306D9C91B7AE4BEC8D10837F /* FontAwesome5_Brands.ttf */,
-				3C94D15C5959413D9AC48FCA /* FontAwesome5_Regular.ttf */,
-				043EC5AFE61247868909EBA9 /* FontAwesome5_Solid.ttf */,
-				68F1493D3BAC402F86D8C2A8 /* Fontisto.ttf */,
-				57F34AA9F4DD4833870A97B7 /* Foundation.ttf */,
-				DD4AD923B06D4026A78C48D9 /* Ionicons.ttf */,
-				5AA2B33DC92D4E54A5104CAB /* MaterialCommunityIcons.ttf */,
-				3024AB64CAC84D338CFE9E14 /* MaterialIcons.ttf */,
-				4C623125C93E42EE81742989 /* Octicons.ttf */,
-				4AA8FFE2388B4AE08FB37B7F /* SimpleLineIcons.ttf */,
-				FB966E202FC64F109EA6B61E /* Zocial.ttf */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-			path = "";
 		};
 /* End PBXGroup section */
 
@@ -253,7 +193,7 @@
 			dependencies = (
 			);
 			name = OverlandAndroid;
-			productName = "OverlandAndroid";
+			productName = OverlandAndroid;
 			productReference = 13B07F961A680F5B00A75B9A /* OverlandAndroid.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -300,12 +240,14 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 940;
-				ORGANIZATIONNAME = Facebook;
+				LastUpgradeCheck = 1130;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
+					};
+					13B07F861A680F5B00A75B9A = {
+						LastSwiftMigration = 1120;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -316,18 +258,11 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = 2D02E47A1E0B4A5D006451C7;
 					};
-					13B07F861A680F5B00A75B9A = {
-						SystemCapabilities = {
-							com.apple.BackgroundModes = {
-								enabled = true;
-							};
-						};
-					};
 				};
 			};
 			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "OverlandAndroid" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -360,22 +295,6 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
-				6B2BE8A966474CFDA1296E42 /* AntDesign.ttf in Resources */,
-				E559EA21684849F9AF1A6546 /* Entypo.ttf in Resources */,
-				1FB3157EF0614AB681FFE8D8 /* EvilIcons.ttf in Resources */,
-				AA687FAB3A8245E991906A99 /* Feather.ttf in Resources */,
-				85698CD0D04B4D85916B1AB4 /* FontAwesome.ttf in Resources */,
-				D0501150EDB84CF884DFF8E9 /* FontAwesome5_Brands.ttf in Resources */,
-				29E838BB5FFA47978A6B98A3 /* FontAwesome5_Regular.ttf in Resources */,
-				081776F56E544333AFEC6342 /* FontAwesome5_Solid.ttf in Resources */,
-				A8894C224FFC4EFFABF64374 /* Fontisto.ttf in Resources */,
-				50D6923A7F3448CB84DFDFC1 /* Foundation.ttf in Resources */,
-				8AF5E20B0F3C42A89F7A9FA2 /* Ionicons.ttf in Resources */,
-				2B7D36447E7E4AF0A2C89146 /* MaterialCommunityIcons.ttf in Resources */,
-				979813809C884889AF712DD5 /* MaterialIcons.ttf in Resources */,
-				9D2C8A707AB0477D848171A1 /* Octicons.ttf in Resources */,
-				1221552F21AB4FBD9A937E36 /* SimpleLineIcons.ttf in Resources */,
-				179225804F084D08AEE6DA6D /* Zocial.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -547,9 +466,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OverlandAndroid.app/OverlandAndroid";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-				);
 			};
 			name = Debug;
 		};
@@ -569,9 +485,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OverlandAndroid.app/OverlandAndroid";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-				);
 			};
 			name = Release;
 		};
@@ -579,8 +492,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEAD_CODE_STRIPPING = NO;
+				ENABLE_BITCODE = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"FB_SONARKIT_ENABLED=1",
+				);
 				INFOPLIST_FILE = OverlandAndroid/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -590,10 +508,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = OverlandAndroid;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-				);
 			};
 			name = Debug;
 		};
@@ -601,6 +518,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = OverlandAndroid/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -611,10 +529,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = OverlandAndroid;
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-				);
 			};
 			name = Release;
 		};
@@ -637,14 +553,11 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.OverlandAndroid-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.OverlandAndroid-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-				);
 			};
 			name = Debug;
 		};
@@ -667,14 +580,11 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.OverlandAndroid-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.OverlandAndroid-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-				);
 			};
 			name = Release;
 		};
@@ -696,14 +606,11 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.OverlandAndroid-tvOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.OverlandAndroid-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OverlandAndroid-tvOS.app/OverlandAndroid-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-				);
 			};
 			name = Debug;
 		};
@@ -725,14 +632,11 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.OverlandAndroid-tvOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.OverlandAndroid-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OverlandAndroid-tvOS.app/OverlandAndroid-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-				);
 			};
 			name = Release;
 		};
@@ -740,6 +644,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -783,6 +688,12 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "/usr/lib/swift $(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
+					"\"$(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)\"",
+					"\"$(inherited)\"",
+				);
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -793,6 +704,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -829,6 +741,12 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "/usr/lib/swift $(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
+					"\"$(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)\"",
+					"\"$(inherited)\"",
+				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

@@ -15,9 +15,9 @@ class DesiredAccuracy extends React.Component {
   }
 
   updateIndex (selectedIndex) {
-    BackgroundGeolocation.ready({
+    /*BackgroundGeolocation.ready({
       desiredAccuracy: BackgroundGeolocation.DESIRED_ACCURACY_HIGH
-    });
+    });*/
     this.setState({selectedIndex})
   }
 

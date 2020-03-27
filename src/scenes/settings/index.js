@@ -17,7 +17,7 @@ class Settings extends React.Component {
     constructor () {
     super()
     this.state = {url:'http://'}
-    console.log(BackgroundGeolocation.url)
+    //console.log(BackgroundGeolocation.url)
     /*BackgroundGeolocation.getConfig((config)=> {
       this.state = {url:'http://'}
       this.setState({url: config.url})
