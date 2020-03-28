@@ -11,9 +11,7 @@ class PointPerBatch extends React.Component {
   constructor (props) {
     super(props)
     this.buttons = ['50', '100', '200', '500', '1000'];
-    console.log("constructor::PointPerBatch::",this.props.ptsPerBatch)
     const _index = this.convNbToIndex(String(this.props.ptsPerBatch));
-    console.log("PointPerBatch::",this.props.ptsPerBatch,_index)
     this.state = {
       selectedIndex: _index
     };

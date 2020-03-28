@@ -5,9 +5,14 @@ import TrackerSwitch from './components/tracker-switch';
 import TrackerInterval from './components/tracker-interval';
 import TrackerLocationDisplay from './components/tracker-location-display';
 import TripDisplay from './components/trip-display';
+import BackgroundGeolocation from "react-native-background-geolocation";
 
 class Tracker extends React.Component {
+  constructor() {
+    super()
+  }
   render() {
+
     return (
       <TrackerContainer>
         <View style={[styles.header]}>

@@ -5,62 +5,6 @@ import LocationElement from './components/location-element';
 import GPSElement from './components/gps-element';
 import BackgroundGeolocation from "react-native-background-geolocation";
 
-/*BackgroundGeolocation.forceSync = (function() {
-
-  return new Promise(resolve => {
-
-    let arr_locations = []
-    BackgroundGeolocation.getValidLocations((locations) => {
-
-        locations.forEach((location)=> {
-          arr_locations.push({
-            "type": "Feature",
-            "geometry": {
-              "type": "Point",
-              "coordinates": [
-                location.longitude,
-                location.latitude
-              ]
-            },
-            "properties": {
-              "timestamp": new Date(location.time),
-              "altitude": location.altitude,
-              "speed": location.speed,
-              "horizontal_accuracy": location.accuracy,
-              "vertical_accuracy": -1,
-              "motion": ["driving","stationary"],
-              "pauses": false,
-              "activity": "other_navigation",
-              "desired_accuracy": location.radius,
-              "deferred": -1,
-              "significant_change": "disabled",
-              "locations_in_payload": 1,
-              "battery_state": "charging",
-              "battery_level": -1,
-              "device_id": "",
-              "wifi": ""
-            }
-          });
-        })
-
-        resolve(fetch('https://overland.openhumans.org/5ye71az9mu/', {
-          method: 'POST',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-              "locations": arr_locations
-            }),
-        }).then((response)=>{
-            return response.ok
-        }));
-
-      });
-  });
-});*/
-
-
 class TrackerLocationDisplay extends React.Component {
   constructor(props) {
      super(props);
@@ -90,9 +34,6 @@ class TrackerLocationDisplay extends React.Component {
    }
    async refresh() {
      try{
-       let now = Date()
-       console.log("refresh ::: ",now,now.getTimezoneOffset())
-
        let locations = await BackgroundGeolocation.getLocations();
        let queueSize = locations.length
        if (queueSize>=1) {

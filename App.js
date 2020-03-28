@@ -4,6 +4,7 @@ import { Alert, InteractionManager } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import AsyncStorage from '@react-native-community/async-storage';
 import AppNavigation from './src/components/app-navigation';
+import {Spinner} from 'native-base';
 import BackgroundGeolocation, {
   State,
   Config,
@@ -30,6 +31,10 @@ console.disableYellowBox = true;
 console.log('====================================================');
 
 class Application extends Component {
+  constructor(){
+    super()
+    this.state = {loading: true};
+  }
 
   async componentDidMount() {
     ////
@@ -48,17 +53,24 @@ class Application extends Component {
     // This event fires when the user toggles location-services authorization
     BackgroundGeolocation.onProviderChange(this.onProviderChange);
 
+    BackgroundGeolocation.onHttp(httpEvent => {
+      console.log("[http] ", httpEvent.success, httpEvent.status);
+    });
     ////
     // 2.  Execute #ready method (required)
     //
     let _autoSyncThreshold = await this.fetchData ('autoSyncThreshold');
     if(!_autoSyncThreshold) _autoSyncThreshold = 100;
     let _urlSync = await this.fetchData ('url');
-    if(!_urlSync) _urlSync = 'http://';
+    if(!_urlSync) _urlSync = 'https://';
+    let _desiredAccuracy = await this.fetchData ('desiredAccuracy');
+    if(!_desiredAccuracy) _desiredAccuracy = BackgroundGeolocation.DESIRED_ACCURACY_HIGH;
+    let _httpTimeout = await this.fetchData ('httpTimeout');
+    if(!_httpTimeout) _httpTimeout = 60000;
 
     BackgroundGeolocation.ready({
       // Geolocation Config
-      desiredAccuracy: BackgroundGeolocation.DESIRED_ACCURACY_HIGH,
+      desiredAccuracy: _desiredAccuracy,
       activityType: BackgroundGeolocation.ACTIVITY_TYPE_OTHER,
       distanceFilter: 5,
       locationUpdateInterval: 5000,  // Get a location every 5 seconds
@@ -76,6 +88,7 @@ class Application extends Component {
       autoSyncThreshold: _autoSyncThreshold,
       maxBatchSize: 10000,
       deferTime: 1000,
+      httpTimeout: _httpTimeout,
       httpRootProperty: 'locations',
       locationTemplate: '{\
         "type": "Feature", \
@@ -103,13 +116,16 @@ class Application extends Component {
       }'
     }, (state) => {
       console.log("- BackgroundGeolocation is configured and ready: ", state.enabled);
-
+      this.setState({loading:false})
+      
       if (!state.enabled) {
         ////
         // 3. Start tracking!
         //
+
         BackgroundGeolocation.start(function() {
           console.log("- Start success");
+
 
         });
       }
@@ -142,6 +158,7 @@ class Application extends Component {
     try {
 
       const value = await AsyncStorage.getItem('@'+name);
+      console.log("fetchData::",'@'+name,value);
       if (value !== null) {
         return value;
       }
@@ -152,7 +169,9 @@ class Application extends Component {
 
 
   render() {
-    return <AppNavigation />;
+    const isLoading = this.state.loading;
+    return (<>{ isLoading ? <Spinner/> : <AppNavigation /> }</>);
+
   }
 }
 
