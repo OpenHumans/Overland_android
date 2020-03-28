@@ -67,6 +67,8 @@ class Application extends Component {
     if(!_desiredAccuracy) _desiredAccuracy = BackgroundGeolocation.DESIRED_ACCURACY_HIGH;
     let _httpTimeout = await this.fetchData ('httpTimeout');
     if(!_httpTimeout) _httpTimeout = 60000;
+    let _useSignificantChangesOnly = await this.fetchData ('useSignificantChangesOnly');
+    if(!_useSignificantChangesOnly) _useSignificantChangesOnly = false;
 
     BackgroundGeolocation.ready({
       // Geolocation Config
@@ -74,6 +76,7 @@ class Application extends Component {
       activityType: BackgroundGeolocation.ACTIVITY_TYPE_OTHER,
       distanceFilter: 5,
       locationUpdateInterval: 5000,  // Get a location every 5 seconds
+      useSignificantChangesOnly: _useSignificantChangesOnly,
       // Activity Recognition
       stopTimeout: 1,
       // Application config
@@ -117,7 +120,7 @@ class Application extends Component {
     }, (state) => {
       console.log("- BackgroundGeolocation is configured and ready: ", state.enabled);
       this.setState({loading:false})
-      
+
       if (!state.enabled) {
         ////
         // 3. Start tracking!

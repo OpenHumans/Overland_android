@@ -17,13 +17,14 @@ import {Spinner} from 'native-base';
 class Settings extends PureComponent {
     constructor () {
     super()
-    this.state = {url:'http://',activity:'',desiredAccuracy:5,autoSyncThreshold:100,loading:true}
+    this.state = {url:'http://',activity:'',useSignificantChangesOnly: false, desiredAccuracy:5,autoSyncThreshold:100,loading:true}
   }
   componentDidMount() {
     BackgroundGeolocation.ready({},(state)=> {
       console.log("Settings---------->",state.autoSyncThreshold)
       this.setState({
         url: state.url,
+        useSignificantChangesOnly: state.useSignificantChangesOnly,
         desiredAccuracy:state.desiredAccuracy,
         activity: state.activityType,
         autoSyncThreshold: state.autoSyncThreshold,
@@ -50,7 +51,7 @@ class Settings extends PureComponent {
           </View>
 
           <ReceiverEndpoint url={this.state.url}/>
-          <SignificantLocation />
+          <SignificantLocation useSignificantChangesOnly={this.state.useSignificantChangesOnly}/>
           <ActivityType />
           <DesiredAccuracy desiredAccuracy={this.state.desiredAccuracy} />
           <DeferLocUpdates />
