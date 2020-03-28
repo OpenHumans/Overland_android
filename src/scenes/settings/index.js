@@ -1,5 +1,5 @@
-import React from 'react';
-import { Text,StyleSheet,View, ScrollView } from 'react-native';
+import React, { PureComponent }  from 'react';
+import { Text,StyleSheet,View, ScrollView, Content } from 'react-native';
 import SettingsContainer from './components/settings-container';
 import SignificantLocation from './components/significant-location';
 import ActivityType from './components/activity-type';
@@ -12,41 +12,55 @@ import StatsSwitch from './components/stats-switch';
 import NotificationsSwitch from './components/notifications-switch';
 import ReceiverEndpoint from './components/receiver-endpoint';
 import BackgroundGeolocation from "react-native-background-geolocation";
+import {Spinner} from 'native-base';
 
-class Settings extends React.Component {
+class Settings extends PureComponent {
     constructor () {
     super()
-    this.state = {url:'http://'}
-    //console.log(BackgroundGeolocation.url)
-    /*BackgroundGeolocation.getConfig((config)=> {
-      this.state = {url:'http://'}
-      this.setState({url: config.url})
-    });*/
+    this.state = {url:'http://',activity:'',autoSyncThreshold:100,loading:true}
+  }
+  componentDidMount() {
+    BackgroundGeolocation.ready({},(state)=> {
+      console.log("Settings---------->",state.autoSyncThreshold)
+      this.setState({url: state.url, activity: state.activityType, autoSyncThreshold: state.autoSyncThreshold,loading:false})
+    });
+
+  }
+  fetchDataFromBG() {
+
   }
 
 
   render() {
+    const isLoading = this.state.loading;
+
     return (
-      <ScrollView>
-      <SettingsContainer>
-        <View style={[styles.header]}>
-          <Text style={[styles.headerContent]}>SETTINGS</Text>
-        </View>
-        <ReceiverEndpoint url={this.state.url}/>
-        <SignificantLocation />
-        <ActivityType />
-        <DesiredAccuracy />
-        <DeferLocUpdates />
-        <PtsPerBatch />
-        <UpdateSwitch />
-        <ResumeGeofence />
-        <StatsSwitch />
-        <Text style={{fontSize: 12,marginLeft: 20,marginRight: 20}}>(In addition to location data, also log data about visits and other app activity)</Text>
-        <NotificationsSwitch />
-        <Text style={{fontSize: 12,marginLeft: 20,marginRight: 20}}>(Enable local notifications of app event such as when tracking has been Automatically stopped and started)</Text>
-      </SettingsContainer>
-      </ScrollView>
+      <>
+      {isLoading?<Spinner/>:
+        <ScrollView>
+        <SettingsContainer>
+          <View style={[styles.header]}>
+            <Text style={[styles.headerContent]}>SETTINGS</Text>
+          </View>
+
+          <ReceiverEndpoint url={this.state.url}/>
+          <SignificantLocation />
+          <ActivityType />
+          <DesiredAccuracy />
+          <DeferLocUpdates />
+          <PtsPerBatch ptsPerBatch={this.state.autoSyncThreshold}/>
+          <UpdateSwitch />
+          <ResumeGeofence />
+          <StatsSwitch />
+          <Text style={{fontSize: 12,marginLeft: 20,marginRight: 20}}>(In addition to location data, also log data about visits and other app activity)</Text>
+          <NotificationsSwitch />
+          <Text style={{fontSize: 12,marginLeft: 20,marginRight: 20}}>(Enable local notifications of app event such as when tracking has been Automatically stopped and started)</Text>
+        </SettingsContainer>
+        </ScrollView>
+      }
+      </>
     );
+
   }
 }
 

@@ -3,30 +3,48 @@ import { Text, StyleSheet, View } from 'react-native';
 import PtsPerBatchContainer from './components/point-per-batch-container';
 import { ButtonGroup } from 'react-native-elements';
 import BackgroundGeolocation from "react-native-background-geolocation";
+import AsyncStorage from '@react-native-community/async-storage';
+
 
 class PointPerBatch extends React.Component {
 
-  constructor () {
-    super()
+  constructor (props) {
+    super(props)
+    this.buttons = ['50', '100', '200', '500', '1000'];
+    console.log("constructor::PointPerBatch::",this.props.ptsPerBatch)
+    const _index = this.convNbToIndex(String(this.props.ptsPerBatch));
+    console.log("PointPerBatch::",this.props.ptsPerBatch,_index)
     this.state = {
-      selectedIndex: 0
-    }
-    this.updatePtPerBatch = this.updatePtPerBatch.bind(this)
+      selectedIndex: _index
+    };
+    this.updatePtPerBatch = this.updatePtPerBatch.bind(this);
+  }
+  async componentDidMount(){
+
+  }
+  convNbToIndex(nb) {
+    console.log("convNbToIndex :: ", nb, this.buttons.indexOf(nb))
+    return this.buttons.indexOf(nb);
   }
 
   updatePtPerBatch (selectedIndex) {
-    const buttons = ['50', '100', '200', '500', '1000']
-
-    /*BackgroundGeolocation.configure({
-      syncThreshold: Number(buttons[selectedIndex])
-    });*/
-    console.log("PTS PER BATCH ===>",buttons[selectedIndex])
+    BackgroundGeolocation.ready({
+      autoSyncThreshold: Number(this.buttons[selectedIndex])
+    });
+    console.log("PTS PER BATCH ===>",this.buttons[selectedIndex])
     this.setState({selectedIndex})
+    this.storeData({name:"@autoSyncThreshold",value:this.buttons[selectedIndex]})
   }
+  async storeData (state) {
+    try {
+      console.log("storeData::");
+      await AsyncStorage.setItem(state.name,state.value);
+    } catch (error) {
+      console.log("storeData::err::",error);
+    }
+  };
 
   render() {
-    const buttons = ['50', '100', '200', '500', '1000']
-    /*const buttons = ['50', '100', '200', '500', '1000']*/
     const { selectedIndex } = this.state
 
     return (
@@ -35,7 +53,7 @@ class PointPerBatch extends React.Component {
       <ButtonGroup
       onPress={this.updatePtPerBatch}
       selectedIndex={selectedIndex}
-      buttons={buttons}
+      buttons={this.buttons}
       containerStyle={{width:"90%"}}
     />
       </PtsPerBatchContainer>

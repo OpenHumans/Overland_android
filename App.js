@@ -2,6 +2,7 @@ import React from 'react';
 import {Component} from 'react';
 import { Alert, InteractionManager } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
+import AsyncStorage from '@react-native-community/async-storage';
 import AppNavigation from './src/components/app-navigation';
 import BackgroundGeolocation, {
   State,
@@ -30,171 +31,7 @@ console.log('====================================================');
 
 class Application extends Component {
 
-  /*
-  componentWillUnmount() {
-    BackgroundGeolocation.removeAllListeners();
-  }
-
-  componentDidMount() {
-    console.log('MMMMMMMMMMMMMMMOUNT');
-    // InteractionManager.runAfterInteractions(() => {
-    // BackgroundGeolocation.stop();
-    console.log('RUNNING FOR LOCATIONNNNN');
-    BackgroundGeolocation.getLocations(
-      locations => {
-        console.log('locationsS WHEN ABSENT=>', locations);
-      },
-      error => {
-        console.log('ERR', error);
-      }
-    );
-    // RESET FOR DEV =>
-    // BackgroundGeolocation.stop();
-    BackgroundGeolocation.getValidLocations(
-      locations => {
-        console.log('VALID LOC WHEN ABSENT=>', locations);
-      },
-      error => {
-        console.log('ERR', error);
-      }
-    );
-    // });
-    BackgroundGeolocation.getConfig(
-      config => {
-        console.log('config=======+>', config);
-      },
-      err => {
-        console.log(err);
-      }
-    );
-    BackgroundGeolocation.configure({
-      desiredAccuracy: BackgroundGeolocation.HIGH_ACCURACY,
-      stationaryRadius: 20,
-      distanceFilter: 5,
-      notificationTitle: 'Background tracking',
-      notificationText: 'enabled',
-      debug: true,
-      startOnBoot: true,
-      stopOnTerminate: false,
-      locationProvider: BackgroundGeolocation.DISTANCE_FILTER_PROVIDER,
-      interval: 5000,
-      fastestInterval: 5000,
-      activitiesInterval: 10000,
-      stopOnStillActivity: false,
-      notificationsEnabled: false,
-      startForeground: true,
-      syncThreshold: 500,
-      syncUrl: '',// https://overland.openhumans.org/5ye71az9mu/
-      url: '', // http://192.168.1.100:4000
-      // customize post properties
-      postTemplate: {
-        "locations": [
-           {
-             "type": "Feature",
-             "geometry": {
-               "type": "Point",
-               "coordinates": [
-                 '@latitude',
-                 '@longitude'
-               ]
-             }
-           }
-         ]
-     },
-    });
-    BackgroundGeolocation.configure({
-      postTemplate: ['@latitude', '@longitude']
-    });
-    BackgroundGeolocation.checkStatus(status => {
-      console.log('==>STATUTS+<', status);
-      if (!status.isRunning) {
-        console.log('BACKGEO was not running......;');
-
-        BackgroundGeolocation.start();
-      }
-    });
-
-    // BackgroundGeolocation.on('error', error => {
-    //   console.log('[ERROR] BackgroundGeolocation error:', error);
-    // });
-
-    BackgroundGeolocation.on('location', location => {
-      // handle your locations here
-      // to perform long running operation on iOS
-      // you need to create background task
-      console.log('CURRENT LOCATION>', location);
-       BackgroundGeolocation.startTask(async (taskKey) => {
-         let res = await this.postBatchLocations();
-         if(res){
-           this.deleteAllData();
-         }
-
-       BackgroundGeolocation.endTask(taskKey);
-       });
-    });
-  }
-
-  deleteAllData (){
-    BackgroundGeolocation.deleteAllLocations();
-    this.setState({lastSent: '00:00', queueSize: '0' ,diffDateLastLocation: '-',speed: '-',latitude: '--',longitude: '--',accuracy: '--', selectedLocationId: -1, isReady: false });
-  }
-
-  postBatchLocations() {
-
-      return new Promise(resolve => {
-
-        let arr_locations = []
-        BackgroundGeolocation.getValidLocations((locations) => {
-            if(locations.length<5) return false;
-            locations.forEach((location)=> {
-              arr_locations.push({
-                "type": "Feature",
-                "geometry": {
-                  "type": "Point",
-                  "coordinates": [
-                    location.longitude,
-                    location.latitude
-                  ]
-                },
-                "properties": {
-                  "timestamp": new Date(location.time),
-                  "altitude": location.altitude,
-                  "speed": location.speed,
-                  "horizontal_accuracy": location.accuracy,
-                  "vertical_accuracy": -1,
-                  "motion": ["driving","stationary"],
-                  "pauses": false,
-                  "activity": "other_navigation",
-                  "desired_accuracy": location.radius,
-                  "deferred": -1,
-                  "significant_change": "disabled",
-                  "locations_in_payload": 1,
-                  "battery_state": "charging",
-                  "battery_level": -1,
-                  "device_id": "",
-                  "wifi": ""
-                }
-              });
-            })
-
-            resolve(fetch('https://overland.openhumans.org/5ye71az9mu/', {
-              method: 'POST',
-              headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify({
-                  "locations": arr_locations
-                }),
-            }).then((response)=>{
-                return response.ok
-            }));
-
-          });
-      });
-  }*/
-
-  componentDidMount() {
+  async componentDidMount() {
     ////
     // 1.  Wire up event-listeners
     //
@@ -214,11 +51,15 @@ class Application extends Component {
     ////
     // 2.  Execute #ready method (required)
     //
-
+    let _autoSyncThreshold = await this.fetchData ('autoSyncThreshold');
+    if(!_autoSyncThreshold) _autoSyncThreshold = 100;
+    let _urlSync = await this.fetchData ('url');
+    if(!_urlSync) _urlSync = 'http://';
 
     BackgroundGeolocation.ready({
       // Geolocation Config
       desiredAccuracy: BackgroundGeolocation.DESIRED_ACCURACY_HIGH,
+      activityType: BackgroundGeolocation.ACTIVITY_TYPE_OTHER,
       distanceFilter: 5,
       locationUpdateInterval: 5000,  // Get a location every 5 seconds
       // Activity Recognition
@@ -229,11 +70,12 @@ class Application extends Component {
       stopOnTerminate: false,   // <-- Allow the background-service to continue tracking when user closes the app.
       startOnBoot: true,        // <-- Auto start tracking when device is powered-up.
       // HTTP / SQLite config
-      url: 'https://overland.openhumans.org/5ye71az9mu/',
+      url: _urlSync,
       batchSync: true,       // <-- [Default: false] Set true to sync locations to server in a single HTTP request.
       autoSync: true,         // <-- [Default: true] Set true to sync each location to server as it arrives.
-      autoSyncThreshold: 100,
+      autoSyncThreshold: _autoSyncThreshold,
       maxBatchSize: 10000,
+      deferTime: 1000,
       httpRootProperty: 'locations',
       locationTemplate: '{\
         "type": "Feature", \
@@ -266,12 +108,10 @@ class Application extends Component {
         ////
         // 3. Start tracking!
         //
-
         BackgroundGeolocation.start(function() {
           console.log("- Start success");
 
         });
-
       }
     });
 
@@ -298,6 +138,17 @@ class Application extends Component {
     console.log('[motionchange] -', event.isMoving, event.location);
   }
 
+   async fetchData (name) {
+    try {
+
+      const value = await AsyncStorage.getItem('@'+name);
+      if (value !== null) {
+        return value;
+      }
+    } catch (error) {
+      console.log("fetchData::err::",error);
+    }
+  };
 
 
   render() {

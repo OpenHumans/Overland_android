@@ -15,6 +15,7 @@
     "@fortawesome/free-regular-svg-icons": "^5.12.1",
     "@fortawesome/free-solid-svg-icons": "^5.12.1",
     "@fortawesome/react-native-fontawesome": "^0.2.2",
+    "@react-native-community/async-storage": "^1.8.1",
     "@react-native-community/geolocation": "^2.0.2",
     "@react-native-community/slider": "^2.0.8",
     "@react-navigation/bottom-tabs": "^5.1.1",

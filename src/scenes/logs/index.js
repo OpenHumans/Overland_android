@@ -122,7 +122,7 @@ class AllLocationsScene extends PureComponent {
           </Right>
         </Header>
         <Content>
-          {(() => {
+          {( () => {
             if (!isReady) {
               return <Spinner />;
             }
@@ -141,7 +141,7 @@ class AllLocationsScene extends PureComponent {
                 }}
               />
             );
-          })()}
+          } ) ()}
         </Content>
       </Container>
     );
