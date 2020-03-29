@@ -22,10 +22,35 @@ class SignificantLocation extends React.Component {
     }else{
       _useSignificantChangesOnly = true;
     }
+    let templateSignificantChangesOnly = _useSignificantChangesOnly ==='True' ? "enabled":"disabled";
     this.setState({selectedIndex})
     BackgroundGeolocation.ready({
-      useSignificantChangesOnly:_useSignificantChangesOnly
-    });
+      useSignificantChangesOnly:_useSignificantChangesOnly,
+      locationTemplate: '{\
+        "type": "Feature", \
+        "geometry": { \
+          "type": "Point",    \
+          "coordinates": [      <%=longitude%>,      <%=latitude%>    ]  },\
+        "properties": {    \
+          "timestamp": "<%= timestamp %>",    \
+          "battery_level": <%=battery.level%>,    \
+          "speed": <%=speed%>, \
+          "altitude": <%=altitude%>,\
+          "horizontal_accuracy": <%=accuracy%>,\
+          "vertical_accuracy": <%=altitude_accuracy%>,\
+          "significant_change": \"'+templateSignificantChangesOnly+'\" ,\
+          "locations_in_payload": 1,\
+          "battery_state": <%=battery.is_charging%>,\
+          "device_id": "",\
+          "wifi": "" ,\
+          "deferred": 1000,\
+          "desired_accuracy": 100,\
+          "activity": <%=activity.type%>,\
+          "pauses": <%=is_moving%>,\
+          "motion": ["driving"]\
+        }\
+      }'
+    },(state)=>{console.log(state)});
     this.storeData({name:"@useSignificantChangesOnly",value:_useSignificantChangesOnly?'True':'False'})
   }
   async storeData (state) {

@@ -17,7 +17,7 @@ import {Spinner} from 'native-base';
 class Settings extends PureComponent {
     constructor () {
     super()
-    this.state = {url:'http://',activity:'',useSignificantChangesOnly: false, desiredAccuracy:5,autoSyncThreshold:100,loading:true}
+    this.state = {url:'http://',activity:'',stopOnStationary:"True",geofenceProximityRadius:'1000',useSignificantChangesOnly: false, desiredAccuracy:5,autoSyncThreshold:100,loading:true}
   }
   componentDidMount() {
     BackgroundGeolocation.ready({},(state)=> {
@@ -28,6 +28,8 @@ class Settings extends PureComponent {
         desiredAccuracy:state.desiredAccuracy,
         activity: state.activityType,
         autoSyncThreshold: state.autoSyncThreshold,
+        geofenceProximityRadius: state.geofenceProximityRadius,
+        stopOnStationary: state.stopOnStationary,
         loading:false
       })
     });
@@ -56,8 +58,8 @@ class Settings extends PureComponent {
           <DesiredAccuracy desiredAccuracy={this.state.desiredAccuracy} />
           <DeferLocUpdates />
           <PtsPerBatch ptsPerBatch={this.state.autoSyncThreshold}/>
-          <UpdateSwitch />
-          <ResumeGeofence />
+          <UpdateSwitch stopOnStationary={this.state.stopOnStationary}/>
+          <ResumeGeofence geofenceProximityRadius={this.state.geofenceProximityRadius}/>
           <StatsSwitch />
           <Text style={{fontSize: 12,marginLeft: 20,marginRight: 20}}>(In addition to location data, also log data about visits and other app activity)</Text>
           <NotificationsSwitch />

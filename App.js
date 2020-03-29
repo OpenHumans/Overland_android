@@ -68,7 +68,14 @@ class Application extends Component {
     let _httpTimeout = await this.fetchData ('httpTimeout');
     if(!_httpTimeout) _httpTimeout = 60000;
     let _useSignificantChangesOnly = await this.fetchData ('useSignificantChangesOnly');
-    if(!_useSignificantChangesOnly) _useSignificantChangesOnly = false;
+    if(!_useSignificantChangesOnly) _useSignificantChangesOnly = 'False';
+    //_useSignificantChangesOnly is a string "False" or "True"
+    _useSignificantChangesOnly = _useSignificantChangesOnly=='True' ? true:false;
+    let templateSignificantChangesOnly = _useSignificantChangesOnly ? "enabled":"disabled";
+    let _stopOnStationary = await this.fetchData ('stopOnStationary');
+    if(!_stopOnStationary) _stopOnStationary = "True";
+    _stopOnStationary = _stopOnStationary=='True' ? true:false;
+    let _deferTime = 0;
 
     BackgroundGeolocation.ready({
       // Geolocation Config
@@ -76,9 +83,9 @@ class Application extends Component {
       activityType: BackgroundGeolocation.ACTIVITY_TYPE_OTHER,
       distanceFilter: 0,
       locationUpdateInterval: 5000,  // Get a location every 5 seconds
-      deferTime: 0,
+      deferTime: _deferTime,
       useSignificantChangesOnly: _useSignificantChangesOnly,
-      stopOnStationary: true,
+      stopOnStationary: _stopOnStationary,
       // Activity Recognition
       stopTimeout: 1,
       // Application config
@@ -92,8 +99,7 @@ class Application extends Component {
       autoSync: true,         // <-- [Default: true] Set true to sync each location to server as it arrives.
       autoSyncThreshold: _autoSyncThreshold,
       maxBatchSize: 10000,
-      deferTime: 1000,
-      httpTimeout: 30000,
+      httpTimeout: _httpTimeout,
       //httpTimeout: _httpTimeout,
       geofenceProximityRadius: 1000,
       httpRootProperty: 'locations',
@@ -109,13 +115,13 @@ class Application extends Component {
           "altitude": <%=altitude%>,\
           "horizontal_accuracy": <%=accuracy%>,\
           "vertical_accuracy": <%=altitude_accuracy%>,\
-          "significant_change": "disabled",\
+          "significant_change": \"'+templateSignificantChangesOnly+'\" ,\
           "locations_in_payload": 1,\
           "battery_state": <%=battery.is_charging%>,\
           "device_id": "",\
           "wifi": "" ,\
-          "deferred": 1000,\
-          "desired_accuracy": 100,\
+          "deferred": \"'+_deferTime+'\",\
+          "desired_accuracy": \"'+ _desiredAccuracy +'\",\
           "activity": <%=activity.type%>,\
           "pauses": <%=is_moving%>,\
           "motion": ["driving"]\
