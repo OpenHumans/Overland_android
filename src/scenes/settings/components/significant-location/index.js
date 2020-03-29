@@ -24,7 +24,7 @@ class SignificantLocation extends React.Component {
     }
     let templateSignificantChangesOnly = _useSignificantChangesOnly ==='True' ? "enabled":"disabled";
     this.setState({selectedIndex})
-    BackgroundGeolocation.ready({
+    BackgroundGeolocation.setConfig({
       useSignificantChangesOnly:_useSignificantChangesOnly,
       locationTemplate: '{\
         "type": "Feature", \
@@ -50,7 +50,7 @@ class SignificantLocation extends React.Component {
           "motion": ["driving"]\
         }\
       }'
-    },(state)=>{console.log(state)});
+    });
     this.storeData({name:"@useSignificantChangesOnly",value:_useSignificantChangesOnly?'True':'False'})
   }
   async storeData (state) {

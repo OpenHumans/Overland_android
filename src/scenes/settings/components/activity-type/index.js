@@ -67,7 +67,7 @@ class ActivityType extends React.Component {
         current_activity = BackgroundGeolocation.ACTIVITY_TYPE_OTHER;
         // other
     }
-    BackgroundGeolocation.ready({
+    BackgroundGeolocation.setConfig({
       activityType: current_activity
     });
 

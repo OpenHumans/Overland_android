@@ -26,7 +26,7 @@ class PointPerBatch extends React.Component {
   }
 
   updatePtPerBatch (selectedIndex) {
-    BackgroundGeolocation.ready({
+    BackgroundGeolocation.setConfig({
       autoSyncThreshold: Number(this.buttons[selectedIndex])
     });
     console.log("PTS PER BATCH ===>",this.buttons[selectedIndex])

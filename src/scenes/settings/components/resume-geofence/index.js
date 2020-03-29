@@ -44,39 +44,27 @@ class ResumeGeofence extends React.Component {
     switch (selectedIndex) {
       case 1:
         _geofenceProximityRadius = '100';
-        BackgroundGeolocation.ready({geofenceProximityRadius:100},(state)=>{
-          console.log(state);
-        });
+        BackgroundGeolocation.setConfig({geofenceProximityRadius:100});
         break;
       case 2:
         _geofenceProximityRadius = '200';
-        BackgroundGeolocation.ready({geofenceProximityRadius:200},(state)=>{
-          console.log(state);
-        });
+        BackgroundGeolocation.setConfig({geofenceProximityRadius:200});
         break;
       case 3:
         _geofenceProximityRadius = '500';
-        BackgroundGeolocation.ready({geofenceProximityRadius:500},(state)=>{
-          console.log(state);
-        });
+        BackgroundGeolocation.setConfig({geofenceProximityRadius:500});
         break;
       case 4:
         _geofenceProximityRadius = '1000';
-        BackgroundGeolocation.ready({geofenceProximityRadius:1000},(state)=>{
-          console.log(state);
-        });
+        BackgroundGeolocation.setConfig({geofenceProximityRadius:1000});
         break;
       case 5:
         _geofenceProximityRadius = '1000';
-        BackgroundGeolocation.ready({geofenceProximityRadius:2000},(state)=>{
-          console.log(state);
-        });
+        BackgroundGeolocation.setConfig({geofenceProximityRadius:2000});
         break;
       default:
-      _geofenceProximityRadius = 'off';
-      BackgroundGeolocation.ready({geofenceProximityRadius:1000},(state)=>{
-        console.log(state);
-      });
+        _geofenceProximityRadius = 'off';
+        BackgroundGeolocation.setConfig({geofenceProximityRadius:1000});
 
     }
 

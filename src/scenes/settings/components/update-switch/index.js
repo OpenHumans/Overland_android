@@ -19,7 +19,7 @@ class UpdateSwitch extends React.Component {
     this.setState({
       stopOnStationary: e,
     });
-    BackgroundGeolocation.ready({
+    BackgroundGeolocation.setConfig({
       stopOnStationary: e
     });
     let s_stopOnStationary = e ? 'True':'False';

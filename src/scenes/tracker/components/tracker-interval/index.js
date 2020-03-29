@@ -25,7 +25,7 @@ class TrackerInterval extends React.Component {
     this.setState({
       interval: num,
     });
-    BackgroundGeolocation.ready({httpTimeout:num*1000})
+    BackgroundGeolocation.setConfig({httpTimeout:num*1000})
     this.storeData({name:"@httpTimeout",value:String(num*1000)})
   }
   async storeData (state) {

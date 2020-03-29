@@ -70,7 +70,7 @@ class DesiredAccuracy extends React.Component {
       default:
 
     }
-    BackgroundGeolocation.ready({
+    BackgroundGeolocation.setConfig({
       desiredAccuracy: selectedAccuracy
     });
     this.setState({selectedIndex})

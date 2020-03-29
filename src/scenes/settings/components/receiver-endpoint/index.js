@@ -37,7 +37,7 @@ class ReceiverEndpoint extends React.Component {
     // The user has pressed the "Delete" button, so here you can do your own logic.
     // ...Your logic
     this.setState({ dialogVisible: false });
-    BackgroundGeolocation.ready({
+    BackgroundGeolocation.setConfig({
       url: this.state.url
     });
     this.storeData({name:"@url",value:this.state.url})
