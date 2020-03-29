@@ -26,7 +26,7 @@ class SignificantLocation extends React.Component {
     BackgroundGeolocation.ready({
       useSignificantChangesOnly:_useSignificantChangesOnly
     });
-    this.storeData({name:"@useSignificantChangesOnly",value:_useSignificantChangesOnly})
+    this.storeData({name:"@useSignificantChangesOnly",value:_useSignificantChangesOnly?'True':'False'})
   }
   async storeData (state) {
     try {

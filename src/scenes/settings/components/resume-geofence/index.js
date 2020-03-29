@@ -2,6 +2,8 @@ import React from 'react';
 import { Text, StyleSheet, View } from 'react-native';
 import ResumeGeofenceContainer from './components/resume-geofence-container';
 import { ButtonGroup } from 'react-native-elements';
+import BackgroundGeolocation from "react-native-background-geolocation";
+import AsyncStorage from '@react-native-community/async-storage';
 
 class ResumeGeofence extends React.Component {
 
@@ -14,6 +16,47 @@ class ResumeGeofence extends React.Component {
   }
 
   updateIndex (selectedIndex) {
+    if(selectedIndex>0){
+      BackgroundGeolocation.startGeofences(()=>{
+        console.log("- Start GeoFences success");
+      });
+    }else{
+      BackgroundGeolocation.stop();
+      BackgroundGeolocation.start();
+      console.log("- Stop GeoFences success");
+    }
+    switch (selectedIndex) {
+      case 1:
+        BackgroundGeolocation.ready({geofenceProximityRadius:100},(state)=>{
+          console.log(state);
+        });
+        break;
+      case 2:
+        BackgroundGeolocation.ready({geofenceProximityRadius:200},(state)=>{
+          console.log(state);
+        });
+        break;
+      case 3:
+        BackgroundGeolocation.ready({geofenceProximityRadius:500},(state)=>{
+          console.log(state);
+        });
+        break;
+      case 4:
+        BackgroundGeolocation.ready({geofenceProximityRadius:1000},(state)=>{
+          console.log(state);
+        });
+        break;
+      case 5:
+        BackgroundGeolocation.ready({geofenceProximityRadius:2000},(state)=>{
+          console.log(state);
+        });
+        break;
+      default:
+        BackgroundGeolocation.ready({geofenceProximityRadius:1000},(state)=>{
+          console.log(state);
+        });
+
+    }
     this.setState({selectedIndex})
   }
 

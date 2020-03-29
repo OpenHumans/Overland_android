@@ -35,7 +35,7 @@ class TrackerLocationDisplay extends React.Component {
    async refresh() {
      try{
        let locations = await BackgroundGeolocation.getLocations();
-       let queueSize = locations.length
+       let queueSize = locations.length;
        if (queueSize>=1) {
          let last_location = locations[queueSize - 1];
          let last_timestamp = new Date(locations[queueSize - 1].properties.timestamp);

@@ -74,9 +74,11 @@ class Application extends Component {
       // Geolocation Config
       desiredAccuracy: _desiredAccuracy,
       activityType: BackgroundGeolocation.ACTIVITY_TYPE_OTHER,
-      distanceFilter: 5,
+      distanceFilter: 0,
       locationUpdateInterval: 5000,  // Get a location every 5 seconds
+      deferTime: 0,
       useSignificantChangesOnly: _useSignificantChangesOnly,
+      stopOnStationary: true,
       // Activity Recognition
       stopTimeout: 1,
       // Application config
@@ -91,7 +93,9 @@ class Application extends Component {
       autoSyncThreshold: _autoSyncThreshold,
       maxBatchSize: 10000,
       deferTime: 1000,
-      httpTimeout: _httpTimeout,
+      httpTimeout: 30000,
+      //httpTimeout: _httpTimeout,
+      geofenceProximityRadius: 1000,
       httpRootProperty: 'locations',
       locationTemplate: '{\
         "type": "Feature", \
@@ -114,11 +118,12 @@ class Application extends Component {
           "desired_accuracy": 100,\
           "activity": <%=activity.type%>,\
           "pauses": <%=is_moving%>,\
-          "motion": ["driving","stationary"]\
+          "motion": ["driving"]\
         }\
       }'
     }, (state) => {
       console.log("- BackgroundGeolocation is configured and ready: ", state.enabled);
+      console.log(state)
       this.setState({loading:false})
 
       if (!state.enabled) {
@@ -126,11 +131,14 @@ class Application extends Component {
         // 3. Start tracking!
         //
 
+
         BackgroundGeolocation.start(function() {
           console.log("- Start success");
 
 
         });
+
+
       }
     });
 
@@ -146,7 +154,9 @@ class Application extends Component {
   onError(error) {
     console.warn('[location] ERROR -', error);
   }
-  onActivityChange(event) {
+  async onActivityChange(event) {
+    let geofences = await BackgroundGeolocation.getGeofences();
+    console.log("[getGeofences: ", geofences);
     console.log('[activitychange] -', event);  // eg: 'on_foot', 'still', 'in_vehicle'
   }
 
