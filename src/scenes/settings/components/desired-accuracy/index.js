@@ -68,14 +68,47 @@ class DesiredAccuracy extends React.Component {
         selectedAccuracy = BackgroundGeolocation.DESIRED_ACCURACY_LOWEST;
         break;
       default:
-
+        selectedAccuracy = BackgroundGeolocation.DESIRED_ACCURACY_HIGH;
     }
-    BackgroundGeolocation.setConfig({
+    BackgroundGeolocation.ready({
       desiredAccuracy: selectedAccuracy
-    });
+    },()=>{this.updateLocationTemplate()});
     this.setState({selectedIndex})
     this.storeData({name:"@desiredAccuracy",value:selectedAccuracy})
   }
+
+  updateLocationTemplate(){
+    BackgroundGeolocation.ready({}, (state) => {
+        let _templateSignificantChangesOnly = state.useSignificantChangesOnly;
+        let _deferTime = state.deferTime
+        let _desiredAccuracy = state.desiredAccuracy;
+        let _template = '{\
+          "type": "Feature", \
+          "geometry": { \
+            "type": "Point",    \
+            "coordinates": [      <%=longitude%>,      <%=latitude%>    ]  },\
+          "properties": {    \
+            "timestamp": "<%= timestamp %>",    \
+            "battery_level": <%=battery.level%>,    \
+            "speed": <%=speed%>, \
+            "altitude": <%=altitude%>,\
+            "horizontal_accuracy": <%=accuracy%>,\
+            "vertical_accuracy": <%=altitude_accuracy%>,\
+            "significant_change": \"'+_templateSignificantChangesOnly+'\" ,\
+            "locations_in_payload": 1,\
+            "battery_state": <%=battery.is_charging%>,\
+            "device_id": "",\
+            "wifi": "" ,\
+            "deferred": \"'+_deferTime+'\",\
+            "desired_accuracy": \"'+ _desiredAccuracy +'\",\
+            "activity": <%=activity.type%>,\
+            "pauses": <%=is_moving%>,\
+            "motion": ["driving"]\
+          }\
+        }';
+        BackgroundGeolocation.setConfig({locationTemplate:_template})
+    })
+  };
 
   convAccuracyToIndex(nb) {
     return this.buttons.indexOf(nb);

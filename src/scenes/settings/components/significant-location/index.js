@@ -24,35 +24,46 @@ class SignificantLocation extends React.Component {
     }
     let templateSignificantChangesOnly = _useSignificantChangesOnly ==='True' ? "enabled":"disabled";
     this.setState({selectedIndex})
-    BackgroundGeolocation.setConfig({
-      useSignificantChangesOnly:_useSignificantChangesOnly,
-      locationTemplate: '{\
-        "type": "Feature", \
-        "geometry": { \
-          "type": "Point",    \
-          "coordinates": [      <%=longitude%>,      <%=latitude%>    ]  },\
-        "properties": {    \
-          "timestamp": "<%= timestamp %>",    \
-          "battery_level": <%=battery.level%>,    \
-          "speed": <%=speed%>, \
-          "altitude": <%=altitude%>,\
-          "horizontal_accuracy": <%=accuracy%>,\
-          "vertical_accuracy": <%=altitude_accuracy%>,\
-          "significant_change": \"'+templateSignificantChangesOnly+'\" ,\
-          "locations_in_payload": 1,\
-          "battery_state": <%=battery.is_charging%>,\
-          "device_id": "",\
-          "wifi": "" ,\
-          "deferred": 1000,\
-          "desired_accuracy": 100,\
-          "activity": <%=activity.type%>,\
-          "pauses": <%=is_moving%>,\
-          "motion": ["driving"]\
-        }\
-      }'
-    });
+    BackgroundGeolocation.ready({
+      useSignificantChangesOnly:_useSignificantChangesOnly
+    },()=>{this.updateLocationTemplate()});
     this.storeData({name:"@useSignificantChangesOnly",value:_useSignificantChangesOnly?'True':'False'})
   }
+
+  updateLocationTemplate(){
+    BackgroundGeolocation.ready({}, (state) => {
+        let _templateSignificantChangesOnly = state.useSignificantChangesOnly;
+        let _deferTime = state.deferTime
+        let _desiredAccuracy = state.desiredAccuracy;
+        let _template = '{\
+          "type": "Feature", \
+          "geometry": { \
+            "type": "Point",    \
+            "coordinates": [      <%=longitude%>,      <%=latitude%>    ]  },\
+          "properties": {    \
+            "timestamp": "<%= timestamp %>",    \
+            "battery_level": <%=battery.level%>,    \
+            "speed": <%=speed%>, \
+            "altitude": <%=altitude%>,\
+            "horizontal_accuracy": <%=accuracy%>,\
+            "vertical_accuracy": <%=altitude_accuracy%>,\
+            "significant_change": \"'+_templateSignificantChangesOnly+'\" ,\
+            "locations_in_payload": 1,\
+            "battery_state": <%=battery.is_charging%>,\
+            "device_id": "",\
+            "wifi": "" ,\
+            "deferred": \"'+_deferTime+'\",\
+            "desired_accuracy": \"'+ _desiredAccuracy +'\",\
+            "activity": <%=activity.type%>,\
+            "pauses": <%=is_moving%>,\
+            "motion": ["driving"]\
+          }\
+        }';
+        BackgroundGeolocation.setConfig({locationTemplate:_template})
+    })
+  };
+
+
   async storeData (state) {
     try {
       console.log("storeData::");

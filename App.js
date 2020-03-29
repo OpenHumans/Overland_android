@@ -61,21 +61,26 @@ class Application extends Component {
     //
     let _autoSyncThreshold = await this.fetchData ('autoSyncThreshold');
     if(!_autoSyncThreshold) _autoSyncThreshold = 100;
+    else _autoSyncThreshold = Number(_autoSyncThreshold);
     let _urlSync = await this.fetchData ('url');
     if(!_urlSync) _urlSync = 'https://';
     let _desiredAccuracy = await this.fetchData ('desiredAccuracy');
     if(!_desiredAccuracy) _desiredAccuracy = BackgroundGeolocation.DESIRED_ACCURACY_HIGH;
     let _httpTimeout = await this.fetchData ('httpTimeout');
     if(!_httpTimeout) _httpTimeout = 60000;
+    else _httpTimeout = Number(_httpTimeout);
     let _useSignificantChangesOnly = await this.fetchData ('useSignificantChangesOnly');
     if(!_useSignificantChangesOnly) _useSignificantChangesOnly = 'False';
     //_useSignificantChangesOnly is a string "False" or "True"
     _useSignificantChangesOnly = _useSignificantChangesOnly=='True' ? true:false;
-    let templateSignificantChangesOnly = _useSignificantChangesOnly ? "enabled":"disabled";
+    let _templateSignificantChangesOnly = _useSignificantChangesOnly ? "enabled":"disabled";
     let _stopOnStationary = await this.fetchData ('stopOnStationary');
     if(!_stopOnStationary) _stopOnStationary = "True";
     _stopOnStationary = _stopOnStationary=='True' ? true:false;
-    let _deferTime = 0;
+    let _deferTime = await this.fetchData ('deferTime');
+    if(!_deferTime) _deferTime = 0;
+    else _deferTime = Number(_deferTime);
+
 
     BackgroundGeolocation.ready({
       // Geolocation Config
@@ -115,7 +120,7 @@ class Application extends Component {
           "altitude": <%=altitude%>,\
           "horizontal_accuracy": <%=accuracy%>,\
           "vertical_accuracy": <%=altitude_accuracy%>,\
-          "significant_change": \"'+templateSignificantChangesOnly+'\" ,\
+          "significant_change": \"'+_templateSignificantChangesOnly+'\" ,\
           "locations_in_payload": 1,\
           "battery_state": <%=battery.is_charging%>,\
           "device_id": "",\

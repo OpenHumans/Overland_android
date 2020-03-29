@@ -17,7 +17,7 @@ import {Spinner} from 'native-base';
 class Settings extends PureComponent {
     constructor () {
     super()
-    this.state = {url:'http://',activity:'',stopOnStationary:"True",geofenceProximityRadius:'1000',useSignificantChangesOnly: false, desiredAccuracy:5,autoSyncThreshold:100,loading:true}
+    this.state = {url:'http://',activity:'',deferTime:0,stopOnStationary:"True",geofenceProximityRadius:'1000',useSignificantChangesOnly: false, desiredAccuracy:5,autoSyncThreshold:100,loading:true}
   }
   componentDidMount() {
     BackgroundGeolocation.ready({},(state)=> {
@@ -30,6 +30,7 @@ class Settings extends PureComponent {
         autoSyncThreshold: state.autoSyncThreshold,
         geofenceProximityRadius: state.geofenceProximityRadius,
         stopOnStationary: state.stopOnStationary,
+        deferTime: state.deferTime,
         loading:false
       })
     });
@@ -56,7 +57,7 @@ class Settings extends PureComponent {
           <SignificantLocation useSignificantChangesOnly={this.state.useSignificantChangesOnly}/>
           <ActivityType />
           <DesiredAccuracy desiredAccuracy={this.state.desiredAccuracy} />
-          <DeferLocUpdates />
+          <DeferLocUpdates deferTime={this.state.deferTime} />
           <PtsPerBatch ptsPerBatch={this.state.autoSyncThreshold}/>
           <UpdateSwitch stopOnStationary={this.state.stopOnStationary}/>
           <ResumeGeofence geofenceProximityRadius={this.state.geofenceProximityRadius}/>
