@@ -62,7 +62,7 @@ class TrackerLocationDisplay extends React.Component {
          if(speed==='NaN') {
            let speed = '-'
          }
-         this.setState({ lastSent: String(s_diffDateFirstLocation), queueSize: String(queueSize), diffDateLastLocation: s_diffDateLastLocation, speed: String(speed), latitude: String(last_location.geometry.coordinates[0]),longitude: String(last_location.geometry.coordinates[1]),accuracy:Math.floor(last_location.properties.accuracy), isReady: true });
+         this.setState({ lastSent: String(s_diffDateFirstLocation), queueSize: String(queueSize), diffDateLastLocation: s_diffDateLastLocation, speed: String(speed), latitude: String(last_location.geometry.coordinates[0]),longitude: String(last_location.geometry.coordinates[1]),accuracy:Math.floor(last_location.properties.horizontal_accuracy), isReady: true });
        } else {
          this.setState({lastSent: '-', queueSize: '0' ,diffDateLastLocation: '-',speed: '-',latitude: '--',longitude: '--',accuracy: '--', selectedLocationId: -1, isReady: false });
        }
@@ -119,7 +119,7 @@ class TrackerLocationDisplay extends React.Component {
             value={this.state.diffDateLastLocation}
             description={'hh:mm:ss ago'}
           />
-          <LocationElement title={'SPEED'} value={this.state.speed} description={'mph'} />
+          <LocationElement title={'SPEED'} value={this.state.speed} description={'m/s'} />
           <GPSElement
             title={'LOCATION'}
             valueX={this.state.latitude}

@@ -23,7 +23,7 @@ class StatsSwitch extends React.Component {
     return (
       <StatsSwitchContainer>
         <Text style={{fontSize: 16,color:"#999"}}>Include tracking stats</Text>
-        <Switch value={toggleSwitch} onValueChange={this.onSwitchValueChange} disabled/>
+        <Switch value={toggleSwitch} onValueChange={this.onSwitchValueChange} disabled />
       </StatsSwitchContainer>
     );
   }
