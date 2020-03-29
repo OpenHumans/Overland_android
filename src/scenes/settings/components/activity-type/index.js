@@ -10,7 +10,7 @@ class ActivityType extends React.Component {
 
   constructor (props) {
     super(props)
-    this.buttons = ['Other', 'Fitness', 'Automotive', 'Other Nav']
+    this.buttons = ['Auto', 'Fitness', 'Automotive', 'Other Nav']
     this.state = {
       selectedIndex: 0
     }

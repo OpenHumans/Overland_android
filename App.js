@@ -26,6 +26,8 @@ import BackgroundGeolocation, {
   TransistorAuthorizationToken
 } from "react-native-background-geolocation";
 
+import NetInfo from "@react-native-community/netinfo";
+
 console.disableYellowBox = true;
 
 console.log('====================================================');
@@ -37,6 +39,14 @@ class Application extends Component {
   }
 
   async componentDidMount() {
+
+
+    const unsubscribe = NetInfo.addEventListener(state => {
+      console.log("Connection type", state.type);
+      console.log("SSID", state.details.ssid);
+      console.log("Is connected?", state.isConnected);
+    });
+    
     ////
     // 1.  Wire up event-listeners
     //
