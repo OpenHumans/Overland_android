@@ -7,7 +7,7 @@ class StatsSwitch extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      toggleSwitch: true,
+      toggleSwitch: false,
     };
     this.onSwitchValueChange = this.onSwitchValueChange.bind(this);
   }
@@ -22,8 +22,8 @@ class StatsSwitch extends React.Component {
     const { toggleSwitch } = this.state;
     return (
       <StatsSwitchContainer>
-        <Text style={{fontSize: 16}}>Include tracking stats</Text>
-        <Switch value={toggleSwitch} onValueChange={this.onSwitchValueChange} />
+        <Text style={{fontSize: 16,color:"#999"}}>Include tracking stats</Text>
+        <Switch value={toggleSwitch} onValueChange={this.onSwitchValueChange} disabled/>
       </StatsSwitchContainer>
     );
   }
