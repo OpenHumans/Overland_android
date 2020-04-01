@@ -96,7 +96,7 @@ class Application extends Component {
       // Geolocation Config
       desiredAccuracy: _desiredAccuracy,
       activityType: BackgroundGeolocation.ACTIVITY_TYPE_OTHER,
-      distanceFilter: 0,
+      distanceFilter: 2,
       locationUpdateInterval: 5000,  // Get a location every 5 seconds
       deferTime: _deferTime,
       useSignificantChangesOnly: _useSignificantChangesOnly,
@@ -114,7 +114,7 @@ class Application extends Component {
       batchSync: true,       // <-- [Default: false] Set true to sync locations to server in a single HTTP request.
       autoSync: true,         // <-- [Default: true] Set true to sync each location to server as it arrives.
       autoSyncThreshold: _autoSyncThreshold,
-      maxBatchSize: 10000,
+      maxBatchSize: 2000,
       httpTimeout: _httpTimeout,
       //httpTimeout: _httpTimeout,
       geofenceProximityRadius: 1000,
@@ -152,15 +152,9 @@ class Application extends Component {
         ////
         // 3. Start tracking!
         //
-
-
         BackgroundGeolocation.start(function() {
           console.log("- Start success");
-
-
         });
-
-
       }
     });
 

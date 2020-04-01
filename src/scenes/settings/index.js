@@ -61,8 +61,6 @@ class Settings extends PureComponent {
           <PtsPerBatch ptsPerBatch={this.state.autoSyncThreshold}/>
           <UpdateSwitch stopOnStationary={this.state.stopOnStationary}/>
           <ResumeGeofence geofenceProximityRadius={this.state.geofenceProximityRadius}/>
-          <StatsSwitch />
-          <Text style={{fontSize: 12,marginLeft: 20,marginRight: 20, color:"#999"}}>(In addition to location data, also log data about visits and other app activity)</Text>
           <NotificationsSwitch />
           <Text style={{fontSize: 12,marginLeft: 20,marginRight: 20}}>(Enable local notifications of app event such as when tracking has been Automatically stopped and started)</Text>
         </SettingsContainer>
