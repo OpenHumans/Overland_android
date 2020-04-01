@@ -5893,6 +5893,13 @@ react-native-modal@^9.0.0:
     prop-types "^15.6.2"
     react-native-animatable "^1.2.4"
 
+react-native-modalbox@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-modalbox/-/react-native-modalbox-2.0.0.tgz#ff3cddfb73a740e7669c2d2cc80d03cbd4890731"
+  integrity sha512-j0gJTgSGaP+VbOIWPzrHPVNEEaB/TpuY6+KlEZNtdTDEFGp8BNbsZMTr4NPMkioRgZXUvT8bClqaeD63N/BF0g==
+  dependencies:
+    prop-types "^15.5.10"
+
 react-native-ratings@^6.3.0:
   version "6.5.0"
   resolved "https://registry.yarnpkg.com/react-native-ratings/-/react-native-ratings-6.5.0.tgz#a1606ccba3c5b54eec8e6cfa4765a45cf0e4ab8d"

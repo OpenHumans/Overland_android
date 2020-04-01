@@ -1,36 +1,59 @@
 import React from 'react';
 import { Text, StyleSheet } from 'react-native';
 import IconContainer from './components/icon-container';
-import Icon from 'react-native-vector-icons/Ionicons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import AFicons from 'react-native-vector-icons/FontAwesome';
+import AFicons5 from 'react-native-vector-icons/FontAwesome5';
 
-const IconElement = ({mobilityType }) => {
-  let iconName = 'md-bicycle'
+const IconElement2 = ({mobilityType }) => {
+  let iconName = 'bicycle'
+  let awesomIcon = false;
 
   switch(mobilityType) {
     case 'cycling':
-      iconName = 'md-bicycle'
+      awesomIcon = false;
+      iconName = 'bicycle';
       break;
     case 'walking':
-      iconName = 'md-walk'
+      awesomIcon = false;
+      iconName = 'walking'
       break;
     case 'running':
-        iconName = 'md-pulse'
+        awesomIcon = false;
+        iconName = 'running'
         break;
+    case 'ship':
+        awesomIcon = true;
+        iconName = 'ship';
     case 'driving':
-        iconName = 'md-car'
+        awesomIcon = false;
+        iconName = 'car'
         break;
-    case 'stationary':
-        iconName = 'md-man'
+    case 'taxi':
+        awesomIcon = true;
+        iconName = 'taxi'
+        break;
+    case 'bus':
+        awesomIcon = true;
+        iconName = 'bus'
+        break;
+    case 'train':
+        awesomIcon = true;
+        iconName = 'train'
+        break;
+    case 'plane':
+        awesomIcon = true;
+        iconName = 'plane'
         break;
     default:
       iconName = ''
   }
   return (
     <IconContainer>
-      <Icon  size={50} name={iconName} />
+      {awesomIcon?<AFicons  size={40} name={iconName} />:<AFicons5  size={40} name={iconName} />}
       <Text style={{fontSize:10}}>{mobilityType}</Text>
     </IconContainer>
   );
 };
 
-export default IconElement;
+export default IconElement2;
