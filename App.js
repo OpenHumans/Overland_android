@@ -46,7 +46,7 @@ class Application extends Component {
       console.log("SSID", state.details.ssid);
       console.log("Is connected?", state.isConnected);
     });
-    
+
     ////
     // 1.  Wire up event-listeners
     //
@@ -106,6 +106,7 @@ class Application extends Component {
       // Application config
       debug: true, // <-- enable this hear sounds for background-geolocation life-cycle.
       logLevel: BackgroundGeolocation.LOG_LEVEL_VERBOSE,
+
       stopOnTerminate: false,   // <-- Allow the background-service to continue tracking when user closes the app.
       startOnBoot: true,        // <-- Auto start tracking when device is powered-up.
       // HTTP / SQLite config
@@ -137,9 +138,9 @@ class Application extends Component {
           "wifi": "" ,\
           "deferred": \"'+_deferTime+'\",\
           "desired_accuracy": \"'+ _desiredAccuracy +'\",\
-          "activity": <%=activity.type%>,\
+          "activity": "other",\
           "pauses": <%=is_moving%>,\
-          "motion": ["driving"]\
+          "motion": <%=activity.type%>\
         }\
       }'
     }, (state) => {
@@ -176,8 +177,6 @@ class Application extends Component {
     console.warn('[location] ERROR -', error);
   }
   async onActivityChange(event) {
-    let geofences = await BackgroundGeolocation.getGeofences();
-    console.log("[getGeofences: ", geofences);
     console.log('[activitychange] -', event);  // eg: 'on_foot', 'still', 'in_vehicle'
   }
 

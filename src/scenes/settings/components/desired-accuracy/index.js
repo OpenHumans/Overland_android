@@ -101,9 +101,9 @@ class DesiredAccuracy extends React.Component {
             "wifi": "" ,\
             "deferred": \"'+_deferTime+'\",\
             "desired_accuracy": \"'+ _desiredAccuracy +'\",\
-            "activity": <%=activity.type%>,\
+            "activity": "other",\
             "pauses": <%=is_moving%>,\
-            "motion": ["driving"]\
+            "motion": <%=activity.type%>\
           }\
         }';
         BackgroundGeolocation.setConfig({locationTemplate:_template})

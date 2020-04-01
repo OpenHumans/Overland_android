@@ -142,15 +142,15 @@ class TripDisplay extends React.Component {
     return (
 
       <TripDisplayContainer trip={inTrip}>
-      <Modal
-            style={[styles.modal,styles.modal1]}
-            ref={"modal1"}
-            swipeToClose={this.state.swipeToClose}
-            onClosed={this.onClose}
-            onOpened={this.onOpen}
-            onClosingState={this.onClosingState}>
-              <TripModeElement />
-          </Modal>
+        <Modal
+          style={[styles.modal,styles.modal1]}
+          ref={"modal1"}
+          swipeToClose={this.state.swipeToClose}
+          onClosed={this.onClose}
+          onOpened={this.onOpen}
+          onClosingState={this.onClosingState}>
+          <TripModeElement />
+        </Modal>
         <View
           style={{
             margin: 5,

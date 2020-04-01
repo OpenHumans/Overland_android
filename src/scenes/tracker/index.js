@@ -15,6 +15,7 @@ class Tracker extends React.Component {
 
     return (
       <TrackerContainer>
+      
         <View style={[styles.header]}>
           <Text style={[styles.headerContent]}>Overland</Text>
         </View>

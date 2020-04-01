@@ -21,9 +21,11 @@ const TripMode = ({ }) => {
         flexDirection: 'row',
         backgroundColor: "#f4f4f4"}}>
         <View>
-          <View style={{width: DeviceWidth*0.2, height: DeviceWidth*0.2, marginBottom:1}} ><Button icon={ <IconElement2 mobilityType={'walking'} /> } onPress={()=>{DeviceEventEmitter.emit('closeEvent')}} type="clear"/></View>
-          <View style={{width: DeviceWidth*0.2, height: DeviceWidth*0.2, marginBottom:1}} ><Button icon={ <IconElement2 mobilityType={'ship'}/> } onPress={()=>{console.log('toto');DeviceEventEmitter.emit('closeEvent','driving');}} type="clear"/></View>
-          <View style={{width: DeviceWidth*0.2, height: DeviceWidth*0.2, marginBottom:1}} ><Button icon={ <IconElement2 mobilityType={'bus'}/> } onPress={()=>{console.log('toto');DeviceEventEmitter.emit('closeEvent','bus');}} type="clear"/></View>
+          <View style={{width: DeviceWidth*0.2, height: DeviceWidth*0.2, marginBottom:1}} >
+            <Button icon={ <IconElement2 mobilityType={'walking'} /> } onPress={()=>{DeviceEventEmitter.emit('closeEvent')}} type="clear"/>
+            <Button icon={ <IconElement2 mobilityType={'ship'}/> } onPress={()=>{console.log('toto');DeviceEventEmitter.emit('closeEvent','driving');}} type="clear"/>
+            <Button icon={ <IconElement2 mobilityType={'bus'}/> } onPress={()=>{console.log('toto');DeviceEventEmitter.emit('closeEvent','bus');}} type="clear"/>
+          </View>
         </View>
         <View>
           <View style={{width: DeviceWidth*0.2, height: DeviceWidth*0.2, marginBottom:1}} ><Button icon={ <IconElement2 mobilityType={'running'}/> } onPress={()=>console.log('toto')} type="clear"/></View>
