@@ -4,7 +4,7 @@ GPS logger for Android devices
 
 This app is based on the app Overland for iOS developped by Aaron Parecki https://github.com/aaronpk/Overland-iOS
 
- It is an experiment at gathering data from an Android device to test the Core Location API and its various settings.
+ It is an experiment at gathering data from an Android device to test the Core Location API of Android and its various settings.
 
  The app tracks:
 
