@@ -1,6 +1,6 @@
 # Overland GPS Tracker for Android
 
-GPS logger for Android devices
+GPS logger for Android devices in React Native
 
 This app is based on the app Overland for iOS developped by Aaron Parecki https://github.com/aaronpk/Overland-iOS
 
@@ -18,6 +18,8 @@ The app gathers data with no network connection and stores locally on the device
 There are many settings available in the settings tab which allow you to adjust properties of the Core Location API.
 
 ## Documentation
+
+We use the api react-native-background-location to reach the Core Location API. https://transistorsoft.github.io/react-native-background-geolocation/
 
 Coming
 
