@@ -16,6 +16,7 @@ import  IconElement2  from './components/icon-element';
 import TripModeElement from './components/trip-mode';
 import Dialog from "react-native-dialog";
 import Modal from 'react-native-modalbox';
+import { NavigationContainer } from '@react-navigation/native';
 
 var screen = Dimensions.get('window');
 
@@ -135,6 +136,17 @@ class TripDisplay extends React.Component {
         this.eventListener.remove();
 
   }
+  DetailsScreen({ navigation }) {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Details Screen</Text>
+      <Button
+        title="Go to Details... again"
+        onPress={() => navigation.navigate('Details')}
+      />
+    </View>
+  );
+}
 
   render() {
     let inTrip =   this.state.isStarted;
@@ -142,6 +154,7 @@ class TripDisplay extends React.Component {
     return (
 
       <TripDisplayContainer trip={inTrip}>
+
         <Modal
           style={[styles.modal,styles.modal1]}
           ref={"modal1"}
@@ -203,7 +216,7 @@ const styles = StyleSheet.create({
   },
 
   modal: {
-    marginTop:-200,
+    marginTop:-240,
     justifyContent: 'center',
     alignItems: 'center'
   },

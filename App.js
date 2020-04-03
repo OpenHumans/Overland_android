@@ -96,7 +96,7 @@ class Application extends Component {
       // Geolocation Config
       desiredAccuracy: _desiredAccuracy,
       activityType: BackgroundGeolocation.ACTIVITY_TYPE_OTHER,
-      distanceFilter: 2,
+      distanceFilter: 0,
       locationUpdateInterval: 5000,  // Get a location every 5 seconds
       deferTime: _deferTime,
       useSignificantChangesOnly: _useSignificantChangesOnly,
@@ -140,7 +140,7 @@ class Application extends Component {
           "desired_accuracy": \"'+ _desiredAccuracy +'\",\
           "activity": "other",\
           "pauses": <%=is_moving%>,\
-          "motion": <%=activity.type%>\
+          "motion": ["<%=activity.type%>"]\
         }\
       }'
     }, (state) => {
