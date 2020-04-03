@@ -56,7 +56,7 @@ class SignificantLocation extends React.Component {
             "desired_accuracy": \"'+ _desiredAccuracy +'\",\
             "activity": "other",\
             "pauses": <%=is_moving%>,\
-            "motion": <%=activity.type%>\
+            "motion": ["<%=activity.type%>"]\
           }\
         }';
         BackgroundGeolocation.setConfig({locationTemplate:_template})
