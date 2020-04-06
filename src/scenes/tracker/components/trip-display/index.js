@@ -12,7 +12,7 @@ import {
   DeviceEventEmitter } from 'react-native';
 import TripDisplayContainer from './components/trip-display-container';
 import LocationElement from './components/location-element';
-import  IconElement2  from './components/icon-element';
+import  IconElement  from './components/icon-element';
 import TripModeElement from './components/trip-mode';
 import Dialog from "react-native-dialog";
 import Modal from 'react-native-modalbox';
@@ -83,7 +83,7 @@ class TripDisplay extends React.Component {
 
     this.timerID = setInterval(
       () => this.tick(),
-      1000
+      10000
     );
     InteractionManager.runAfterInteractions(() => {
 
@@ -161,7 +161,8 @@ class TripDisplay extends React.Component {
           swipeToClose={this.state.swipeToClose}
           onClosed={this.onClose}
           onOpened={this.onOpen}
-          onClosingState={this.onClosingState}>
+          onClosingState={this.onClosingState}
+          coverScreen={true}>
           <TripModeElement />
         </Modal>
         <View
@@ -171,7 +172,7 @@ class TripDisplay extends React.Component {
             flexDirection: 'row',
             justifyContent: 'space-between'}}>
 
-          <IconElement2 mobilityType={this.state.tripMode}/>
+          <IconElement mobilityType={this.state.tripMode}/>
           <LocationElement title={'DURATION'} value={this.state.duration} description={'minutes'} />
           <LocationElement title={'DISTANCE'} value={this.state.distance} description={'miles'} />
           <TouchableHighlight
@@ -216,7 +217,7 @@ const styles = StyleSheet.create({
   },
 
   modal: {
-    marginTop:-240,
+    marginTop:0,
     justifyContent: 'center',
     alignItems: 'center'
   },

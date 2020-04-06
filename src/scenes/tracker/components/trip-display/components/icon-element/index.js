@@ -5,7 +5,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import AFicons from 'react-native-vector-icons/FontAwesome';
 import AFicons5 from 'react-native-vector-icons/FontAwesome5';
 
-const IconElement2 = ({mobilityType }) => {
+const IconElement = ({mobilityType }) => {
   let iconName = 'bicycle'
   let awesomIcon = false;
 
@@ -19,32 +19,33 @@ const IconElement2 = ({mobilityType }) => {
       iconName = 'walking'
       break;
     case 'running':
-        awesomIcon = false;
-        iconName = 'running'
-        break;
+      awesomIcon = false;
+      iconName = 'running'
+      break;
     case 'ship':
-        awesomIcon = true;
-        iconName = 'ship';
+      awesomIcon = true;
+      iconName = 'ship';
+      break;
     case 'driving':
-        awesomIcon = false;
-        iconName = 'car'
-        break;
+      awesomIcon = false;
+      iconName = 'car'
+      break;
     case 'taxi':
-        awesomIcon = true;
-        iconName = 'taxi'
-        break;
+      awesomIcon = true;
+      iconName = 'taxi'
+      break;
     case 'bus':
-        awesomIcon = true;
-        iconName = 'bus'
-        break;
+      awesomIcon = true;
+      iconName = 'bus'
+      break;
     case 'train':
-        awesomIcon = true;
-        iconName = 'train'
-        break;
+      awesomIcon = true;
+      iconName = 'train'
+      break;
     case 'plane':
-        awesomIcon = true;
-        iconName = 'plane'
-        break;
+      awesomIcon = true;
+      iconName = 'plane'
+      break;
     default:
       iconName = ''
   }
@@ -56,4 +57,4 @@ const IconElement2 = ({mobilityType }) => {
   );
 };
 
-export default IconElement2;
+export default IconElement;
