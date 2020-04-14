@@ -48,8 +48,12 @@ class Application extends Component {
       console.log("Connection type", state.type);
       console.log("SSID", state.details.ssid);
       console.log("Is connected?", state.isConnected);
-      if(state.type=="wifi")
-        global.wifiInfo.ssid = state.details.ssid
+      if(state.type=="wifi"){
+        global.wifiInfo.ssid = state.details.ssid;
+      }else{
+        global.wifiInfo.ssid = "";
+      }
+      this.updateLocationTemplate();
     });
 
     ////
@@ -203,6 +207,42 @@ class Application extends Component {
       console.log("fetchData::err::",error);
     }
   };
+
+  updateLocationTemplate(){
+    BackgroundGeolocation.ready({}, (state) => {
+        let _templateSignificantChangesOnly = state.useSignificantChangesOnly;
+        let _deferTime = state.deferTime
+        let _desiredAccuracy = state.desiredAccuracy;
+        let _wifiInfo = global.wifiInfo.ssid;
+        if(!_wifiInfo) _wifiInfo = "";
+        let _template = '{\
+          "type": "Feature", \
+          "geometry": { \
+            "type": "Point",    \
+            "coordinates": [      <%=longitude%>,      <%=latitude%>    ]  },\
+          "properties": {    \
+            "timestamp": "<%= timestamp %>",    \
+            "battery_level": <%=battery.level%>,    \
+            "speed": <%=speed%>, \
+            "altitude": <%=altitude%>,\
+            "horizontal_accuracy": <%=accuracy%>,\
+            "vertical_accuracy": <%=altitude_accuracy%>,\
+            "significant_change": \"'+_templateSignificantChangesOnly+'\" ,\
+            "locations_in_payload": 1,\
+            "battery_state": <%=battery.is_charging%>,\
+            "device_id": "",\
+            "wifi": \"'+ _wifiInfo +'\" ,\
+            "deferred": \"'+_deferTime+'\",\
+            "desired_accuracy": \"'+ _desiredAccuracy +'\",\
+            "activity": "other",\
+            "pauses": <%=is_moving%>,\
+            "motion": ["<%=activity.type%>"]\
+          }\
+        }';
+        BackgroundGeolocation.setConfig({locationTemplate:_template})
+    })
+  };
+
 
 
   render() {

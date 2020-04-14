@@ -59,7 +59,7 @@ class TripDisplay extends React.Component {
       console.log("startTrip::",_current_date.toString())
       this.setState({start: _current_date.toString(),startLocation: null, duration:0,distance:0,isStarted:true})
       console.log("startTrip::",this.state.start);
-      //this.refresh();
+      BackgroundGeolocation.changePace(true);
     }
   }
 
@@ -152,6 +152,11 @@ class TripDisplay extends React.Component {
       console.log("[onLocation] ", location);
       this.refresh(location);
     });
+
+    BackgroundGeolocation.onHeartbeat((event) => {
+      console.log("[onHeartbeat] ", event);
+      this.refresh(null);
+    });
   }
 
   refresh(location) {
@@ -163,7 +168,8 @@ class TripDisplay extends React.Component {
           let diffDateLastLocation = current_timestamp - start_timestamp;
           let l_diffMinute = Math.floor(diffDateLastLocation/(60*1000));
           this.setState({duration:l_diffMinute})
-          this.updateHttpRequestParams(location)
+          if(location)
+            this.updateHttpRequestParams(location)
         }
     }
     catch{
