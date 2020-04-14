@@ -86,6 +86,7 @@ class AllLocationsScene extends PureComponent {
         {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
         {text: 'Yes', onPress: () => {
           BackgroundGeolocation.deleteAllLocations();
+          //let success = await BackgroundGeolocation.destroyLocations();
           }
         },
       ],

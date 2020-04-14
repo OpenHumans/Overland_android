@@ -22,6 +22,7 @@
     "@react-navigation/bottom-tabs": "^5.1.1",
     "@react-navigation/native": "^5.0.9",
     "axios": "^0.19.2",
+    "geolib": "^3.2.1",
     "native-base": "^2.13.12",
     "react": "16.11.0",
     "react-native": "0.62.0",

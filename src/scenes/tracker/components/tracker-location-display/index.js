@@ -74,11 +74,19 @@ class TrackerLocationDisplay extends React.Component {
 
   async submitSuggestion() {
     /*const res = await BackgroundGeolocation.forceSync()*/
-    BackgroundGeolocation.sync((records) => {
-      console.log("[sync] success: ", records);
-    }).catch((error) => {
-      console.log("[sync] FAILURE: ", error);
-    });
+    try{
+      BackgroundGeolocation.sync((records) => {
+        console.log("[sync] success: ", records);
+        //let current_timestamp = new Date();
+        //let diffDateLastLocation = current_timestamp - last_timestamp;
+
+      }).catch((error) => {
+        console.log("[sync] FAILURE: ", error);
+      });
+    }catch{
+      console.log("[sync] FAILURE: ");
+    }
+
 
   }
 

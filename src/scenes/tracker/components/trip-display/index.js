@@ -16,16 +16,17 @@ import  IconElement  from './components/icon-element';
 import TripModeElement from './components/trip-mode';
 import Dialog from "react-native-dialog";
 import Modal from 'react-native-modalbox';
-import { NavigationContainer } from '@react-navigation/native';
+import BackgroundGeolocation from "react-native-background-geolocation";
+import { getDistance, getPreciseDistance } from 'geolib';
 
 var screen = Dimensions.get('window');
 
 class TripDisplay extends React.Component {
   constructor(props) {
     super(props);
+    //this.distance = [];
     this.state = {isOpen: false,
       isDisabled: false,
-      swipeToClose: true,
       sliderValue: 0.3,
       dialogVisible:false,
       start:'',
@@ -33,24 +34,14 @@ class TripDisplay extends React.Component {
       distance: '-',
       isStarted:false,
       tripMode: 'cycling',
-      tripModeSelection:false}
+      swipeToClose: true,
+      currentPosition:null}
   }
   selectTripMode(){
       //this.setState({dialogVisible:true});
       this.refs.modal1.open()
   }
 
-  onClose() {
-      console.log('Modal just closed');
-    }
-
-  onOpen() {
-    console.log('Modal just opened');
-  }
-
-  onClosingState(state) {
-    console.log('the open/close of the swipeToClose just changed');
-  }
 
   renderList() {
     var list = [];
@@ -66,36 +57,104 @@ class TripDisplay extends React.Component {
     if(!this.state.isStarted){
       let _current_date = Date.now();
       console.log("startTrip::",_current_date.toString())
-      this.setState({start: _current_date.toString(),duration:'-',distance:0,isStarted:true})
-      console.log("startTrip::",this.state.start)
+      this.setState({start: _current_date.toString(),startLocation: null, duration:0,distance:0,isStarted:true})
+      console.log("startTrip::",this.state.start);
+      //this.refresh();
     }
   }
 
   stopTrip () {
     if(this.state.isStarted){
-      this.setState({duration:'-', isStarted:false});
-      //clearInterval(this.timerID);
+      this.setState({duration:'-',startLocation: null, currentPosition:null, isStarted:false});
+      BackgroundGeolocation.sync((records) => {
+        console.log("[sync] SUCCESS DURING SYNC: ", records);
+        BackgroundGeolocation.setConfig({params: {}});
+      })
+    }
+  }
+
+  async updateHttpRequestParams(location){
+    let currentPosition;
+    let lastPosition;
+    /*let location = await BackgroundGeolocation.getCurrentPosition({
+      timeout: 30,          // 30 second timeout to fetch location
+      maximumAge: 5000,     // Accept the last-known-location if not older than 5000 ms.
+      desiredAccuracy: -1 ,  // Try to fetch a location with an accuracy of `10` meters.
+      samples: 1,           // How many location samples to attempt.
+    });*/
+    //console.log("[updateHttpRequestParams]-->",location);
+    if(location){
+
+      currentPosition = location;
+      if(this.state.currentPosition) {
+        lastPosition = this.state.currentPosition;
+        var pdis = await getPreciseDistance(
+        { latitude: lastPosition.coords.latitude, longitude: lastPosition.coords.longitude },
+        { latitude: currentPosition.coords.latitude, longitude: currentPosition.coords.longitude }
+      );
+      if(!this.state.startLocation){
+        this.setState({startLocation:currentPosition})
+      }
+      //console.log(this.distance);
+      //this.distance.push(pdis)
+      pdis +=this.state.distance;
+      this.setState({distance:pdis})
+
+      if(!this.state.startLocation){
+        let _latitude = this.state.startLocation.coords.latitude;
+        let _longitude = this.state.startLocation.coords.longitude ;
+        let _speed = this.state.startLocation.coords.speed;
+        let _baterryLevel = this.state.startLocation.battery.level;
+        let _accuracy = this.state.startLocation.coords.accuracy;
+        let _timestamp = this.state.startLocation.timestamp;
+        let _altitude = this.state.startLocation.coords.altitude;
+        let _is_charging = this.state.startLocation.battery.is_charging;
+        let _wifiInfo = global.wifiInfo.ssid;
+        if(!_wifiInfo) _wifiInfo = "";
+
+        BackgroundGeolocation.ready({
+          params: {
+                    "trip": '{\
+                      "distance": "'+ pdis +'", \
+                      "start_location":{\
+                        "type":"Feature",\
+                        "geometry":{\
+                          "type":"Point",\
+                          "coordinates":[ \"'+ _latitude +'\",\"'+ _longitude +'\"]\
+                        },\
+                        "properties":{\
+                          "motion":[],\
+                          "speed": \"'+ _speed +'\",\
+                          "battery_level": \"'+ _baterryLevel +'",\
+                          "wifi": \"'+ _wifiInfo +'",\
+                          "vertical_accuracy": \"\",\
+                          "horizontal_accuracy": \"'+ _accuracy +'\",\
+                          "timestamp": \"'+ _timestamp +'\",\
+                          "altitude": \"'+ _altitude +'\",\
+                          "battery_state": \"'+ _is_charging +'\"\
+                        }\
+                      }\
+                    }'
+                }
+        },(state)=>{
+          console.log(state)
+        });
+      }
+      }
+      this.setState({currentPosition:location})
     }
   }
 
   componentDidMount() {
     this.eventListener = DeviceEventEmitter.addListener('closeEvent',this.handleEvent);
 
-    this.timerID = setInterval(
-      () => this.tick(),
-      10000
-    );
-    InteractionManager.runAfterInteractions(() => {
-
-      this.refresh();
+    BackgroundGeolocation.onLocation((location) => {
+      console.log("[onLocation] ", location);
+      this.refresh(location);
     });
   }
 
-  tick() {
-    this.refresh();
-  }
-
-  refresh() {
+  refresh(location) {
     try{
         if(this.state.isStarted){
           let current_timestamp = Date.now();
@@ -104,6 +163,7 @@ class TripDisplay extends React.Component {
           let diffDateLastLocation = current_timestamp - start_timestamp;
           let l_diffMinute = Math.floor(diffDateLastLocation/(60*1000));
           this.setState({duration:l_diffMinute})
+          this.updateHttpRequestParams(location)
         }
     }
     catch{
@@ -125,7 +185,6 @@ class TripDisplay extends React.Component {
   };
   handleEvent=(event)=>{
    //Do something with event object
-   console.log('j entends',event)
    this.setState({ tripMode: event });
    this.refs.modal1.close()
    this.startTrip()
@@ -136,21 +195,26 @@ class TripDisplay extends React.Component {
         this.eventListener.remove();
 
   }
-  DetailsScreen({ navigation }) {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Details Screen</Text>
-      <Button
-        title="Go to Details... again"
-        onPress={() => navigation.navigate('Details')}
-      />
-    </View>
-  );
-}
+  onClose() {
+    console.log('Modal just closed');
+  }
+
+  onOpen() {
+    console.log('Modal just opened');
+  }
+
+  onClosingState(state) {
+    console.log('the open/close of the swipeToClose just changed');
+  }
 
   render() {
     let inTrip =   this.state.isStarted;
-    let tripModeSelection = this.state.tripModeSelection;
+    let _duration;
+    if(this.state.duration!="-"){
+      _duration = this.state.duration<60?this.state.duration:Math.floor(this.state.duration/60)+':'+Math.floor(this.state.duration/(60) % 60)
+    }else{
+      _duration = '-'
+    }
     return (
 
       <TripDisplayContainer trip={inTrip}>
@@ -158,11 +222,12 @@ class TripDisplay extends React.Component {
         <Modal
           style={[styles.modal,styles.modal1]}
           ref={"modal1"}
+          coverScreen={true}
           swipeToClose={this.state.swipeToClose}
           onClosed={this.onClose}
           onOpened={this.onOpen}
           onClosingState={this.onClosingState}
-          coverScreen={true}>
+          >
           <TripModeElement />
         </Modal>
         <View
@@ -173,8 +238,8 @@ class TripDisplay extends React.Component {
             justifyContent: 'space-between'}}>
 
           <IconElement mobilityType={this.state.tripMode}/>
-          <LocationElement title={'DURATION'} value={this.state.duration} description={'minutes'} />
-          <LocationElement title={'DISTANCE'} value={this.state.distance} description={'miles'} />
+          <LocationElement title={'DURATION'} value={_duration} description={this.state.duration<60?'minutes':'hh:mm'} />
+          <LocationElement title={'DISTANCE'} value={this.state.distance} description={'m'} />
           <TouchableHighlight
             style={inTrip?styles.inTrip:styles.notTrip}
             onPress={() => inTrip?this.stopTrip():this.selectTripMode()}

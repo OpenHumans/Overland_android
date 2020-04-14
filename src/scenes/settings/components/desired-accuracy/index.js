@@ -82,6 +82,8 @@ class DesiredAccuracy extends React.Component {
         let _templateSignificantChangesOnly = state.useSignificantChangesOnly;
         let _deferTime = state.deferTime
         let _desiredAccuracy = state.desiredAccuracy;
+        let _wifiInfo = global.wifiInfo.ssid;
+        if(!_wifiInfo) _wifiInfo = "";
         let _template = '{\
           "type": "Feature", \
           "geometry": { \
@@ -98,7 +100,7 @@ class DesiredAccuracy extends React.Component {
             "locations_in_payload": 1,\
             "battery_state": <%=battery.is_charging%>,\
             "device_id": "",\
-            "wifi": "" ,\
+            "wifi": \"'+ _wifiInfo +'\" ,\
             "deferred": \"'+_deferTime+'\",\
             "desired_accuracy": \"'+ _desiredAccuracy +'\",\
             "activity": "other",\

@@ -32,10 +32,13 @@ console.disableYellowBox = true;
 
 console.log('====================================================');
 
+
+
 class Application extends Component {
   constructor(){
     super()
     this.state = {loading: true};
+    global.wifiInfo = {"ssid":""};
   }
 
   async componentDidMount() {
@@ -45,6 +48,8 @@ class Application extends Component {
       console.log("Connection type", state.type);
       console.log("SSID", state.details.ssid);
       console.log("Is connected?", state.isConnected);
+      if(state.type=="wifi")
+        global.wifiInfo.ssid = state.details.ssid
     });
 
     ////
@@ -64,9 +69,12 @@ class Application extends Component {
     BackgroundGeolocation.onProviderChange(this.onProviderChange);
 
     BackgroundGeolocation.onHttp(httpEvent => {
-      console.log("[http] ", httpEvent.success, httpEvent.status);
+      console.log("[http] ", httpEvent.success, httpEvent.status,httpEvent.responseText);
     });
-    ////
+    BackgroundGeolocation.onHeartbeat((event) => {
+      console.log("[onHeartbeat] ", event);
+    });
+    //
     // 2.  Execute #ready method (required)
     //
     let _autoSyncThreshold = await this.fetchData ('autoSyncThreshold');
@@ -85,24 +93,25 @@ class Application extends Component {
     _useSignificantChangesOnly = _useSignificantChangesOnly=='True' ? true:false;
     let _templateSignificantChangesOnly = _useSignificantChangesOnly ? "enabled":"disabled";
     let _stopOnStationary = await this.fetchData ('stopOnStationary');
-    if(!_stopOnStationary) _stopOnStationary = "True";
+    if(!_stopOnStationary) _stopOnStationary = "False";
     _stopOnStationary = _stopOnStationary=='True' ? true:false;
     let _deferTime = await this.fetchData ('deferTime');
     if(!_deferTime) _deferTime = 0;
     else _deferTime = Number(_deferTime);
+    let _wifiInfo = global.wifiInfo.ssid;
+    if(!_wifiInfo) _wifiInfo = "";
 
 
     BackgroundGeolocation.ready({
-      // Geolocation Config
       desiredAccuracy: _desiredAccuracy,
       activityType: BackgroundGeolocation.ACTIVITY_TYPE_OTHER,
-      distanceFilter: 0,
-      locationUpdateInterval: 5000,  // Get a location every 5 seconds
+      heartbeatInterval: 60,
+      distanceFilter: 5,
+      locationUpdateInterval: 10000,  // Get a location every 5 seconds
       deferTime: _deferTime,
       useSignificantChangesOnly: _useSignificantChangesOnly,
-      stopOnStationary: _stopOnStationary,
+      stopOnStationary: false,//_stopOnStationary,
       // Activity Recognition
-      stopTimeout: 1,
       // Application config
       debug: true, // <-- enable this hear sounds for background-geolocation life-cycle.
       logLevel: BackgroundGeolocation.LOG_LEVEL_VERBOSE,
@@ -135,7 +144,7 @@ class Application extends Component {
           "locations_in_payload": 1,\
           "battery_state": <%=battery.is_charging%>,\
           "device_id": "",\
-          "wifi": "" ,\
+          "wifi": \"'+ _wifiInfo +'\" ,\
           "deferred": \"'+_deferTime+'\",\
           "desired_accuracy": \"'+ _desiredAccuracy +'\",\
           "activity": "other",\
@@ -165,7 +174,7 @@ class Application extends Component {
     BackgroundGeolocation.removeListeners();
   }
   onLocation(location) {
-    console.log('[location] -', location);
+    //console.log('[location] -', location);
   }
   onError(error) {
     console.warn('[location] ERROR -', error);
@@ -176,6 +185,7 @@ class Application extends Component {
 
   onProviderChange(provider) {
     console.log('[providerchange] -', provider.enabled, provider.status);
+    BackgroundGeolocation.changePace(true);
   }
   onMotionChange(event) {
     console.log('[motionchange] -', event.isMoving, event.location);
