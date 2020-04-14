@@ -67,3 +67,5 @@ android/app/google-services.json
 # Visual studio
 .vscode
 .vs
+
+my-key.keystore
