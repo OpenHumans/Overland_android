@@ -40,7 +40,7 @@ class UpdateSwitch extends React.Component {
     const { stopOnStationary } = this.state;
     return (
       <UpdateSwitchContainer>
-        <Text style={{fontSize: 16}}>Pause Update Automatically</Text>
+        <Text style={{fontSize: 16}}>Stop Tracking Automatically</Text>
         <Switch value={stopOnStationary} onValueChange={this.onSwitchValueChange} />
       </UpdateSwitchContainer>
     );

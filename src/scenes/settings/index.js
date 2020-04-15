@@ -59,10 +59,11 @@ class Settings extends PureComponent {
           <DesiredAccuracy desiredAccuracy={this.state.desiredAccuracy} />
           <DeferLocUpdates deferTime={this.state.deferTime} />
           <PtsPerBatch ptsPerBatch={this.state.autoSyncThreshold}/>
-          <UpdateSwitch stopOnStationary={this.state.stopOnStationary}/>
           <ResumeGeofence geofenceProximityRadius={this.state.geofenceProximityRadius}/>
           <NotificationsSwitch />
-          <Text style={{fontSize: 12,marginLeft: 20,marginRight: 20}}>(Enable local notifications of app event such as when tracking has been Automatically stopped and started)</Text>
+          <Text style={{fontSize: 12,marginLeft: 20,marginRight: 20}}>(Enable audio notifications of app event such as when the tracking acquires a new position)</Text>
+          <UpdateSwitch stopOnStationary={this.state.stopOnStationary}/>
+          <Text style={{fontSize: 12,marginLeft: 20,marginRight: 20}}>(The plugin automatically stops tracking after 10 minutes of non-activity  - Not recommended to activate it)</Text>
         </SettingsContainer>
         </ScrollView>
       }

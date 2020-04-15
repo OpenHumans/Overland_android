@@ -135,6 +135,7 @@ class Application extends Component {
       deferTime: _deferTime,
       useSignificantChangesOnly: _useSignificantChangesOnly,
       stopOnStationary: false,//_stopOnStationary,
+      stopTimeout: 10,
       // Activity Recognition
       // Application config
       debug: _debugNotification, // <-- enable this hear sounds for background-geolocation life-cycle.
