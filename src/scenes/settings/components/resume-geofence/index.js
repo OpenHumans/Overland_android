@@ -11,8 +11,8 @@ class ResumeGeofence extends React.Component {
     super(props)
     this.buttons = ['Off', '100m', '200m', '500m', '1km', '2km'];
     let _index = this.convRadiusToIndex(this.props.geofenceProximityRadius)
-    if(!_index) _index=0;
     console.log("ResumeGeofence::",_index);
+    if(!_index) _index=0;
     this.state = {
       selectedIndex: _index
     }
@@ -73,7 +73,7 @@ class ResumeGeofence extends React.Component {
   }
   async storeData (state) {
     try {
-      console.log("storeData::");
+      console.log("storeData::", state.value);
       await AsyncStorage.setItem(state.name,state.value);
     } catch (error) {
       console.log("storeData::err::",error);

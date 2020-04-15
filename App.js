@@ -32,6 +32,9 @@ console.disableYellowBox = true;
 
 console.log('====================================================');
 
+if (!__DEV__) {
+  console.log = () => {};
+}
 
 
 class Application extends Component {
@@ -45,9 +48,11 @@ class Application extends Component {
 
 
     const unsubscribe = NetInfo.addEventListener(state => {
-      console.log("Connection type", state.type);
-      console.log("SSID", state.details.ssid);
-      console.log("Is connected?", state.isConnected);
+      if (__DEV__) {
+        console.log("Connection type", state.type);
+        console.log("SSID", state.details.ssid);
+        console.log("Is connected?", state.isConnected);
+      }
       if(state.type=="wifi"){
         global.wifiInfo.ssid = state.details.ssid;
       }else{
@@ -73,21 +78,27 @@ class Application extends Component {
     BackgroundGeolocation.onProviderChange(this.onProviderChange);
 
     BackgroundGeolocation.onHttp(httpEvent => {
-      console.log("[http] ", httpEvent.success, httpEvent.status,httpEvent.responseText);
+      if (__DEV__) {
+        console.log("[http] ", httpEvent.success, httpEvent.status,httpEvent.responseText);
+      }
     });
     BackgroundGeolocation.onHeartbeat((event) => {
-      console.log("[onHeartbeat] ", event);
+      if (__DEV__) {
+        console.log("[onHeartbeat] ", event);
+      }
     });
-    //
-    // 2.  Execute #ready method (required)
-    //
+
     let _autoSyncThreshold = await this.fetchData ('autoSyncThreshold');
     if(!_autoSyncThreshold) _autoSyncThreshold = 100;
     else _autoSyncThreshold = Number(_autoSyncThreshold);
     let _urlSync = await this.fetchData ('url');
     if(!_urlSync) _urlSync = 'https://';
-    let _desiredAccuracy = await this.fetchData ('desiredAccuracy');
-    if(!_desiredAccuracy) _desiredAccuracy = BackgroundGeolocation.DESIRED_ACCURACY_HIGH;
+    let s_debugNotification = await this.fetchData ('debugNotification');
+    if(!s_debugNotification) s_debugNotification = 'False';
+    let _debugNotification = s_debugNotification==="True"?true:false;
+    let s_desiredAccuracy = await this.fetchData ('desiredAccuracy');
+    if(!s_desiredAccuracy) s_desiredAccuracy = BackgroundGeolocation.DESIRED_ACCURACY_HIGH;
+    let _desiredAccuracy = Number(s_desiredAccuracy)<0?0:Number(s_desiredAccuracy);
     let _httpTimeout = await this.fetchData ('httpTimeout');
     if(!_httpTimeout) _httpTimeout = 60000;
     else _httpTimeout = Number(_httpTimeout);
@@ -105,7 +116,16 @@ class Application extends Component {
     let _wifiInfo = global.wifiInfo.ssid;
     if(!_wifiInfo) _wifiInfo = "";
 
-
+    let s_geofenceProximityRadius = await this.fetchData ('geofenceProximityRadius');
+    let _geofenceProximityRadius;
+    if(!s_geofenceProximityRadius) _geofenceProximityRadius = 1000;
+    else{
+      _geofenceProximityRadius = s_geofenceProximityRadius ==='off'?1000:Number(s_geofenceProximityRadius) ;
+      console.log("_geofenceProximityRadius :: ",_geofenceProximityRadius)
+    }
+    //
+    // 2.  Execute #ready method to initiate
+    //
     BackgroundGeolocation.ready({
       desiredAccuracy: _desiredAccuracy,
       activityType: BackgroundGeolocation.ACTIVITY_TYPE_OTHER,
@@ -117,7 +137,7 @@ class Application extends Component {
       stopOnStationary: false,//_stopOnStationary,
       // Activity Recognition
       // Application config
-      debug: true, // <-- enable this hear sounds for background-geolocation life-cycle.
+      debug: _debugNotification, // <-- enable this hear sounds for background-geolocation life-cycle.
       logLevel: BackgroundGeolocation.LOG_LEVEL_VERBOSE,
 
       stopOnTerminate: false,   // <-- Allow the background-service to continue tracking when user closes the app.
@@ -130,7 +150,7 @@ class Application extends Component {
       maxBatchSize: 2000,
       httpTimeout: _httpTimeout,
       //httpTimeout: _httpTimeout,
-      geofenceProximityRadius: 1000,
+      geofenceProximityRadius: 500,
       httpRootProperty: 'locations',
       locationTemplate: '{\
         "type": "Feature", \
@@ -155,7 +175,10 @@ class Application extends Component {
           "pauses": <%=is_moving%>,\
           "motion": ["<%=activity.type%>"]\
         }\
-      }'
+      }',
+      notification: {
+        channelName: "Allow Notification of Location Tracker"
+      }
     }, (state) => {
       console.log("- BackgroundGeolocation is configured and ready: ", state.enabled);
       console.log(state)
@@ -166,7 +189,9 @@ class Application extends Component {
         // 3. Start tracking!
         //
         BackgroundGeolocation.start(function() {
-          console.log("- Start success");
+          if (__DEV__) {
+            console.log("- Start success");
+          }
         });
       }
     });
@@ -181,30 +206,42 @@ class Application extends Component {
     //console.log('[location] -', location);
   }
   onError(error) {
-    console.warn('[location] ERROR -', error);
+    if (__DEV__) {
+      console.warn('[location] ERROR -', error);
+    }
   }
   async onActivityChange(event) {
-    console.log('[activitychange] -', event);  // eg: 'on_foot', 'still', 'in_vehicle'
+    if (__DEV__) {
+      console.log('[activitychange] -', event);  // eg: 'on_foot', 'still', 'in_vehicle'
+    }
   }
 
   onProviderChange(provider) {
-    console.log('[providerchange] -', provider.enabled, provider.status);
+    if (__DEV__) {
+      console.log('[providerchange] -', provider.enabled, provider.status);
+    }
     BackgroundGeolocation.changePace(true);
   }
   onMotionChange(event) {
-    console.log('[motionchange] -', event.isMoving, event.location);
+    if (__DEV__) {
+      console.log('[motionchange] -', event.isMoving, event.location);
+    }
   }
 
    async fetchData (name) {
     try {
 
       const value = await AsyncStorage.getItem('@'+name);
-      console.log("fetchData::",'@'+name,value);
+      if (__DEV__) {
+        console.log("fetchData::",'@'+name,value);
+      }
       if (value !== null) {
         return value;
       }
     } catch (error) {
-      console.log("fetchData::err::",error);
+        if (__DEV__) {
+          console.log("fetchData::err::",error);
+        }
     }
   };
 

@@ -50,7 +50,7 @@ class DeferLocUpdates extends React.Component {
     BackgroundGeolocation.ready({}, (state) => {
         let _templateSignificantChangesOnly = state.useSignificantChangesOnly;
         let _deferTime = state.deferTime
-        let _desiredAccuracy = state.desiredAccuracy;
+        let _desiredAccuracy = Number(state.desiredAccuracy)<0?0:Number(state.desiredAccuracy);
         let _wifiInfo = global.wifiInfo.ssid;
         if(!_wifiInfo) _wifiInfo = "";
         let _template = '{\
@@ -120,7 +120,7 @@ class DeferLocUpdates extends React.Component {
 
     return (
       <DeferLocUpdatesContainer>
-      <Text style={{fontSize:16}}>Defer Time Updates</Text>
+      <Text style={{fontSize:16}}>Defer Location Updates</Text>
       <ButtonGroup
       onPress={this.updateIndex}
       selectedIndex={selectedIndex}

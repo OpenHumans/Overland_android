@@ -34,7 +34,7 @@ class SignificantLocation extends React.Component {
     BackgroundGeolocation.ready({}, (state) => {
         let _templateSignificantChangesOnly = state.useSignificantChangesOnly;
         let _deferTime = state.deferTime
-        let _desiredAccuracy = state.desiredAccuracy;
+        let _desiredAccuracy = Number(state.desiredAccuracy)<0?0:Number(state.desiredAccuracy);
         let _wifiInfo = global.wifiInfo.ssid;
         if(!_wifiInfo) _wifiInfo = "";
         let _template = '{\
