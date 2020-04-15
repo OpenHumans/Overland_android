@@ -42,7 +42,7 @@ The Tracker screen is where you control whether the app is active, and shows you
 
 ### Settings
 
-<img src="Screenshots/settingsView.jpg" width="300">  <img src="Screenshots/settingsView2.jpg" width="300">
+<img src="Screenshots/settingsView.jpg" width="300">    <img src="Screenshots/settingsView2.jpg" width="300">
 
 
 The Settings screen allows you to set the parameters of the iOS CoreLocation API, which gives you fine-grained control over how the tracker behaves.
