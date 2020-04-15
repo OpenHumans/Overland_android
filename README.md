@@ -119,7 +119,7 @@ Content-Type: application/json
         "speed": 4,
         "horizontal_accuracy": 30,
         "vertical_accuracy": -1,
-        "motion": ["driving","stationary"],
+        "motion": [],
         "pauses": false,
         "activity": "other_navigation",
         "desired_accuracy": 100,
