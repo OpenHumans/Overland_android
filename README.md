@@ -69,6 +69,8 @@ The list of stored location points.
 
 #### Configuration by Custom URL
 
+(-->overland)
+
 
 #### High Resolution Tracking
 
@@ -119,7 +121,7 @@ Content-Type: application/json
         "speed": 4,
         "horizontal_accuracy": 30,
         "vertical_accuracy": -1,
-        "motion": [],
+        "motion": ["driving","stationary"],
         "pauses": false,
         "activity": "other_navigation",
         "desired_accuracy": 100,
