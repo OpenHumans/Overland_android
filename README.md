@@ -19,9 +19,7 @@ There are many settings available in the settings tab which allow you to adjust 
 
 ## Documentation
 
-<img src="Screenshots/trackerView.png" width="300">
-
-We use the api react-native-background-location to reach the Core Location API. https://transistorsoft.github.io/react-native-background-geolocation/
+React Native does not allow you to launch an application in the background (acquisition and fetch data), we use the react-native-background-location API to reach the Core Location API of Android. https://transistorsoft.github.io/react-native-background-geolocation/.
 
 ### Tracker Screen
 
