@@ -85,6 +85,8 @@ apply from: "../../node_modules/react-native/react.gradle"
 Project background_geolocation = project(':react-native-background-geolocation')
 apply from: "${background_geolocation.projectDir}/app.gradle"
 apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
+apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
+
 /**
  * Set this to true to create two separate APKs instead of one:
  *   - An APK that only works on ARM devices
@@ -131,7 +133,8 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.overlandandroid"
+        applicationId project.env.get("MYAPP_RELEASE_NAME")
+        manifestPlaceholders = [applicationAPIKey: project.env.get("MYAPP_RELEASE_API_KEY") ]
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
@@ -154,12 +157,10 @@ android {
             keyPassword 'android'
         }
         release {
-            if (project.hasProperty('MYAPP_RELEASE_STORE_FILE')) {
-                storeFile file(MYAPP_RELEASE_STORE_FILE)
-                storePassword MYAPP_RELEASE_STORE_PASSWORD
-                keyAlias MYAPP_RELEASE_KEY_ALIAS
-                keyPassword MYAPP_RELEASE_KEY_PASSWORD
-            }
+            storeFile file(project.env.get("MYAPP_RELEASE_STORE_FILE"))
+            storePassword project.env.get("MYAPP_RELEASE_STORE_PASSWORD")
+            keyAlias project.env.get("MYAPP_RELEASE_KEY_ALIAS")
+            keyPassword project.env.get("MYAPP_RELEASE_KEY_PASSWORD")
         }
     }
     buildTypes {
@@ -169,8 +170,7 @@ android {
         release {
             // Caution! In production, you need to generate your own keystore file.
             // see https://facebook.github.io/react-native/docs/signed-apk-android.
-            signingConfig signingConfigs.debug
-            // signingConfig signingConfigs.release
+            signingConfig signingConfigs.release
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }

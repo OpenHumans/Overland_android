@@ -74,9 +74,6 @@ class AllLocationsScene extends PureComponent {
     let locations = await BackgroundGeolocation.getLocations();
     console.log(locations)
     this.setState({locations, isReady: true });
-    /*BackgroundGeolocation.getValidLocations(locations => {
-      this.setState({locations, isReady: true });
-    });*/
   }
   delete() {
     Alert.alert(
@@ -86,15 +83,11 @@ class AllLocationsScene extends PureComponent {
         {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
         {text: 'Yes', onPress: () => {
           BackgroundGeolocation.deleteAllLocations();
-          //let success = await BackgroundGeolocation.destroyLocations();
           }
         },
       ],
       { cancelable: false }
-    )/*
-    BackgroundGeolocation.getValidLocations(locations => {
-      this.setState({ locations, isReady: true });
-    });*/
+    )
   }
 
   _keyExtractor = (item, index) => item.id=index+1;
