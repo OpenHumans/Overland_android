@@ -69,5 +69,4 @@ android/app/google-services.json
 .vs
 
 my-key.keystore
-.env
 .env.production
