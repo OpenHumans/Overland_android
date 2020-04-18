@@ -91,7 +91,7 @@ class ResumeGeofence extends React.Component {
       onPress={this.updateIndex}
       selectedIndex={selectedIndex}
       buttons={this.buttons}
-      containerStyle={{width:"90%"}}
+      containerStyle={{width:"90%",height:48}}
     />
       </ResumeGeofenceContainer>
     );

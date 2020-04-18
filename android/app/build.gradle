@@ -127,20 +127,49 @@ def enableHermes = project.ext.react.get("enableHermes", false);
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
 
+    def versionPropsFile = file('version.properties')
+
+    if (versionPropsFile.canRead()) {
+        def Properties versionProps = new Properties()
+
+        versionProps.load(new FileInputStream(versionPropsFile))
+
+        def code = versionProps['VERSION_CODE'].toInteger() + 1
+
+        versionProps['VERSION_CODE']=code.toString()
+        versionProps.store(versionPropsFile.newWriter(), null)
+
+        defaultConfig {
+            applicationId project.env.get("MYAPP_RELEASE_NAME")
+            manifestPlaceholders = [applicationAPIKey: project.env.get("MYAPP_RELEASE_API_KEY") ]
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            versionCode code
+            versionName "0.1"
+            multiDexEnabled true
+            setProperty("archivesBaseName","overlandandroid-v0." + versionCode)
+        }
+
+    }
+    else {
+        defaultConfig {
+            applicationId project.env.get("MYAPP_RELEASE_NAME")
+            manifestPlaceholders = [applicationAPIKey: project.env.get("MYAPP_RELEASE_API_KEY") ]
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            versionCode 1
+            versionName "0.1"
+            multiDexEnabled true
+            setProperty("archivesBaseName","overlandandroid-v0." + versionCode)
+        }
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
-    defaultConfig {
-        applicationId project.env.get("MYAPP_RELEASE_NAME")
-        manifestPlaceholders = [applicationAPIKey: project.env.get("MYAPP_RELEASE_API_KEY") ]
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
-        multiDexEnabled true
-    }
+
     splits {
         abi {
             reset()
@@ -166,6 +195,7 @@ android {
     buildTypes {
         debug {
             signingConfig signingConfigs.debug
+            versionNameSuffix "-DEBUG"
         }
         release {
             // Caution! In production, you need to generate your own keystore file.
@@ -173,6 +203,7 @@ android {
             signingConfig signingConfigs.release
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            versionNameSuffix "-RELEASE"
         }
     }
 

@@ -87,7 +87,7 @@ class ActivityType extends React.Component {
       selectedIndex={selectedIndex}
       buttons={this.buttons}
       disabled={this.disabledButtonGroup}
-      containerStyle={{width:"90%"}}
+      containerStyle={{width:"90%",height:48}}
     />
       </ActivityTypeContainer>
     );

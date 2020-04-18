@@ -76,13 +76,15 @@ class AllLocationsScene extends PureComponent {
     this.setState({locations, isReady: true });
   }
   delete() {
+
     Alert.alert(
       'Delete all data ?',
       '',
       [
         {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
-        {text: 'Yes', onPress: () => {
-          BackgroundGeolocation.deleteAllLocations();
+        {text: 'Yes', onPress:async () => {
+          await BackgroundGeolocation.destroyLocations().then(()=>this.refresh());
+
           }
         },
       ],
@@ -97,21 +99,21 @@ class AllLocationsScene extends PureComponent {
     const { locations, isReady } = this.state;
     return (
       <Container>
-        <Header>
+        <Header style={{    height: 60}}>
           <Left>
             <Button transparent onPress={() => this.props.navigation.goBack()}>
-              <Icon name="arrow-back" />
+              <Icon name="arrow-back" style={{    height: 48,width: 48,marginTop:20 ,fontSize: 28}}/>
             </Button>
           </Left>
           <Body>
-            <Title>All Locations</Title>
+            <Title style={{ fontSize: 22 }}>All Locations</Title>
           </Body>
           <Right>
-            <Button transparent onPress={this.refresh}>
-              <Icon name="refresh" />
+            <Button transparent onPress={this.refresh} >
+              <Icon name="refresh"   style={{    height: 48, marginTop:20, paddingRight:10, paddingLeft:10, fontSize: 28 }}/>
             </Button>
-            <Button transparent onPress={this.delete}>
-              <Icon name="trash" />
+            <Button transparent onPress={this.delete.bind(this)}>
+              <Icon name="trash"  style={{    height: 48, marginTop:20,  paddingRight:10, paddingLeft:10, fontSize: 28}}/>
             </Button>
           </Right>
         </Header>

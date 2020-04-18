@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View , TextInput, Button} from 'react-native';
+import { Text, View , TextInput, Button, StyleSheet, TouchableOpacity} from 'react-native';
 import ReceiverEndpointContainer from './components/receiver-endpoint-container';
 import BackgroundGeolocation from 'react-native-background-geolocation';
 import AsyncStorage from '@react-native-community/async-storage';
@@ -51,31 +51,30 @@ class ReceiverEndpoint extends React.Component {
         >
           <Dialog.Title>Set Receiver Endpoint</Dialog.Title>
           <Dialog.Input
-            wrapperStyle={{borderBottomWidth : 1.0,backgroundColor: '#fff' }}
+            wrapperStyle={{height: 48,borderBottomWidth : 1.0,backgroundColor: '#fff' }}
             onChangeText={(text) => this.setState({url: text})}
             value={this.state.url}
           />
           <Dialog.Description>
             This app can send its location data to a server of your choosing. Either a URL above and the app will send its data here.
           </Dialog.Description>
-          <Dialog.Button label="Cancel" onPress={this.handleCancel} />
-          <Dialog.Button label="Save" onPress={this.handleSave} />
+          <Dialog.Button label="Cancel" onPress={this.handleCancel} wrapperStyle={{height: 48}}/>
+          <Dialog.Button label="Save" onPress={this.handleSave}  wrapperStyle={{height: 48}}/>
         </Dialog.Container>
       </View>
 
         <Text style={{fontSize: 16}}>Receiver Endpoint (tap this line to edit)</Text>
-        <View style={{ width:'100%',flexDirection: "row", justifyContent: "space-between" }}>
+        <View style={{height: 48 ,flexDirection: "row", justifyContent: "space-between",marginVertical: 8,textAlign: 'center'}}>
         <TextInput
-          style={{height: 40 ,width:'90%',backgroundColor: '#fff'}}
+          style={{flex:5,height: 48 ,backgroundColor: '#fff'}}
           value={this.state.url}
           editable={false}
         />
-        <Button
-          title="Edit"
-          color=""
-          width="100%"
-          onPress={this.showDialog}
-        />
+        <TouchableOpacity onPress={this.showDialog} style={styles.buttonStyle}>
+          <Text style={styles.textStyle}>
+            Edit
+          </Text>
+        </TouchableOpacity>
         </View>
       </ReceiverEndpointContainer>
     );
@@ -84,3 +83,27 @@ class ReceiverEndpoint extends React.Component {
 
 
 export default ReceiverEndpoint;
+
+const styles = {
+  textStyle: {
+    alignSelf: 'center',
+    color: '#fff',
+    fontSize: 16,
+    paddingTop: 10
+  },
+  buttonStyle: {
+    flex:1, 
+    backgroundColor: '#1f8adc',
+    paddingLeft:20,
+    paddingRight: 20,
+    alignItems: 'center'  ,
+    height: 48,
+    width: 48
+  }
+};
+
+const theme = {
+  colors: {
+    primary: 'blue',
+  }
+}

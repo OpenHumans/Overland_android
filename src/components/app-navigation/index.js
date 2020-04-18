@@ -7,15 +7,18 @@ import Logs from '../../scenes/logs';
 
 const Tab = createBottomTabNavigator();
 
+
+
 const AppNavigation = () => {
   return (
-    <Tab.Navigator initialRouteName="Tracker" backBehavior="initialRoute">
+    <Tab.Navigator tabBarOptions={{ style: {'height':60}}}   initialRouteName="Tracker" backBehavior="initialRoute" >
       <Tab.Screen
         name="Tracker"
         component={Tracker}
         options={{
           tabBarIcon: ({ color, size }) => (
-            <TabIcon icon="map-marker-alt" color={color} />
+
+            <TabIcon icon="map-marker-alt" color={color}  />
           ),
         }}
       />

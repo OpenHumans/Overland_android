@@ -14,6 +14,7 @@ class TrackerSwitch extends React.Component {
     this.updateIndex = this.updateIndex.bind(this)
   }
 
+
   updateIndex (selectedIndex) {
     this.setState({selectedIndex})
     if (selectedIndex==0){
@@ -22,6 +23,7 @@ class TrackerSwitch extends React.Component {
       BackgroundGeolocation.stop()
     }
   }
+
 
   render() {
 
@@ -34,7 +36,7 @@ class TrackerSwitch extends React.Component {
       onPress={this.updateIndex}
       selectedIndex={selectedIndex}
       buttons={buttons}
-      containerStyle={{width:"90%"}}
+      containerStyle={{width:"90%",height: 48}}
     />
       </TrackerSwitchContainer>
     );

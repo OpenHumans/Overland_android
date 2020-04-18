@@ -81,7 +81,7 @@ class DesiredAccuracy extends React.Component {
     BackgroundGeolocation.ready({}, (state) => {
         let _templateSignificantChangesOnly = state.useSignificantChangesOnly;
         let _deferTime = state.deferTime
-        let _desiredAccuracy = Number(state.desiredAccuracy)<0?0:Number(state.desiredAccuracy);        
+        let _desiredAccuracy = Number(state.desiredAccuracy)<0?0:Number(state.desiredAccuracy);
         let _wifiInfo = global.wifiInfo.ssid;
         if(!_wifiInfo) _wifiInfo = "";
         let _template = '{\
@@ -135,7 +135,7 @@ class DesiredAccuracy extends React.Component {
       onPress={this.updateIndex}
       selectedIndex={selectedIndex}
       buttons={this.buttons}
-      containerStyle={{width:"90%"}}
+      containerStyle={{width:"90%",height:48}}
     />
       </DesiredAccuracyContainer>
     );

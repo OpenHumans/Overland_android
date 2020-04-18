@@ -4,11 +4,31 @@ import TrackerLocationDisplayContainer from './components/tracker-location-displ
 import LocationElement from './components/location-element';
 import GPSElement from './components/gps-element';
 import BackgroundGeolocation from "react-native-background-geolocation";
+import NetInfo from "@react-native-community/netinfo";
+
+function AlertHttp(props){
+  if(props.displayMessage){
+    return (
+      <View  style={{    margin: 5,
+          marginLeft: 20,marginRight: 20,
+          padding: 10,
+          backgroundColor:'#FF8D52',
+          flexDirection: 'row',
+          width:"90%",
+          justifyContent: 'space-between'}}>
+          <Text  style={styles.submitText}>Invalid url, go in settings</Text>
+      </View>);
+  }else{
+    return null;
+  }
+
+}
+
 
 class TrackerLocationDisplay extends React.Component {
   constructor(props) {
      super(props);
-     this.state = {queueSize: '0' ,lastSent: '-', diffDateLastLocation: '-',speed: '-',latitude: '--',longitude: '--', accuracy: '--', selectedLocationId: -1, isReady: false };
+     this.state = {syncAvailable:global.isConnected,displayMessage:false,queueSize: '0' ,lastSent: '-', diffDateLastLocation: '-',speed: '-',latitude: '--',longitude: '--', accuracy: '--', selectedLocationId: -1, isReady: false };
      this.refresh = this.refresh.bind(this);
    }
 
@@ -19,6 +39,21 @@ class TrackerLocationDisplay extends React.Component {
      );
      InteractionManager.runAfterInteractions(() => {
        this.refresh();
+     });
+     BackgroundGeolocation.onHttp(httpEvent => {
+       if (httpEvent.success==false) {
+         if (httpEvent.status!=200){
+           this.setState({syncAvailable:false,displayMessage:true})
+         }else {
+           this.setState({syncAvailable:false,displayMessage:false})
+         }
+       } else {
+         this.setState({syncAvailable:true,displayMessage:false})
+       }
+     });
+     NetInfo.addEventListener(state => {
+       this.setState({syncAvailable:state.isConnected})
+       this.submitSuggestion()
      });
    }
 
@@ -79,25 +114,30 @@ class TrackerLocationDisplay extends React.Component {
         console.log("[sync] success: ", records);
         //let current_timestamp = new Date();
         //let diffDateLastLocation = current_timestamp - last_timestamp;
-
+        this.setState({syncAvailable:true})
       }).catch((error) => {
         console.log("[sync] FAILURE: ", error);
+        this.setState({syncAvailable:false})
       });
     }catch{
-      console.log("[sync] FAILURE: ");
+      console.log("[sync] BAD CATCH - FAILURE: ");
+      this.setState({syncAvailable:false})
     }
 
 
   }
 
-  deleteAllData (){
-    /*BackgroundGeolocation.deleteAllLocations();*/
-    this.setState({lastSent: '00:00', queueSize: '0' ,diffDateLastLocation: '-',speed: '-',latitude: '--',longitude: '--',accuracy: '--', selectedLocationId: -1, isReady: false });
+  notAvailable(){
+
   }
 
+
   render() {
+    let syncAvailable = this.state.syncAvailable;
+    let displayMessage = this.state.displayMessage;
     return (
       <TrackerLocationDisplayContainer>
+      <AlertHttp displayMessage={displayMessage} />
       <View style={{    margin: 20,
             flexDirection: 'row',
             width:"90%",
@@ -109,8 +149,8 @@ class TrackerLocationDisplay extends React.Component {
           description={this.state.lastSent === '> 1h' ? ' ' : 'minutes ago'}
         />
         <TouchableHighlight
-          style={styles.submit}
-          onPress={() => this.submitSuggestion()}
+          style={syncAvailable?styles.submit:styles.notSubmit}
+          onPress={() => syncAvailable?this.submitSuggestion():this.notAvailable()}
           underlayColor='#fff'>
           <Text  style={styles.submitText}>Send now</Text>
         </TouchableHighlight>
@@ -145,11 +185,20 @@ const styles = StyleSheet.create({
    backgroundColor:'#5bce84',
    borderRadius:5,
    borderWidth: 1,
-   borderColor: '#fff',
+   borderColor: '#5bce84',
    width:120,
    justifyContent: 'center',
    alignItems: 'center'
 
+ },
+ notSubmit:{
+   backgroundColor:'#969696',
+   borderRadius:5,
+   borderWidth: 1,
+   borderColor: '#969696',
+   width:120,
+   justifyContent: 'center',
+   alignItems: 'center'
  },
  submitText:{
      color:'#fff',

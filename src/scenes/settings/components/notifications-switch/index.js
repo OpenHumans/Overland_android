@@ -24,7 +24,7 @@ class NotificationsSwitch extends React.Component {
       toggleSwitch: e,
     });
     BackgroundGeolocation.setConfig({debug:e});
-    this.storeData({name:"@debugNotification",value:e?'True':'False'})
+    this.storeData({name:"@debugNotification",value:e==true?'True':'False'})
 
   }
 
@@ -41,7 +41,7 @@ class NotificationsSwitch extends React.Component {
     const { toggleSwitch } = this.state;
     return (
       <NotifSwitchContainer>
-        <Text style={{fontSize: 16}}>Enable notifications</Text>
+        <Text style={{fontSize: 16}}>Enable audio notifications</Text>
         <Switch value={toggleSwitch} onValueChange={this.onSwitchValueChange} />
       </NotifSwitchContainer>
     );
