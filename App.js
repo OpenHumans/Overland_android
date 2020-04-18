@@ -49,13 +49,6 @@ class Application extends Component {
 
 
     const unsubscribe = NetInfo.addEventListener(state => {
-      //if (__DEV__) {
-        //console.log("Connection type", state.type);
-        //console.log("SSID", state.details.ssid);
-        //console.log("Is connected?", state.isConnected);
-      //}
-      //global.isConnected = state.isConnected;
-
       if(state.type=="wifi"){
         global.wifiInfo.ssid = state.details.ssid;
       }else{
