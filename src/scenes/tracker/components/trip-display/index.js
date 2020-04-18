@@ -56,9 +56,9 @@ class TripDisplay extends React.Component {
   startTrip () {
     if(!this.state.isStarted){
       let _current_date = Date.now();
-      console.log("startTrip::",_current_date.toString())
+      if(__DEV__) console.log("startTrip::",_current_date.toString())
       this.setState({start: _current_date.toString(),startLocation: null, duration:0,distance:0,isStarted:true})
-      console.log("startTrip::",this.state.start);
+      if(__DEV__) console.log("startTrip::",this.state.start);
       BackgroundGeolocation.changePace(true);
     }
   }
@@ -67,7 +67,7 @@ class TripDisplay extends React.Component {
     if(this.state.isStarted){
       this.setState({duration:'-',startLocation: null, currentPosition:null, isStarted:false});
       BackgroundGeolocation.sync((records) => {
-        console.log("[sync] SUCCESS DURING SYNC: ", records);
+        if(__DEV__) console.log("[sync] SUCCESS DURING SYNC: ", records);
         BackgroundGeolocation.setConfig({params: {}});
       })
     }
@@ -137,7 +137,7 @@ class TripDisplay extends React.Component {
                     }'
                 }
         },(state)=>{
-          console.log(state)
+          if(__DEV__) console.log(state)
         });
       }
       }
@@ -149,12 +149,12 @@ class TripDisplay extends React.Component {
     this.eventListener = DeviceEventEmitter.addListener('closeEvent',this.handleEvent);
 
     BackgroundGeolocation.onLocation((location) => {
-      console.log("[onLocation] ", location);
+      if(__DEV__) console.log("[onLocation] ", location);
       this.refresh(location);
     });
 
     BackgroundGeolocation.onHeartbeat((event) => {
-      console.log("[onHeartbeat] ", event);
+      if(__DEV__) console.log("[onHeartbeat] ", event);
       this.refresh(null);
     });
   }
@@ -280,7 +280,7 @@ const styles = StyleSheet.create({
   },
  noTripText:{
      color:'#fff',
-     fontSize: 16
+     fontSize: 18
  },
   wrapper: {
     paddingTop: 50,

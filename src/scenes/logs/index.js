@@ -101,7 +101,7 @@ class AllLocationsScene extends PureComponent {
       <Container>
         <Header style={{    height: 60}}>
           <Left>
-            <Button transparent onPress={() => this.props.navigation.goBack()}>
+            <Button style={{ height: 48}} transparent onPress={() => this.props.navigation.goBack()}>
               <Icon name="arrow-back" style={{    height: 48,width: 48,marginTop:20 ,fontSize: 28}}/>
             </Button>
           </Left>
@@ -109,10 +109,10 @@ class AllLocationsScene extends PureComponent {
             <Title style={{ fontSize: 22 }}>All Locations</Title>
           </Body>
           <Right>
-            <Button transparent onPress={this.refresh} >
+            <Button transparent onPress={this.refresh} style={{ height: 48}} >
               <Icon name="refresh"   style={{    height: 48, marginTop:20, paddingRight:10, paddingLeft:10, fontSize: 28 }}/>
             </Button>
-            <Button transparent onPress={this.delete.bind(this)}>
+            <Button transparent onPress={this.delete.bind(this)} style={{ height: 48}}>
               <Icon name="trash"  style={{    height: 48, marginTop:20,  paddingRight:10, paddingLeft:10, fontSize: 28}}/>
             </Button>
           </Right>

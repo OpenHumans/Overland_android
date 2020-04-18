@@ -9,7 +9,9 @@ import NetInfo from "@react-native-community/netinfo";
 function AlertHttp(props){
   if(props.displayMessage){
     return (
-      <View  style={{    margin: 5,
+      <View  style={{
+          borderRadius: 4,
+          margin: 5,
           marginLeft: 20,marginRight: 20,
           padding: 10,
           backgroundColor:'#FF8D52',
@@ -202,7 +204,7 @@ const styles = StyleSheet.create({
  },
  submitText:{
      color:'#fff',
-     fontSize: 16
+     fontSize: 18
  }
 });
 

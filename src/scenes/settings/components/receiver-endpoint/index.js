@@ -17,12 +17,15 @@ class ReceiverEndpoint extends React.Component {
 
   async storeData (state) {
     try {
-      console.log("storeData::");
-      console.log("storeData::",state.name,state.value);
-
+      if (__DEV__) {
+        console.log("storeData::");
+        console.log("storeData::",state.name,state.value);
+      }
       await AsyncStorage.setItem(state.name,state.value);
     } catch (error) {
-      console.log("storeData::err::",error);
+      if (__DEV__) {
+        console.log("storeData::err::",error);
+      }
     }
   };
   showDialog = () => {
@@ -51,7 +54,7 @@ class ReceiverEndpoint extends React.Component {
         >
           <Dialog.Title>Set Receiver Endpoint</Dialog.Title>
           <Dialog.Input
-            wrapperStyle={{height: 48,borderBottomWidth : 1.0,backgroundColor: '#fff' }}
+            wrapperStyle={{fontSize: 16 , height: 48,borderBottomWidth : 1.0,backgroundColor: '#fff' }}
             onChangeText={(text) => this.setState({url: text})}
             value={this.state.url}
           />
@@ -92,7 +95,7 @@ const styles = {
     paddingTop: 10
   },
   buttonStyle: {
-    flex:1, 
+    flex:1,
     backgroundColor: '#1f8adc',
     paddingLeft:20,
     paddingRight: 20,

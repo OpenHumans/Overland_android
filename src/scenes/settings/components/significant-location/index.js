@@ -68,10 +68,14 @@ class SignificantLocation extends React.Component {
 
   async storeData (state) {
     try {
-      console.log("storeData::");
+      if (__DEV__) {
+        console.log("storeData::");
+      }
       await AsyncStorage.setItem(state.name,state.value);
     } catch (error) {
-      console.log("storeData::err::",error);
+      if (__DEV__) {
+        console.log("storeData::err::",error);
+      }
     }
   };
 

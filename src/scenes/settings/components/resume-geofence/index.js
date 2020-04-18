@@ -73,10 +73,14 @@ class ResumeGeofence extends React.Component {
   }
   async storeData (state) {
     try {
-      console.log("storeData::", state.value);
+      if (__DEV__) {
+        console.log("storeData::", state.value);
+      }
       await AsyncStorage.setItem(state.name,state.value);
     } catch (error) {
-      console.log("storeData::err::",error);
+      if (__DEV__) {
+        console.log("storeData::err::",error);
+      }
     }
   };
 

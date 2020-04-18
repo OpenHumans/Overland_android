@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text,StyleSheet,View } from 'react-native';
+import { Text,StyleSheet,View,ScrollView } from 'react-native';
 import TrackerContainer from './components/tracker-container';
 import TrackerSwitch from './components/tracker-switch';
 import TrackerInterval from './components/tracker-interval';
@@ -15,14 +15,15 @@ class Tracker extends React.Component {
 
     return (
       <TrackerContainer>
-      
         <View style={[styles.header]}>
           <Text style={[styles.headerContent]}>Overland</Text>
         </View>
-        <TrackerSwitch />
-        <TrackerInterval />
-        <TrackerLocationDisplay />
-        <TripDisplay />
+        <ScrollView>
+          <TrackerSwitch />
+          <TrackerInterval />
+          <TrackerLocationDisplay />
+          <TripDisplay />
+        </ScrollView>
       </TrackerContainer>
     );
   }
@@ -33,7 +34,8 @@ export default Tracker;
 const styles = StyleSheet.create({
 
   header: {
-    marginTop: 10
+    marginTop: 10,
+    marginBottom: 10
   },
   headerContent: {
     fontSize:24

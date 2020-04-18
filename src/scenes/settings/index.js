@@ -8,7 +8,6 @@ import DeferLocUpdates from './components/defer-location-updates';
 import PtsPerBatch from './components/point-per-batch';
 import UpdateSwitch from './components/update-switch';
 import ResumeGeofence from './components/resume-geofence';
-import StatsSwitch from './components/stats-switch';
 import NotificationsSwitch from './components/notifications-switch';
 import ReceiverEndpoint from './components/receiver-endpoint';
 import BackgroundGeolocation from "react-native-background-geolocation";

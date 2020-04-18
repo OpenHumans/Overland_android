@@ -66,6 +66,7 @@ class TrackerInterval extends React.Component {
           minimumValue={60}
           value={interval}
           maximumValue={1800}
+          accessibilityLabel="Send Interval"
         />
       </TrackerIntervalContainer>
     );
@@ -75,7 +76,7 @@ class TrackerInterval extends React.Component {
 const styles = StyleSheet.create({
   slider: {
     width: 300,
-    height: 40,
+    height: 48,
   },
 });
 

@@ -42,7 +42,7 @@ class NotificationsSwitch extends React.Component {
     return (
       <NotifSwitchContainer>
         <Text style={{fontSize: 16}}>Enable audio notifications</Text>
-        <Switch value={toggleSwitch} onValueChange={this.onSwitchValueChange} />
+        <Switch style={{ transform: [{ scaleX: 1.03 }, { scaleY: 1.03 }]}}  value={toggleSwitch} onValueChange={this.onSwitchValueChange} />
       </NotifSwitchContainer>
     );
   }

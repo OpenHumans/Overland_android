@@ -11,7 +11,6 @@ class UpdateSwitch extends React.Component {
     this.state = {
       stopOnStationary: this.props.stopOnStationary,
     };
-
     this.onSwitchValueChange = this.onSwitchValueChange.bind(this);
   }
 
@@ -29,10 +28,14 @@ class UpdateSwitch extends React.Component {
 
   async storeData (state) {
     try {
-      console.log("storeData::");
+      if (__DEV__) {
+        console.log("storeData::");
+      }
       await AsyncStorage.setItem(state.name,state.value);
     } catch (error) {
-      console.log("storeData::err::",error);
+      if (__DEV__) {
+        console.log("storeData::err::",error);
+      }
     }
   };
 
@@ -41,7 +44,8 @@ class UpdateSwitch extends React.Component {
     return (
       <UpdateSwitchContainer>
         <Text style={{fontSize: 16}}>Stop Tracking Automatically</Text>
-        <Switch value={stopOnStationary} onValueChange={this.onSwitchValueChange} />
+        <Switch style={{ transform: [{ scaleX: 1.03 }, { scaleY: 1.03 }]}}
+        value={stopOnStationary} onValueChange={this.onSwitchValueChange} />
       </UpdateSwitchContainer>
     );
   }

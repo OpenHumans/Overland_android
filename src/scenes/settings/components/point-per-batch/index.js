@@ -21,7 +21,9 @@ class PointPerBatch extends React.Component {
 
   }
   convNbToIndex(nb) {
-    console.log("convNbToIndex :: ", nb, this.buttons.indexOf(nb))
+    if (__DEV__) {
+      console.log("convNbToIndex :: ", nb, this.buttons.indexOf(nb))
+    }
     return this.buttons.indexOf(nb);
   }
 
@@ -29,16 +31,22 @@ class PointPerBatch extends React.Component {
     BackgroundGeolocation.setConfig({
       autoSyncThreshold: Number(this.buttons[selectedIndex])
     });
-    console.log("PTS PER BATCH ===>",this.buttons[selectedIndex])
+    if (__DEV__) {
+      console.log("PTS PER BATCH ===>",this.buttons[selectedIndex])
+    }
     this.setState({selectedIndex})
     this.storeData({name:"@autoSyncThreshold",value:this.buttons[selectedIndex]})
   }
   async storeData (state) {
     try {
-      console.log("storeData::");
+      if (__DEV__) {
+        console.log("storeData::");
+      }
       await AsyncStorage.setItem(state.name,state.value);
     } catch (error) {
-      console.log("storeData::err::",error);
+      if (__DEV__) {
+        console.log("storeData::err::",error);
+      }
     }
   };
 
