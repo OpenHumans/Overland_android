@@ -70,3 +70,5 @@ android/app/google-services.json
 
 my-key.keystore
 .env.production
+
+Public_release/
