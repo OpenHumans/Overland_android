@@ -8,11 +8,7 @@ const TripModeContainer = props => {
 
 const styles = StyleSheet.create({
   container: {
-    /*paddingHorizontal: 5,
-    paddingVertical: 5,
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems:'center'*/
+
   },
 });
 

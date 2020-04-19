@@ -221,7 +221,7 @@ or
 ``` cd android && ENVFILE=.env ./gradlew assembleDebug
 ```
 
-The React Native Background Location API is free in Debug.
+The React Native Background Location API from Transistorsoft is free in Debug.
 
 ## Next Step : release version
 
@@ -229,10 +229,10 @@ To build a release version
 
 * duplicate `.env` to a new file `.env.production`
 * move in android/app `cd android/app`
-* Generate your keystore with your password : ``` keytool -genkey -v -keystore my-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000 
+* Generate your keystore with your password : ``` keytool -genkey -v -keystore my-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000
 ```
 * update in `.env.production` MYAPP_RELEASE_STORE_PASSWORD and MYAPP_RELEASE_KEY_PASSWORD
-* MYAPP_RELEASE_API_KEY is the key that https://www.transistorsoft.com/ provides to use their API after buying a licence
+* MYAPP_RELEASE_API_KEY is the API key that https://www.transistorsoft.com/ provides to use their API after buying a licence
 * Go back in the project root
 * Build your release version ``` cd android && ENVFILE=.env.production ./gradlew assembleRelease
 ```

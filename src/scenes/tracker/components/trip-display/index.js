@@ -18,6 +18,7 @@ import Dialog from "react-native-dialog";
 import Modal from 'react-native-modalbox';
 import BackgroundGeolocation from "react-native-background-geolocation";
 import { getDistance, getPreciseDistance } from 'geolib';
+import {scale} from '../../../../utils/scaling'
 
 var screen = Dimensions.get('window');
 
@@ -238,14 +239,14 @@ class TripDisplay extends React.Component {
         </Modal>
         <View
           style={{
-            margin: 5,
-            width:"90%",
+            padding: 5,
+            width:"100%",
             flexDirection: 'row',
             justifyContent: 'space-between'}}>
 
-          <IconElement mobilityType={this.state.tripMode}/>
-          <LocationElement title={'DURATION'} value={_duration} description={this.state.duration<60?'minutes':'hh:mm'} />
-          <LocationElement title={'DISTANCE'} value={this.state.distance} description={'m'} />
+          <IconElement  mobilityType={this.state.tripMode}/>
+          <LocationElement  title={'DURATION'} value={_duration} description={this.state.duration<60?'minutes':'hh:mm'} />
+          <LocationElement  title={'DISTANCE'} value={this.state.distance} description={'m'} />
           <TouchableHighlight
             style={inTrip?styles.inTrip:styles.notTrip}
             onPress={() => inTrip?this.stopTrip():this.selectTripMode()}
@@ -265,22 +266,22 @@ const styles = StyleSheet.create({
      borderRadius:5,
      borderWidth: 1,
      borderColor: '#5bce84',
-     width:120,
      justifyContent: 'center',
-     alignItems: 'center'
+     alignItems: 'center',
+     flex:1
    },
  inTrip:{
     backgroundColor:'#234F32',
     borderRadius:5,
     borderWidth: 1,
     borderColor: '#234F32',
-    width:120,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    flex:1
   },
  noTripText:{
      color:'#fff',
-     fontSize: 18
+     fontSize: scale(16)
  },
   wrapper: {
     paddingTop: 50,

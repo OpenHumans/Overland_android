@@ -10,17 +10,19 @@ const styles = StyleSheet.create({
   containerNoTrip: {
     // TODO HANDLE MARGIN BETWEEN
     paddingTop: 0,
+    marginLeft:15,
+    marginRight:15,
     //display: 'flex',
     flexDirection: 'row',
-    flexWrap: 'wrap',
     backgroundColor: '#e3e3e3'//'#c3eac1'
   },
   containerTrip: {
     // TODO HANDLE MARGIN BETWEEN
     paddingTop: 0,
+    marginLeft:15,
+    marginRight:15,
     //display: 'flex',
     flexDirection: 'row',
-    flexWrap: 'wrap',
     backgroundColor: '#c3eac1'
   },
 });

@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 5,
     paddingVertical: 5,
-    display: 'flex',
+    flex:0.5,
     flexDirection: 'column',
     alignItems:'center',
     justifyContent: 'flex-end'

@@ -3,7 +3,8 @@ import { Text, StyleSheet, DeviceEventEmitter } from 'react-native';
 import { Button } from 'react-native-elements';
 import TripModeContainer from './components/trip-mode-container';
 
-import  IconElement  from '../icon-element';
+import  IconElement  from './components/icon-element';
+import {scale} from '../../../../../../utils/scaling';
 
 import {Dimensions, View} from 'react-native'
 const DeviceWidth = Dimensions.get('window').width
@@ -16,8 +17,8 @@ const TripMode = ({ }) => {
       justifyContent: 'center',
       alignItems: 'center',
     }}>
-    <Text style={{color: "black",fontSize: 22,paddingBottom:10}}>TRIP MODE</Text>
-    <Text style={{color: "black",fontSize: 12,paddingBottom:20}}>(click on one of them)</Text>
+    <Text style={{color: "black",fontSize: scale(20),paddingBottom:10}}>TRIP MODE</Text>
+    <Text style={{color: "black",fontSize: scale(11),paddingBottom:20}}>(click on one of them)</Text>
       <View style={{
         flexDirection: 'row',
         backgroundColor: "#f4f4f4"}}>

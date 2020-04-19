@@ -4,7 +4,7 @@ import IconContainer from './components/icon-container';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import AFicons from 'react-native-vector-icons/FontAwesome';
 import AFicons5 from 'react-native-vector-icons/FontAwesome5';
-import {scale} from '../../../../../../utils/scaling'
+import {scale} from '../../../../../../../../utils/scaling';
 
 const IconElement = ({mobilityType }) => {
   let iconName = 'bicycle'

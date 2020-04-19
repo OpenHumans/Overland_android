@@ -1,8 +1,8 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import Container from '../../../../../../../../components/container';
+import Container from '../../../../../../../../../../components/container';
 
-const LocationContainer = props => {
+const IconContainer = props => {
   return <Container style={styles.container}>{props.children}</Container>;
 };
 
@@ -11,9 +11,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 5,
     paddingVertical: 5,
     flex:1,
+    display: 'flex',
     flexDirection: 'column',
-    alignItems:'center'
+    alignItems:'center',
+    justifyContent: 'flex-end'
+
   },
 });
 
-export default LocationContainer;
+export default IconContainer;

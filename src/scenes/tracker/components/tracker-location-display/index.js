@@ -5,18 +5,18 @@ import LocationElement from './components/location-element';
 import GPSElement from './components/gps-element';
 import BackgroundGeolocation from "react-native-background-geolocation";
 import NetInfo from "@react-native-community/netinfo";
+import {scale} from '../../../../utils/scaling';
 
 function AlertHttp(props){
   if(props.displayMessage){
     return (
       <View  style={{
           borderRadius: 4,
-          margin: 5,
-          marginLeft: 20,marginRight: 20,
+          marginTop: 5,
           padding: 10,
           backgroundColor:'#FF8D52',
           flexDirection: 'row',
-          width:"90%",
+          width:"100%",
           justifyContent: 'space-between'}}>
           <Text  style={styles.submitText}>Invalid url, go in settings</Text>
       </View>);
@@ -140,9 +140,11 @@ class TrackerLocationDisplay extends React.Component {
     return (
       <TrackerLocationDisplayContainer>
       <AlertHttp displayMessage={displayMessage} />
-      <View style={{    margin: 20,
+      <View style={{
+            marginTop: 20,
+            marginBottom: 20,
             flexDirection: 'row',
-            width:"90%",
+            width:"100%",
             justifyContent: 'space-between'}}>
         <LocationElement title={'QUEUED'} value={this.state.queueSize} description={'locations'} />
         <LocationElement
@@ -160,8 +162,9 @@ class TrackerLocationDisplay extends React.Component {
 
       <View
         style={{
-          margin: 20,
-          width:"90%",
+          marginTop: 20,
+          marginBottom: 20,
+          width:"100%",
           flexDirection: 'row',
           justifyContent: 'space-between'}}>
           <LocationElement
@@ -188,7 +191,7 @@ const styles = StyleSheet.create({
    borderRadius:5,
    borderWidth: 1,
    borderColor: '#5bce84',
-   width:120,
+   flex: 1,
    justifyContent: 'center',
    alignItems: 'center'
 
@@ -198,13 +201,13 @@ const styles = StyleSheet.create({
    borderRadius:5,
    borderWidth: 1,
    borderColor: '#969696',
-   width:120,
+   flex: 1,
    justifyContent: 'center',
    alignItems: 'center'
  },
  submitText:{
      color:'#fff',
-     fontSize: 18
+     fontSize: scale(14)
  }
 });
 

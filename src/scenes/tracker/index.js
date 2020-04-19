@@ -18,10 +18,12 @@ class Tracker extends React.Component {
         <View style={[styles.header]}>
           <Text style={[styles.headerContent]}>Overland</Text>
         </View>
+        <ScrollView>
           <TrackerSwitch />
           <TrackerInterval />
           <TrackerLocationDisplay />
           <TripDisplay />
+        </ScrollView>
       </TrackerContainer>
     );
   }
