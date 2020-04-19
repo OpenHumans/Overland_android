@@ -203,23 +203,20 @@ npm install
 
 Connect your smartphone via USB,
 
+* First Method (automatically)
+In a first terminal
+
+`react-native start`
 
 In a first terminal
 
-```
-react-native start
-```
+`npx react-native run-android`
 
-In a first terminal
+* Second Method (manually)
 
-```
-npx react-native run-android
-```
+`cd android && ENVFILE=.env ./gradlew assembleDebug`
 
-or
-
-``` cd android && ENVFILE=.env ./gradlew assembleDebug
-```
+And load the apk in your device
 
 The React Native Background Location API from Transistorsoft is free in Debug.
 
@@ -227,15 +224,13 @@ The React Native Background Location API from Transistorsoft is free in Debug.
 
 To build a release version
 
-* duplicate `.env` to a new file `.env.production`
-* move in android/app `cd android/app`
-* Generate your keystore with your password : ``` keytool -genkey -v -keystore my-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000
-```
+* Duplicate `.env` to a new file `.env.production`
+* Move in android/app `cd android/app`
+* Generate your keystore with your password : `keytool -genkey -v -keystore my-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000`
 * update in `.env.production` MYAPP_RELEASE_STORE_PASSWORD and MYAPP_RELEASE_KEY_PASSWORD
 * MYAPP_RELEASE_API_KEY is the API key that https://www.transistorsoft.com/ provides to use their API after buying a licence
 * Go back in the project root
-* Build your release version ``` cd android && ENVFILE=.env.production ./gradlew assembleRelease
-```
+* Build your release version `cd android && ENVFILE=.env.production ./gradlew assembleRelease`
 
 
 ## Licence
