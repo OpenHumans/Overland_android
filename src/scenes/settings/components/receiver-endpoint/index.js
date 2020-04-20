@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, View , TextInput, Button, StyleSheet, TouchableOpacity} from 'react-native';
 import ReceiverEndpointContainer from './components/receiver-endpoint-container';
 import BackgroundGeolocation from 'react-native-background-geolocation';
-import AsyncStorage from '@react-native-community/async-storage';
+import {storeData} from '../../../../utils/store';
 import Dialog from "react-native-dialog";
 
 class ReceiverEndpoint extends React.Component {
@@ -15,19 +15,6 @@ class ReceiverEndpoint extends React.Component {
     this.setState({url: this.props.url});
   }
 
-  async storeData (state) {
-    try {
-      if (__DEV__) {
-        console.log("storeData::");
-        console.log("storeData::",state.name,state.value);
-      }
-      await AsyncStorage.setItem(state.name,state.value);
-    } catch (error) {
-      if (__DEV__) {
-        console.log("storeData::err::",error);
-      }
-    }
-  };
   showDialog = () => {
     this.setState({ dialogVisible: true });
   };
@@ -43,7 +30,7 @@ class ReceiverEndpoint extends React.Component {
     BackgroundGeolocation.setConfig({
       url: this.state.url
     });
-    this.storeData({name:"@url",value:this.state.url})
+    storeData({name:"@url",value:this.state.url})
   };
 
   render() {

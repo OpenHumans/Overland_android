@@ -35,11 +35,7 @@ class Settings extends PureComponent {
     });
 
   }
-  fetchDataFromBG() {
-
-  }
-
-
+  
   render() {
     const isLoading = this.state.loading;
 

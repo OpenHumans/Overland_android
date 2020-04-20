@@ -2,7 +2,8 @@ import React from 'react';
 import {Component} from 'react';
 import { Alert, InteractionManager } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import AsyncStorage from '@react-native-community/async-storage';
+import {storeData,fetchData} from './src/utils/store';
+
 import AppNavigation from './src/components/app-navigation';
 import {Spinner} from 'native-base';
 import BackgroundGeolocation, {
@@ -84,35 +85,35 @@ class Application extends Component {
       }
     });
 
-    let _autoSyncThreshold = await this.fetchData ('autoSyncThreshold');
+    let _autoSyncThreshold = await fetchData ('autoSyncThreshold');
     if(!_autoSyncThreshold) _autoSyncThreshold = 100;
     else _autoSyncThreshold = Number(_autoSyncThreshold);
-    let _urlSync = await this.fetchData ('url');
+    let _urlSync = await fetchData ('url');
     if(!_urlSync) _urlSync = 'https://';
-    let s_debugNotification = await this.fetchData ('debugNotification');
+    let s_debugNotification = await fetchData ('debugNotification');
     if(!s_debugNotification) s_debugNotification = 'False';
     let _debugNotification = s_debugNotification==="True"?true:false;
-    let s_desiredAccuracy = await this.fetchData ('desiredAccuracy');
+    let s_desiredAccuracy = await fetchData ('desiredAccuracy');
     if(!s_desiredAccuracy) s_desiredAccuracy = BackgroundGeolocation.DESIRED_ACCURACY_HIGH;
     let _desiredAccuracy = Number(s_desiredAccuracy)<0?0:Number(s_desiredAccuracy);
-    let _httpTimeout = await this.fetchData ('httpTimeout');
+    let _httpTimeout = await fetchData ('httpTimeout');
     if(!_httpTimeout) _httpTimeout = 60000;
     else _httpTimeout = Number(_httpTimeout);
-    let _useSignificantChangesOnly = await this.fetchData ('useSignificantChangesOnly');
+    let _useSignificantChangesOnly = await fetchData ('useSignificantChangesOnly');
     if(!_useSignificantChangesOnly) _useSignificantChangesOnly = 'False';
     //_useSignificantChangesOnly is a string "False" or "True"
     _useSignificantChangesOnly = _useSignificantChangesOnly=='True' ? true:false;
     let _templateSignificantChangesOnly = _useSignificantChangesOnly ? "enabled":"disabled";
-    let _stopOnStationary = await this.fetchData ('stopOnStationary');
+    let _stopOnStationary = await fetchData ('stopOnStationary');
     if(!_stopOnStationary) _stopOnStationary = "False";
     _stopOnStationary = _stopOnStationary=='True' ? true:false;
-    let _deferTime = await this.fetchData ('deferTime');
+    let _deferTime = await fetchData ('deferTime');
     if(!_deferTime) _deferTime = 0;
     else _deferTime = Number(_deferTime);
     let _wifiInfo = global.wifiInfo.ssid;
     if(!_wifiInfo) _wifiInfo = "";
 
-    let s_geofenceProximityRadius = await this.fetchData ('geofenceProximityRadius');
+    let s_geofenceProximityRadius = await fetchData ('geofenceProximityRadius');
     let _geofenceProximityRadius;
     if(!s_geofenceProximityRadius) _geofenceProximityRadius = 1000;
     else{
@@ -224,23 +225,6 @@ class Application extends Component {
       console.log('[motionchange] -', event.isMoving, event.location);
     }
   }
-
-   async fetchData (name) {
-    try {
-
-      const value = await AsyncStorage.getItem('@'+name);
-      if (__DEV__) {
-        console.log("fetchData::",'@'+name,value);
-      }
-      if (value !== null) {
-        return value;
-      }
-    } catch (error) {
-        if (__DEV__) {
-          console.log("fetchData::err::",error);
-        }
-    }
-  };
 
   updateLocationTemplate(){
     BackgroundGeolocation.ready({}, (state) => {

@@ -3,7 +3,7 @@ import { Text, StyleSheet, View } from 'react-native';
 import DeferLocUpdatesContainer from './components/defer-location-updates-container';
 import { ButtonGroup } from 'react-native-elements';
 import BackgroundGeolocation from "react-native-background-geolocation";
-import AsyncStorage from '@react-native-community/async-storage';
+import {storeData} from '../../../../utils/store';
 
 class DeferLocUpdates extends React.Component {
 
@@ -43,7 +43,7 @@ class DeferLocUpdates extends React.Component {
     },()=>{
       this.updateLocationTemplate()
     });
-    this.storeData({name:"@deferTime",value:String(_deferTime)})
+    storeData({name:"@deferTime",value:String(_deferTime)})
   }
 
   updateLocationTemplate(){
@@ -104,15 +104,6 @@ class DeferLocUpdates extends React.Component {
     }
     return _index;
   }
-
-  async storeData (state) {
-    try {
-      console.log("storeData::",state.value);
-      await AsyncStorage.setItem(String(state.name),String(state.value));
-    } catch (error) {
-      console.log("storeData::err::",error);
-    }
-  };
 
   render() {
     const buttons = ['Never', '1 min', '5 min', '10 min', '20 min']

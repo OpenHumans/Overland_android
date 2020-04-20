@@ -3,7 +3,7 @@ import { Text, StyleSheet } from 'react-native';
 import TrackerIntervalContainer from './components/tracker-interval-container';
 import Slider from '@react-native-community/slider';
 import BackgroundGeolocation from "react-native-background-geolocation";
-import AsyncStorage from '@react-native-community/async-storage';
+import {storeData,fetchData} from '../../../../utils/store';
 
 class TrackerInterval extends React.Component {
   constructor() {
@@ -14,7 +14,7 @@ class TrackerInterval extends React.Component {
     this.onIntervalChange = this.onIntervalChange.bind(this);
   }
   async componentDidMount(){
-    let _httpTimeout = await this.fetchData("httpTimeout");
+    let _httpTimeout = await fetchData("httpTimeout");
     if(_httpTimeout){
       this.setState({interval:Math.floor(_httpTimeout/1000)})
     }
@@ -26,28 +26,9 @@ class TrackerInterval extends React.Component {
       interval: num,
     });
     BackgroundGeolocation.setConfig({httpTimeout:num*1000})
-    this.storeData({name:"@httpTimeout",value:String(num*1000)})
+    storeData({name:"@httpTimeout",value:String(num*1000)})
   }
-  async storeData (state) {
-    try {
-      console.log("storeData::");
-      await AsyncStorage.setItem(state.name,state.value);
-    } catch (error) {
-      console.log("storeData::err::",error);
-    }
-  };
-  async fetchData (name) {
-   try {
 
-     const value = await AsyncStorage.getItem('@'+name);
-     console.log("fetchData::",'@'+name,value);
-     if (value !== null) {
-       return value;
-     }
-   } catch (error) {
-     console.log("fetchData::err::",error);
-   }
- };
   render() {
     const interval = this.state.interval;
 

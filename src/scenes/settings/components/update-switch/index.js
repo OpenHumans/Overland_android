@@ -3,7 +3,7 @@ import { Text, View } from 'react-native';
 import { Switch } from 'react-native-gesture-handler';
 import UpdateSwitchContainer from './components/update-switch-container';
 import BackgroundGeolocation from "react-native-background-geolocation";
-import AsyncStorage from '@react-native-community/async-storage';
+import {storeData} from '../../../../utils/store';
 
 class UpdateSwitch extends React.Component {
   constructor(props) {
@@ -22,22 +22,9 @@ class UpdateSwitch extends React.Component {
       stopOnStationary: e
     });
     let s_stopOnStationary = e ? 'True':'False';
-    this.storeData({name:"@stopOnStationary",value:s_stopOnStationary})
+    storeData({name:"@stopOnStationary",value:s_stopOnStationary})
 
   }
-
-  async storeData (state) {
-    try {
-      if (__DEV__) {
-        console.log("storeData::");
-      }
-      await AsyncStorage.setItem(state.name,state.value);
-    } catch (error) {
-      if (__DEV__) {
-        console.log("storeData::err::",error);
-      }
-    }
-  };
 
   render() {
     const { stopOnStationary } = this.state;
