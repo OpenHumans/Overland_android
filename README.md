@@ -1,6 +1,8 @@
 # Overland GPS Tracker for Android
 
-GPS logger for Android devices in React Native. You can **[download this app from the Google Play Store](https://play.google.com/store/apps/details?id=com.openhumans.app.overland)**.
+GPS logger for Android devices in React Native. You can **[download this app from the Google Play Store](https://play.google.com/store/apps/details?id=com.openhumans.app.overland)**. 
+
+Overland will send the data to a server of your choice. We offer a simple way to do this: You can use [https://overland.openhumans.org/](https://overland.openhumans.org/) to set up an endpoint that you can send the data to and collect it right from *Overland*. The data is privately and securely stored in *Open Humans*.
 
 This app is based on the app Overland for iOS developped by Aaron Parecki https://github.com/aaronpk/Overland-iOS
 
