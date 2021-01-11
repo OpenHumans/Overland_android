@@ -90,6 +90,8 @@ class Application extends Component {
     else _autoSyncThreshold = Number(_autoSyncThreshold);
     let _urlSync = await fetchData ('url');
     if(!_urlSync) _urlSync = 'https://';
+    let _deviceIdSync = await fetchData ('device_id');
+    if(!_deviceIdSync) _deviceIdSync = '';
     let s_debugNotification = await fetchData ('debugNotification');
     if(!s_debugNotification) s_debugNotification = 'False';
     let _debugNotification = s_debugNotification==="True"?true:false;
@@ -165,7 +167,7 @@ class Application extends Component {
           "significant_change": \"'+_templateSignificantChangesOnly+'\" ,\
           "locations_in_payload": 1,\
           "battery_state": <%=battery.is_charging%>,\
-          "device_id": "",\
+          "device_id": \"'+ _deviceIdSync +'\" ,\
           "wifi": \"'+ _wifiInfo +'\" ,\
           "deferred": \"'+_deferTime+'\",\
           "desired_accuracy": \"'+ _desiredAccuracy +'\",\
@@ -229,8 +231,9 @@ class Application extends Component {
   updateLocationTemplate(){
     BackgroundGeolocation.ready({}, (state) => {
         let _templateSignificantChangesOnly = state.useSignificantChangesOnly;
-        let _deferTime = state.deferTime
+        let _deferTime = state.deferTime;
         let _desiredAccuracy = state.desiredAccuracy;
+        let _deviceIdSync = state.device_id;
         let _wifiInfo = global.wifiInfo.ssid;
         if(!_wifiInfo) _wifiInfo = "";
         let _template = '{\
@@ -248,7 +251,7 @@ class Application extends Component {
             "significant_change": \"'+_templateSignificantChangesOnly+'\" ,\
             "locations_in_payload": 1,\
             "battery_state": <%=battery.is_charging%>,\
-            "device_id": "",\
+            "device_id": \"'+ _deviceIdSync +'\" ,\
             "wifi": \"'+ _wifiInfo +'\" ,\
             "deferred": \"'+_deferTime+'\",\
             "desired_accuracy": \"'+ _desiredAccuracy +'\",\
