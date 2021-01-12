@@ -283,13 +283,13 @@ class NotificationLocalisation extends Component {
   }
   async componentDidMount() {
     let _userIsNotInformed = await fetchData ('userIsNotInformed');
-    _userIsNotInformed = (_userIsNotInformed === 'true');
-
+    console.log("_userIsNotInformed est :: ", _userIsNotInformed, typeof _userIsNotInformed )
     //init for the first launch of the app
-    if(_userIsNotInformed == null) {
+    if(_userIsNotInformed == undefined ) {
       this.state.userIsNotInformed = true;
       await storeData({name:"@userIsNotInformed",value:this.state.userIsNotInformed.toString()})
     }else {
+      _userIsNotInformed = (_userIsNotInformed === 'true');
       await this.setState({ userIsNotInformed: _userIsNotInformed });
     }
   }
@@ -310,18 +310,19 @@ class NotificationLocalisation extends Component {
         <>{ userIsNotInformed ?
         <Dialog.Container visible={this.state.userIsNotInformed} contentStyle={{backgroundColor: '#f8f8f8'}}>
         <View style={{paddingHorizontal: 12}}>
-        <Dialog.Title style={{textAlign: 'center',fontWeight:"bold",fontSize:22}}>Use your location</Dialog.Title>
-        <Dialog.Description style={{lineHeight: 24,textAlign: 'center'}}>
-          Overland will use your location in the background. You can stop tracking at any time.
-        </Dialog.Description>
-        <View style={{marginTop:28,flexDirection: 'row', alignItems: 'center',justifyContent:'space-between'}} >
-          <Dialog.Button label="No Thanks" onPress={this.handleQuit} wrapperStyle={{height: 48}} color="#007ff9"/>
-          <Dialog.Button label="Turn On" onPress={this.handleStart}  wrapperStyle={{height: 48}} color="#007ff9"/>
-        </View>
+          <Dialog.Title style={{textAlign: 'center',fontWeight:"bold",fontSize:22}}>Use your location</Dialog.Title>
+          <Dialog.Description style={{lineHeight: 24,textAlign: 'center'}}>
+            Overland will use your location in the background. You can stop tracking at any time.
+          </Dialog.Description>
+          <View style={{marginTop:28,flexDirection: 'row', alignItems: 'center',justifyContent:'space-between'}} >
+            <Dialog.Button label="No Thanks" onPress={this.handleQuit} wrapperStyle={{height: 48}} color="#007ff9"/>
+            <Dialog.Button label="Turn On" onPress={this.handleStart}  wrapperStyle={{height: 48}} color="#007ff9"/>
+          </View>
         </View>
         </Dialog.Container> : <Application/>  }
         </>
-        </>);
+        </>
+      );
       }
 };
 
