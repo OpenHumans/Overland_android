@@ -14,16 +14,17 @@ function AlertHttp(props){
           borderRadius: 4,
           marginTop: 5,
           padding: 10,
-          backgroundColor:'#FF8D52',
+          backgroundColor:'transparent',
+          borderColor: '#FF8D52',
+          borderWidth: 2,
           flexDirection: 'row',
           width:"100%",
           justifyContent: 'space-between'}}>
-          <Text  style={styles.submitText}>Invalid url, go in settings</Text>
+          <Text  style={{fontWeight:"bold",color: '#FF8D52'}}>Invalid url, go in settings to modify it</Text>
       </View>);
   }else{
     return null;
   }
-
 }
 
 
