@@ -27,6 +27,7 @@ import BackgroundGeolocation, {
   TransistorAuthorizationToken
 } from "react-native-background-geolocation";
 import Dialog from "react-native-dialog";
+import AFicons from 'react-native-vector-icons/FontAwesome';
 
 import NetInfo from "@react-native-community/netinfo";
 
@@ -282,25 +283,27 @@ class NotificationLocalisation extends Component {
     this.state = {userIsNotInformed: true};
   }
   async componentDidMount() {
-    let _userIsNotInformed = await fetchData ('userIsNotInformed');
-    console.log("_userIsNotInformed est :: ", _userIsNotInformed, typeof _userIsNotInformed )
+    let _userIsNotInformed = await fetchData ('userIsNotInformed');//return a string
+    if (__DEV__) {
+      console.log("value of _userIsNotInformed :: ", _userIsNotInformed, typeof _userIsNotInformed )
+    }
     //init for the first launch of the app
     if(_userIsNotInformed == undefined ) {
       this.state.userIsNotInformed = true;
-      await storeData({name:"@userIsNotInformed",value:this.state.userIsNotInformed.toString()})
+      await storeData({name:"@userIsNotInformed",value:this.state.userIsNotInformed.toString()})//convert to string
     }else {
-      _userIsNotInformed = (_userIsNotInformed === 'true');
-      await this.setState({ userIsNotInformed: _userIsNotInformed });
+      _userIsNotInformed = (_userIsNotInformed === 'true');//convert to boolean
+      await this.setState({ userIsNotInformed: _userIsNotInformed });//save in state like boolean
     }
   }
 
   handleStart = async () => {
-  await this.setState({ userIsNotInformed: false });
-  storeData({name:"@userIsNotInformed",value:this.state.userIsNotInformed.toString()})
+  await this.setState({ userIsNotInformed: false });//save in temporary state like boolean
+  storeData({name:"@userIsNotInformed",value:this.state.userIsNotInformed.toString()})//save in local data like string
   };
   handleQuit = async () => {
-  await this.setState({ userIsNotInformed: true });
-  storeData({name:"@userIsNotInformed",value:this.state.userIsNotInformed.toString()})
+  await this.setState({ userIsNotInformed: true });//save in temporary state like boolean
+  storeData({name:"@userIsNotInformed",value:this.state.userIsNotInformed.toString()})//save in local data like string
   BackHandler.exitApp();
   };
 
@@ -310,13 +313,14 @@ class NotificationLocalisation extends Component {
         <>{ userIsNotInformed ?
         <Dialog.Container visible={this.state.userIsNotInformed} contentStyle={{backgroundColor: '#f8f8f8'}}>
         <View style={{paddingHorizontal: 12}}>
+          <AFicons style={{textAlign: 'center',marginBottom: 20}} size={52} name={"map-marker"} />
           <Dialog.Title style={{textAlign: 'center',fontWeight:"bold",fontSize:22}}>Use your location</Dialog.Title>
           <Dialog.Description style={{lineHeight: 24,textAlign: 'center'}}>
             Overland will use your location in the background. You can stop tracking at any time.
           </Dialog.Description>
-          <View style={{marginTop:28,flexDirection: 'row', alignItems: 'center',justifyContent:'space-between'}} >
-            <Dialog.Button label="No Thanks" onPress={this.handleQuit} wrapperStyle={{height: 48}} color="#007ff9"/>
-            <Dialog.Button label="Turn On" onPress={this.handleStart}  wrapperStyle={{height: 48}} color="#007ff9"/>
+          <View style={{marginTop:28,marginBottom: 14,flexDirection: 'row', alignItems: 'center',justifyContent:'space-between'}} >
+            <Dialog.Button label="No Thanks" onPress={this.handleQuit} style={{fontWeight:"bold"}} wrapperStyle={{height: 52}} color="#007ff9"/>
+            <Dialog.Button label="Turn On" onPress={this.handleStart}  style={{backgroundColor: '#007ff9',borderRadius:5,paddingHorizontal:18,paddingVertical:14,fontWeight:"bold"}} wrapperStyle={{height: 52}} color="#fff"/>
           </View>
         </View>
         </Dialog.Container> : <Application/>  }
