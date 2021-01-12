@@ -1,6 +1,6 @@
 import React from 'react';
 import {Component} from 'react';
-import { Alert, InteractionManager } from 'react-native';
+import { Alert, InteractionManager, View, Text, BackHandler  } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import {storeData,fetchData} from './src/utils/store';
 
@@ -26,6 +26,7 @@ import BackgroundGeolocation, {
   Authorization, AuthorizationEvent,
   TransistorAuthorizationToken
 } from "react-native-background-geolocation";
+import Dialog from "react-native-dialog";
 
 import NetInfo from "@react-native-community/netinfo";
 
@@ -274,11 +275,62 @@ class Application extends Component {
 }
 
 
+//Mise en conformité avec les règles relative à la geolocalisation de l'App Store de Google
+class NotificationLocalisation extends Component {
+  constructor(){
+    super()
+    this.state = {userIsNotInformed: true};
+  }
+  async componentDidMount() {
+    let _userIsNotInformed = await fetchData ('userIsNotInformed');
+    _userIsNotInformed = (_userIsNotInformed === 'true');
+
+    //init for the first launch of the app
+    if(_userIsNotInformed == null) {
+      this.state.userIsNotInformed = true;
+      await storeData({name:"@userIsNotInformed",value:this.state.userIsNotInformed.toString()})
+    }else {
+      await this.setState({ userIsNotInformed: _userIsNotInformed });
+    }
+  }
+
+  handleStart = async () => {
+  await this.setState({ userIsNotInformed: false });
+  storeData({name:"@userIsNotInformed",value:this.state.userIsNotInformed.toString()})
+  };
+  handleQuit = async () => {
+  await this.setState({ userIsNotInformed: true });
+  storeData({name:"@userIsNotInformed",value:this.state.userIsNotInformed.toString()})
+  BackHandler.exitApp();
+  };
+
+  render() {
+    const userIsNotInformed = this.state.userIsNotInformed;
+    return (<>
+        <>{ userIsNotInformed ?
+        <Dialog.Container visible={this.state.userIsNotInformed} contentStyle={{backgroundColor: '#f8f8f8'}}>
+        <View style={{paddingHorizontal: 12}}>
+        <Dialog.Title style={{textAlign: 'center',fontWeight:"bold",fontSize:22}}>Use your location</Dialog.Title>
+        <Dialog.Description style={{lineHeight: 24,textAlign: 'center'}}>
+          Overland will use your location in the background. You can stop tracking at any time.
+        </Dialog.Description>
+        <View style={{marginTop:28,flexDirection: 'row', alignItems: 'center',justifyContent:'space-between'}} >
+          <Dialog.Button label="No Thanks" onPress={this.handleQuit} wrapperStyle={{height: 48}} color="#007ff9"/>
+          <Dialog.Button label="Turn On" onPress={this.handleStart}  wrapperStyle={{height: 48}} color="#007ff9"/>
+        </View>
+        </View>
+        </Dialog.Container> : <Application/>  }
+        </>
+        </>);
+      }
+};
+
+
 const App: () => React$Node = () => {
   return (
     <>
       <NavigationContainer>
-        <Application />
+        <NotificationLocalisation />
       </NavigationContainer>
     </>
   );
