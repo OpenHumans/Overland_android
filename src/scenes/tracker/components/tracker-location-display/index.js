@@ -14,16 +14,17 @@ function AlertHttp(props){
           borderRadius: 4,
           marginTop: 5,
           padding: 10,
-          backgroundColor:'#FF8D52',
+          backgroundColor:'transparent',
+          borderColor: '#FF8D52',
+          borderWidth: 2,
           flexDirection: 'row',
           width:"100%",
           justifyContent: 'space-between'}}>
-          <Text  style={styles.submitText}>Invalid url, go in settings</Text>
+          <Text  style={{fontWeight:"bold",color: '#FF8D52'}}>Invalid url, go in settings to modify it</Text>
       </View>);
   }else{
     return null;
   }
-
 }
 
 
@@ -99,13 +100,13 @@ class TrackerLocationDisplay extends React.Component {
          if(speed==='NaN') {
            let speed = '-'
          }
-         this.setState({ lastSent: String(s_diffDateFirstLocation), queueSize: String(queueSize), diffDateLastLocation: s_diffDateLastLocation, speed: String(speed), latitude: String(last_location.geometry.coordinates[0]),longitude: String(last_location.geometry.coordinates[1]),accuracy:Math.floor(last_location.properties.horizontal_accuracy), isReady: true });
+         await this.setState({ lastSent: String(s_diffDateFirstLocation), queueSize: String(queueSize), diffDateLastLocation: s_diffDateLastLocation, speed: String(speed), latitude: String(last_location.geometry.coordinates[0]),longitude: String(last_location.geometry.coordinates[1]),accuracy:Math.floor(last_location.properties.horizontal_accuracy), isReady: true });
        } else {
-         this.setState({lastSent: '-', queueSize: '0' ,diffDateLastLocation: '-',speed: '-',latitude: '--',longitude: '--',accuracy: '--', selectedLocationId: -1, isReady: false });
+         await this.setState({lastSent: '-', queueSize: '0' ,diffDateLastLocation: '-',speed: '-',latitude: '--',longitude: '--',accuracy: '--', selectedLocationId: -1, isReady: false });
        }
      }
      catch{
-       this.setState({lastSent: '-', queueSize: '0' ,diffDateLastLocation: '-',speed: '-',latitude: '--',longitude: '--',accuracy: '--', selectedLocationId: -1, isReady: false });
+       await this.setState({lastSent: '-', queueSize: '0' ,diffDateLastLocation: '-',speed: '-',latitude: '--',longitude: '--',accuracy: '--', selectedLocationId: -1, isReady: false });
      }
    }
 

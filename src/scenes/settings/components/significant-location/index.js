@@ -3,7 +3,7 @@ import { Text, StyleSheet, View } from 'react-native';
 import SignificantLocationContainer from './components/significant-location-container'
 import { ButtonGroup } from 'react-native-elements';
 import BackgroundGeolocation from "react-native-background-geolocation";
-import AsyncStorage from '@react-native-community/async-storage';
+import {storeData} from '../../../../utils/store';
 
 class SignificantLocation extends React.Component {
 
@@ -27,13 +27,14 @@ class SignificantLocation extends React.Component {
     BackgroundGeolocation.ready({
       useSignificantChangesOnly:_useSignificantChangesOnly
     },()=>{this.updateLocationTemplate()});
-    this.storeData({name:"@useSignificantChangesOnly",value:_useSignificantChangesOnly?'True':'False'})
+    storeData({name:"@useSignificantChangesOnly",value:_useSignificantChangesOnly?'True':'False'})
   }
 
   updateLocationTemplate(){
     BackgroundGeolocation.ready({}, (state) => {
         let _templateSignificantChangesOnly = state.useSignificantChangesOnly;
-        let _deferTime = state.deferTime
+        let _deferTime = state.deferTime;
+        let _deviceIdSync = state.device_id;
         let _desiredAccuracy = Number(state.desiredAccuracy)<0?0:Number(state.desiredAccuracy);
         let _wifiInfo = global.wifiInfo.ssid;
         if(!_wifiInfo) _wifiInfo = "";
@@ -52,7 +53,7 @@ class SignificantLocation extends React.Component {
             "significant_change": \"'+_templateSignificantChangesOnly+'\" ,\
             "locations_in_payload": 1,\
             "battery_state": <%=battery.is_charging%>,\
-            "device_id": "",\
+            "device_id": \"'+ _deviceIdSync +'\" ,\
             "wifi": \"'+ _wifiInfo +'\" ,\
             "deferred": \"'+_deferTime+'\",\
             "desired_accuracy": \"'+ _desiredAccuracy +'\",\
@@ -63,20 +64,6 @@ class SignificantLocation extends React.Component {
         }';
         BackgroundGeolocation.setConfig({locationTemplate:_template})
     })
-  };
-
-
-  async storeData (state) {
-    try {
-      if (__DEV__) {
-        console.log("storeData::");
-      }
-      await AsyncStorage.setItem(state.name,state.value);
-    } catch (error) {
-      if (__DEV__) {
-        console.log("storeData::err::",error);
-      }
-    }
   };
 
   render() {

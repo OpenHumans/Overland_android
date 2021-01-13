@@ -3,7 +3,7 @@ import { Text, StyleSheet, View } from 'react-native';
 import DesiredAccuracyContainer from './components/desired-accuracy-container';
 import { ButtonGroup } from 'react-native-elements';
 import BackgroundGeolocation from "react-native-background-geolocation";
-import AsyncStorage from '@react-native-community/async-storage';
+import {storeData} from '../../../../utils/store';
 
 class DesiredAccuracy extends React.Component {
 
@@ -74,13 +74,14 @@ class DesiredAccuracy extends React.Component {
       desiredAccuracy: selectedAccuracy
     },()=>{this.updateLocationTemplate()});
     this.setState({selectedIndex})
-    this.storeData({name:"@desiredAccuracy",value:selectedAccuracy})
+    storeData({name:"@desiredAccuracy",value:String(selectedAccuracy)})
   }
 
   updateLocationTemplate(){
     BackgroundGeolocation.ready({}, (state) => {
         let _templateSignificantChangesOnly = state.useSignificantChangesOnly;
         let _deferTime = state.deferTime
+        let _deviceIdSync = state.device_id
         let _desiredAccuracy = Number(state.desiredAccuracy)<0?0:Number(state.desiredAccuracy);
         let _wifiInfo = global.wifiInfo.ssid;
         if(!_wifiInfo) _wifiInfo = "";
@@ -99,7 +100,7 @@ class DesiredAccuracy extends React.Component {
             "significant_change": \"'+_templateSignificantChangesOnly+'\" ,\
             "locations_in_payload": 1,\
             "battery_state": <%=battery.is_charging%>,\
-            "device_id": "",\
+            "device_id": \"'+ _deviceIdSync +'\" ,\
             "wifi": \"'+ _wifiInfo +'\" ,\
             "deferred": \"'+_deferTime+'\",\
             "desired_accuracy": \"'+ _desiredAccuracy +'\",\
@@ -115,15 +116,6 @@ class DesiredAccuracy extends React.Component {
   convAccuracyToIndex(nb) {
     return this.buttons.indexOf(nb);
   }
-
-  async storeData (state) {
-    try {
-      console.log("storeData::",state.value);
-      await AsyncStorage.setItem(String(state.name),String(state.value));
-    } catch (error) {
-      console.log("storeData::err::",error);
-    }
-  };
 
   render() {
     const { selectedIndex } = this.state

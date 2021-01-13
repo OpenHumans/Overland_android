@@ -3,7 +3,7 @@ import { Text, StyleSheet, View } from 'react-native';
 import DeferLocUpdatesContainer from './components/defer-location-updates-container';
 import { ButtonGroup } from 'react-native-elements';
 import BackgroundGeolocation from "react-native-background-geolocation";
-import AsyncStorage from '@react-native-community/async-storage';
+import {storeData} from '../../../../utils/store';
 
 class DeferLocUpdates extends React.Component {
 
@@ -43,13 +43,14 @@ class DeferLocUpdates extends React.Component {
     },()=>{
       this.updateLocationTemplate()
     });
-    this.storeData({name:"@deferTime",value:String(_deferTime)})
+    storeData({name:"@deferTime",value:String(_deferTime)})
   }
 
   updateLocationTemplate(){
     BackgroundGeolocation.ready({}, (state) => {
         let _templateSignificantChangesOnly = state.useSignificantChangesOnly;
-        let _deferTime = state.deferTime
+        let _deferTime = state.deferTime;
+        let _deviceIdSync = state.device_id;
         let _desiredAccuracy = Number(state.desiredAccuracy)<0?0:Number(state.desiredAccuracy);
         let _wifiInfo = global.wifiInfo.ssid;
         if(!_wifiInfo) _wifiInfo = "";
@@ -68,7 +69,7 @@ class DeferLocUpdates extends React.Component {
             "significant_change": \"'+_templateSignificantChangesOnly+'\" ,\
             "locations_in_payload": 1,\
             "battery_state": <%=battery.is_charging%>,\
-            "device_id": "",\
+            "device_id": \"'+ _deviceIdSync +'\" ,\
             "wifi": \"'+ _wifiInfo +'\" ,\
             "deferred": \"'+_deferTime+'\",\
             "desired_accuracy": \"'+ _desiredAccuracy +'\",\
@@ -104,15 +105,6 @@ class DeferLocUpdates extends React.Component {
     }
     return _index;
   }
-
-  async storeData (state) {
-    try {
-      console.log("storeData::",state.value);
-      await AsyncStorage.setItem(String(state.name),String(state.value));
-    } catch (error) {
-      console.log("storeData::err::",error);
-    }
-  };
 
   render() {
     const buttons = ['Never', '1 min', '5 min', '10 min', '20 min']

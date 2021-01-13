@@ -3,7 +3,7 @@ import { Text, StyleSheet, View } from 'react-native';
 import ResumeGeofenceContainer from './components/resume-geofence-container';
 import { ButtonGroup } from 'react-native-elements';
 import BackgroundGeolocation from "react-native-background-geolocation";
-import AsyncStorage from '@react-native-community/async-storage';
+import {storeData} from '../../../../utils/store';
 
 class ResumeGeofence extends React.Component {
 
@@ -69,20 +69,9 @@ class ResumeGeofence extends React.Component {
     }
 
     this.setState({selectedIndex})
-    this.storeData({name:"@geofenceProximityRadius",value:_geofenceProximityRadius})
+    storeData({name:"@geofenceProximityRadius",value:_geofenceProximityRadius})
   }
-  async storeData (state) {
-    try {
-      if (__DEV__) {
-        console.log("storeData::", state.value);
-      }
-      await AsyncStorage.setItem(state.name,state.value);
-    } catch (error) {
-      if (__DEV__) {
-        console.log("storeData::err::",error);
-      }
-    }
-  };
+
 
   render() {
 

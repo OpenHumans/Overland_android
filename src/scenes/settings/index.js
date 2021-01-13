@@ -23,6 +23,7 @@ class Settings extends PureComponent {
       console.log("Settings---------->",state.autoSyncThreshold)
       this.setState({
         url: state.url,
+        device_id: state.device_id,
         useSignificantChangesOnly: state.useSignificantChangesOnly,
         desiredAccuracy:state.desiredAccuracy,
         activity: state.activityType,
@@ -35,10 +36,6 @@ class Settings extends PureComponent {
     });
 
   }
-  fetchDataFromBG() {
-
-  }
-
 
   render() {
     const isLoading = this.state.loading;
@@ -52,7 +49,7 @@ class Settings extends PureComponent {
             <Text style={[styles.headerContent]}>SETTINGS</Text>
           </View>
 
-          <ReceiverEndpoint url={this.state.url}/>
+          <ReceiverEndpoint url={this.state.url} id={this.state.device_id}/>
           <SignificantLocation useSignificantChangesOnly={this.state.useSignificantChangesOnly}/>
           <ActivityType />
           <DesiredAccuracy desiredAccuracy={this.state.desiredAccuracy} />

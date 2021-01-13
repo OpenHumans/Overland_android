@@ -2,32 +2,20 @@ import React from 'react';
 import { Text, View , TextInput, Button, StyleSheet, TouchableOpacity} from 'react-native';
 import ReceiverEndpointContainer from './components/receiver-endpoint-container';
 import BackgroundGeolocation from 'react-native-background-geolocation';
-import AsyncStorage from '@react-native-community/async-storage';
+import {storeData} from '../../../../utils/store';
 import Dialog from "react-native-dialog";
 
 class ReceiverEndpoint extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {url: this.props.url,dialogVisible: false};
+    this.state = {url: this.props.url,device_id: this.props.id,dialogVisible: false};
   }
 
   componentDidMount() {
     this.setState({url: this.props.url});
+    this.setState({device_id: this.props.id});
   }
 
-  async storeData (state) {
-    try {
-      if (__DEV__) {
-        console.log("storeData::");
-        console.log("storeData::",state.name,state.value);
-      }
-      await AsyncStorage.setItem(state.name,state.value);
-    } catch (error) {
-      if (__DEV__) {
-        console.log("storeData::err::",error);
-      }
-    }
-  };
   showDialog = () => {
     this.setState({ dialogVisible: true });
   };
@@ -43,7 +31,8 @@ class ReceiverEndpoint extends React.Component {
     BackgroundGeolocation.setConfig({
       url: this.state.url
     });
-    this.storeData({name:"@url",value:this.state.url})
+    storeData({name:"@url",value:this.state.url})
+    storeData({name:"@device_id",value:this.state.device_id})
   };
 
   render() {
@@ -52,21 +41,39 @@ class ReceiverEndpoint extends React.Component {
       <View>
         <Dialog.Container visible={this.state.dialogVisible} contentStyle={{backgroundColor: '#f8f8f8'}}
         >
-          <Dialog.Title>Set Receiver Endpoint</Dialog.Title>
+        <Dialog.Title>Set Receiver Endpoint (& device ID)</Dialog.Title>
+        <Dialog.Description>
+          This app can send its location data to a server of your choosing. Either a URL above and the app will send its data here.
+        </Dialog.Description>
+          <View>
+          <Dialog.Description>
+            Server URL endpoint (required)
+          </Dialog.Description>
+
           <Dialog.Input
             wrapperStyle={{fontSize: 16 , height: 48,borderBottomWidth : 1.0,backgroundColor: '#fff' }}
             onChangeText={(text) => this.setState({url: text})}
             value={this.state.url}
           />
+
+          </View>
+          <View>
           <Dialog.Description>
-            This app can send its location data to a server of your choosing. Either a URL above and the app will send its data here.
+            Device ID (not mandatory)
           </Dialog.Description>
+          <Dialog.Input
+            wrapperStyle={{fontSize: 16 , height: 48,borderBottomWidth : 1.0,backgroundColor: '#fff' }}
+            onChangeText={(text) => this.setState({device_id: text})}
+            value={this.state.device_id}
+          />
+
+          </View>
           <Dialog.Button label="Cancel" onPress={this.handleCancel} wrapperStyle={{height: 48}}/>
           <Dialog.Button label="Save" onPress={this.handleSave}  wrapperStyle={{height: 48}}/>
         </Dialog.Container>
       </View>
 
-        <Text style={{fontSize: 16}}>Receiver Endpoint (tap this line to edit)</Text>
+        <Text style={{fontSize: 16}}>Receiver Endpoint (& Device ID)</Text>
         <View style={{height: 48 ,flexDirection: "row", justifyContent: "space-between",marginVertical: 8,textAlign: 'center'}}>
         <TextInput
           style={{flex:5,height: 48 ,backgroundColor: '#fff'}}

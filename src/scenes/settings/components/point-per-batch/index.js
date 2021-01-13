@@ -3,8 +3,7 @@ import { Text, StyleSheet, View } from 'react-native';
 import PtsPerBatchContainer from './components/point-per-batch-container';
 import { ButtonGroup } from 'react-native-elements';
 import BackgroundGeolocation from "react-native-background-geolocation";
-import AsyncStorage from '@react-native-community/async-storage';
-
+import {storeData} from '../../../../utils/store';
 
 class PointPerBatch extends React.Component {
 
@@ -35,20 +34,8 @@ class PointPerBatch extends React.Component {
       console.log("PTS PER BATCH ===>",this.buttons[selectedIndex])
     }
     this.setState({selectedIndex})
-    this.storeData({name:"@autoSyncThreshold",value:this.buttons[selectedIndex]})
+    storeData({name:"@autoSyncThreshold",value:this.buttons[selectedIndex]})
   }
-  async storeData (state) {
-    try {
-      if (__DEV__) {
-        console.log("storeData::");
-      }
-      await AsyncStorage.setItem(state.name,state.value);
-    } catch (error) {
-      if (__DEV__) {
-        console.log("storeData::err::",error);
-      }
-    }
-  };
 
   render() {
     const { selectedIndex } = this.state
