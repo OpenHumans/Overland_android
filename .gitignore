@@ -72,3 +72,7 @@ my-key.keystore
 .env.production
 
 Public_release/
+
+pepk.jar
+encrypted_private_key_path
+upload_certificate.pem

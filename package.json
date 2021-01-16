@@ -1,6 +1,6 @@
 {
   "name": "OverlandAndroid",
-  "version": "0.0.4",
+  "version": "1.0.4",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
