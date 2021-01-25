@@ -1,10 +1,12 @@
 import React from 'react';
 import {Component} from 'react';
-import { Alert, InteractionManager, View, Text, BackHandler  } from 'react-native';
+import { Alert, InteractionManager, View, Text, BackHandler, Linking  } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import {storeData,fetchData} from './src/utils/store';
 
 import AppNavigation from './src/components/app-navigation';
+
+
 import {Spinner} from 'native-base';
 import BackgroundGeolocation, {
   State,
@@ -318,6 +320,12 @@ class NotificationLocalisation extends Component {
           <Dialog.Description style={{lineHeight: 24,textAlign: 'center'}}>
             Overland will use your location in the background. You can stop tracking at any time.
           </Dialog.Description>
+          <View style={{alignItems: 'center'}}>
+          <Text style={{fontSize: 16, textDecorationLine: 'underline',marginTop: 20,marginBottom: 20,color: "#007ff9"}}
+            onPress={() => {Linking.openURL('http://htmlpreview.github.io/?https://github.com/OpenHumans/Overland_android/blob/dev/privacy_policy.html')}}>
+            Access to privacy policy
+          </Text>
+          </View>
           <View style={{marginTop:28,marginBottom: 14,flexDirection: 'row', alignItems: 'center',justifyContent:'space-between'}} >
             <Dialog.Button label="No Thanks" onPress={this.handleQuit} style={{fontWeight:"bold"}} wrapperStyle={{height: 52}} color="#007ff9"/>
             <Dialog.Button label="Turn On" onPress={this.handleStart}  style={{backgroundColor: '#007ff9',borderRadius:5,paddingHorizontal:18,paddingVertical:14,fontWeight:"bold"}} wrapperStyle={{height: 52}} color="#fff"/>

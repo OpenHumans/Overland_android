@@ -213,7 +213,7 @@ In a first terminal
 
 `react-native start`
 
-In a first terminal
+In a second terminal
 
 `npx react-native run-android`
 

@@ -1,5 +1,5 @@
 import React, { PureComponent }  from 'react';
-import { Text,StyleSheet,View, ScrollView, Content } from 'react-native';
+import { Text,StyleSheet,View, ScrollView, Content, Linking } from 'react-native';
 import SettingsContainer from './components/settings-container';
 import SignificantLocation from './components/significant-location';
 import ActivityType from './components/activity-type';
@@ -60,6 +60,12 @@ class Settings extends PureComponent {
           <Text style={{fontSize: 12,marginLeft: 20,marginRight: 20}}>(Enable audio notifications of app event such as when the tracking acquires a new position)</Text>
           <UpdateSwitch stopOnStationary={this.state.stopOnStationary}/>
           <Text style={{fontSize: 12,marginLeft: 20,marginRight: 20}}>(The plugin automatically stops tracking after 10 minutes of non-activity  - Not recommended to activate it)</Text>
+          <Text
+            style={{fontSize: 16, textDecorationLine: 'underline',marginTop: 20,marginBottom: 20,color: 'blue'}}
+            onPress={() => {Linking.openURL('http://htmlpreview.github.io/?https://github.com/OpenHumans/Overland_android/blob/dev/privacy_policy.html')}}
+          >
+            Access to privacy policy
+          </Text>
         </SettingsContainer>
         </ScrollView>
       }
