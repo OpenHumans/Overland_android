@@ -318,11 +318,11 @@ class NotificationLocalisation extends Component {
           <AFicons style={{textAlign: 'center',marginBottom: 20}} size={52} name={"map-marker"} />
           <Dialog.Title style={{textAlign: 'center',fontWeight:"bold",fontSize:22}}>Use your location</Dialog.Title>
           <Dialog.Description style={{lineHeight: 24,textAlign: 'center'}}>
-            Overland will use your location in the background. You can stop tracking at any time.
+            Overland collects location data to enable position tracking even when the app is closed or not in use.
           </Dialog.Description>
           <View style={{alignItems: 'center'}}>
           <Text style={{fontSize: 16, textDecorationLine: 'underline',marginTop: 20,marginBottom: 20,color: "#007ff9"}}
-            onPress={() => {Linking.openURL('http://htmlpreview.github.io/?https://github.com/OpenHumans/Overland_android/blob/dev/privacy_policy.html')}}>
+            onPress={() => {Linking.openURL('http://openhumansfoundation.org/Overland_android/privacy_policy.html')}}>
             Access to privacy policy
           </Text>
           </View>

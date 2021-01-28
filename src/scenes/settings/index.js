@@ -62,7 +62,7 @@ class Settings extends PureComponent {
           <Text style={{fontSize: 12,marginLeft: 20,marginRight: 20}}>(The plugin automatically stops tracking after 10 minutes of non-activity  - Not recommended to activate it)</Text>
           <Text
             style={{fontSize: 16, textDecorationLine: 'underline',marginTop: 20,marginBottom: 20,color: 'blue'}}
-            onPress={() => {Linking.openURL('http://htmlpreview.github.io/?https://github.com/OpenHumans/Overland_android/blob/dev/privacy_policy.html')}}
+            onPress={() => {Linking.openURL('http://openhumansfoundation.org/Overland_android/privacy_policy.html')}}
           >
             Access to privacy policy
           </Text>
