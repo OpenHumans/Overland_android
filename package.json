@@ -25,7 +25,7 @@
     "geolib": "^3.2.1",
     "native-base": "^2.13.12",
     "react": "16.11.0",
-    "react-native": "0.62.0",
+    "react-native": "0.62.3",
     "react-native-background-fetch": "^3.0.4",
     "react-native-background-geolocation": "^3.4.2",
     "react-native-config": "^1.0.0",
