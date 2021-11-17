@@ -316,8 +316,8 @@ class NotificationLocalisation extends Component {
         <Dialog.Container visible={this.state.userIsNotInformed} contentStyle={{backgroundColor: '#f8f8f8'}}>
         <View style={{paddingHorizontal: 12}}>
           <AFicons style={{textAlign: 'center',marginBottom: 20}} size={52} name={"map-marker"} />
-          <Dialog.Title style={{textAlign: 'center',fontWeight:"bold",fontSize:22}}>Use your location</Dialog.Title>
-          <Dialog.Description style={{lineHeight: 24,textAlign: 'center'}}>
+          <Dialog.Title style={{textAlign: 'center',fontWeight:"bold",fontSize:20}}>Use your location</Dialog.Title>
+          <Dialog.Description style={{lineHeight: 16,textAlign: 'center'}}>
             The app Overland collects location data to enable position tracking even when the app is closed or not in use.
             Location data is collected on your device and is not sent to a server. You can send location data to any server you choose.
             If you choose, in the next step, to send the location data collected by Overland to an Openhumans Foundation server, then you agree to the collection and use of the information in accordance with the policy described via this link. 
