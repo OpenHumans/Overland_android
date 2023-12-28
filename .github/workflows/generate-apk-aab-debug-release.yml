@@ -48,7 +48,7 @@ jobs:
         run: npm ci
         
       - name: Run tests  
-        run: npm test --passWithNoTests
+        run: npm test
 
       - name: Change wrapper permissions
         working-directory: ./android
