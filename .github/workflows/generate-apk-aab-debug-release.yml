@@ -39,31 +39,34 @@ jobs:
           java-version: '17'
           cache: 'gradle'
 
-      - name: Change to android directory
-        run: cd android
-
       - name: Change wrapper permissions
+        working-directory: ./android
         run: chmod +x ./gradlew
 
       # Run Tests Build
       - name: Run gradle tests
+        working-directory: ./android
         run: ./gradlew test
 
       # Run Build Project
       - name: Build gradle project
+        working-directory: ./android
         run: ./gradlew build
 
       # Create APK Debug
       - name: Build apk debug project (APK) - ${{ env.main_project_module }} module
+        working-directory: ./android
         run: ./gradlew assembleDebug
 
       # Create APK Release
       - name: Build apk release project (APK) - ${{ env.main_project_module }} module
+        working-directory: ./android
         run: ./gradlew assemble
 
       # Create Bundle AAB Release
       # Noted for main module build [main_project_module]:bundleRelease
       - name: Build app bundle release (AAB) - ${{ env.main_project_module }} module
+        working-directory: ./android
         run: ./gradlew ${{ env.main_project_module }}:bundleRelease
 
       # Upload Artifact Build
