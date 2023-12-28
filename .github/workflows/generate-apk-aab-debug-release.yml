@@ -39,6 +39,9 @@ jobs:
           java-version: '17'
           cache: 'gradle'
 
+      - name: Change to android directory
+        run: cd android
+
       - name: Change wrapper permissions
         run: chmod +x ./gradlew
 
